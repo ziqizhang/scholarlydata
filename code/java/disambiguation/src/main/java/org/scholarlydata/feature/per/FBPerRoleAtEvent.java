@@ -18,6 +18,10 @@ import java.util.List;
  *
  */
 public class FBPerRoleAtEvent extends FeatureBuilderSPARQL<FeatureType, List<Pair<String, String>>> {
+    public FBPerRoleAtEvent(String sparqlEndpoint) {
+        super(sparqlEndpoint);
+    }
+
     @Override
     public Pair<FeatureType, List<Pair<String, String>>> build(String objId) {
         StringBuilder sb = new StringBuilder("select distinct ?e ?r where {\n");

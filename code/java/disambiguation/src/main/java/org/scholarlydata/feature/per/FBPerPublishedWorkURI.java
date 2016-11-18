@@ -14,6 +14,10 @@ import java.util.List;
  *
  */
 public class FBPerPublishedWorkURI extends FeatureBuilderSPARQL<FeatureType, List<String>> {
+    public FBPerPublishedWorkURI(String sparqlEndpoint) {
+        super(sparqlEndpoint);
+    }
+
     @Override
     public Pair<FeatureType, List<String>> build(String objId) {
         String queryStr = SPARQLQueries.getObjectsOf(objId,

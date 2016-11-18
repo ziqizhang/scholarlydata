@@ -14,6 +14,10 @@ import java.util.List;
  *
  */
 public class FBPerParticipatedEventURI extends FeatureBuilderSPARQL<FeatureType, List<String>> {
+    public FBPerParticipatedEventURI(String sparqlEndpoint) {
+        super(sparqlEndpoint);
+    }
+
     @Override
     public Pair<FeatureType, List<String>> build(String objId) {
         String queryStr = SPARQLQueries.pathObjObj(objId,

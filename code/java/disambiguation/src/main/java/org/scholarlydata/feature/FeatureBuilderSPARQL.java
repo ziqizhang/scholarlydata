@@ -14,6 +14,10 @@ public abstract class FeatureBuilderSPARQL<FeatureType, T> implements FeatureBui
 
     protected String sparqlEndpoint;
 
+    public FeatureBuilderSPARQL(String sparqlEndpoint){
+        this.sparqlEndpoint=sparqlEndpoint;
+    }
+
     protected ResultSet query(String queryString){
         org.apache.jena.query.Query query = QueryFactory.create(queryString);
         QueryExecution qexec = QueryExecutionFactory.sparqlService(sparqlEndpoint, query);

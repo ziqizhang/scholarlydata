@@ -16,6 +16,10 @@ import java.util.List;
 public class FBOrgParticipatedEventURI extends FeatureBuilderSPARQL<FeatureType, List<String>> {
 
 
+    public FBOrgParticipatedEventURI(String sparqlEndpoint) {
+        super(sparqlEndpoint);
+    }
+
     @Override
     public Pair<FeatureType, List<String>> build(String objId) {
         String queryStr = SPARQLQueries.pathSubObj(objId,

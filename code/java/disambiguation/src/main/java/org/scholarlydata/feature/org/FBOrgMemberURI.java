@@ -15,6 +15,10 @@ import java.util.List;
  */
 public class FBOrgMemberURI extends FeatureBuilderSPARQL<FeatureType, List<String>> {
 
+    public FBOrgMemberURI(String sparqlEndpoint) {
+        super(sparqlEndpoint);
+    }
+
     @Override
     public Pair<FeatureType, List<String>> build(String objId) {
 

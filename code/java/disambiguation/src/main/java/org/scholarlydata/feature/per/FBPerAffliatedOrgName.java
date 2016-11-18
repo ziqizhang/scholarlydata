@@ -14,6 +14,10 @@ import java.util.List;
  *
  */
 public class FBPerAffliatedOrgName extends FeatureBuilderSPARQL<FeatureType, List<String>> {
+    public FBPerAffliatedOrgName(String sparqlEndpoint) {
+        super(sparqlEndpoint);
+    }
+
     @Override
     public Pair<FeatureType, List<String>> build(String objId) {
         String queryStr = SPARQLQueries.pathObjObjObj(objId,

@@ -18,7 +18,8 @@ public class FBPerName extends FeatureBuilderSPARQL<FeatureType, List<String>> {
     protected FeatureType type;
     protected Predicate predicate;
 
-    public FBPerName(FeatureType type, Predicate predicate){
+    public FBPerName(String sparqlEndpoint, FeatureType type, Predicate predicate){
+        super(sparqlEndpoint);
         this.type=type;
         this.predicate=predicate;
     }
