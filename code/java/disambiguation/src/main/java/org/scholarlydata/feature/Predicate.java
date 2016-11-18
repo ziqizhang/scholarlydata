@@ -19,7 +19,11 @@ public enum Predicate {
     PERSON_made("http://xmlns.com/foaf/0.1/made"),
     PERSON_hasAffliation("https://w3id.org/scholarlydata/ontology/conference-ontology.owl#hasAffiliation"),
 
-    ROLE_withRole("https://w3id.org/scholarlydata/resource/participant");
+    ROLE_withRole("https://w3id.org/scholarlydata/ontology/conference-ontology.owl#withRole"),
+
+    AUTHOR_lIST_ITEM_hasContent("https://w3id.org/scholarlydata/ontology/conference-ontology.owl#hasContent"),
+    AUTHOR_LIST_hasItem("https://w3id.org/scholarlydata/ontology/conference-ontology.owl#hasItem"),
+    PUBLICATION_hasAuthorList("https://w3id.org/scholarlydata/ontology/conference-ontology.owl#hasAuthorList");
 
 
     private String uri;

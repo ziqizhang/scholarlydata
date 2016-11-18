@@ -12,7 +12,7 @@ public class SPARQLQueries {
         sb.append("<").append(sub).append(">")
                 .append(" ")
                 .append("<").append(pred).append(">")
-                .append("  ?o .}\n");
+                .append(" ?o .}\n");
         return sb.toString();
     }
 
@@ -63,9 +63,9 @@ public class SPARQLQueries {
      */
     public static String pathObjObj(String obj, String firstPred, String secondPred) {
         StringBuilder sb = new StringBuilder("select distinct ?o where {\n");
-        sb.append("<").append(obj).append("> ")
+        sb.append("<").append(obj).append("> <")
                 .append(firstPred)
-                .append(" ")
+                .append("> ")
                 .append("?o1 . \n")
                 .append("?o1 <").append(secondPred).append("> ?o .}");
         return sb.toString();
@@ -78,9 +78,9 @@ public class SPARQLQueries {
      */
     public static String pathObjObjObj(String obj, String firstPred, String secondPred, String thirdPred) {
         StringBuilder sb = new StringBuilder("select distinct ?o where {\n");
-        sb.append("<").append(obj).append("> ")
+        sb.append("<").append(obj).append("> <")
                 .append(firstPred)
-                .append(" ")
+                .append("> ")
                 .append("?o1 . \n")
                 .append("?o1 <").append(secondPred).append("> ?o2 . \n")
                 .append("?o2 <").append(thirdPred).append("> ?o .}");

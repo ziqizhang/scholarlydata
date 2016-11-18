@@ -8,7 +8,10 @@ import org.scholarlydata.feature.FeatureBuilderSPARQL;
 import org.scholarlydata.feature.FeatureType;
 import org.scholarlydata.feature.Predicate;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -24,6 +27,16 @@ public class FBPerPublishedWorkURI extends FeatureBuilderSPARQL<FeatureType, Lis
                 Predicate.PERSON_made.getURI());
 
         ResultSet rs = query(queryStr);
-        return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_URI, getListResult(rs));
+        Set<String> publications = new HashSet<>(getListResult(rs));
+
+        StringBuilder sb = new StringBuilder("select distinct ?o where {\n ?s <");
+        sb.append(Predicate.AUTHOR_lIST_ITEM_hasContent.getURI()).append("> <")
+                .append(objId).append("> .\n?l <")
+                .append(Predicate.AUTHOR_LIST_hasItem.getURI()).append("> ?s .\n?o <")
+                .append(Predicate.PUBLICATION_hasAuthorList.getURI()).append("> ?l .\n}");
+        rs = query(sb.toString());
+        publications.addAll(getListResult(rs));
+
+        return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_URI, new ArrayList<>(publications));
     }
 }

@@ -29,8 +29,8 @@ public class FBPerRoleAtEvent extends FeatureBuilderSPARQL<FeatureType, List<Pai
                 .append(Predicate.PERSON_holdsRole.getURI())
                 .append("> ")
                 .append("?o . \n")
-                .append("?o <").append(Predicate.ROLE_withRole).append("> ?r . \n")
-                .append("?o <").append(Predicate.FUNCTION_during).append("> ?e .}");
+                .append("?o <").append(Predicate.ROLE_withRole.getURI()).append("> ?r . \n")
+                .append("?o <").append(Predicate.FUNCTION_during.getURI()).append("> ?e .}");
 
         ResultSet rs = query(sb.toString());
         List<Pair<String,String>> out = new ArrayList<>();
@@ -39,8 +39,8 @@ public class FBPerRoleAtEvent extends FeatureBuilderSPARQL<FeatureType, List<Pai
             RDFNode event = qs.get("?e");
             RDFNode role = qs.get("?r");
 
-                out.add(new ImmutablePair(((LiteralImpl)event).getString(),
-                        ((LiteralImpl)role).getString()));
+                out.add(new ImmutablePair(event.toString(),
+                        role.toString()));
 
         }
         return new ImmutablePair<>(FeatureType.PERSON_ROLE_AT_EVENT_URI, out);
