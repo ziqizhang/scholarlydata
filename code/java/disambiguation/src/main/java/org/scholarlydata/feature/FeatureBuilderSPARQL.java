@@ -14,11 +14,11 @@ public abstract class FeatureBuilderSPARQL<FeatureType, T> implements FeatureBui
 
     protected String sparqlEndpoint;
 
-    public FeatureBuilderSPARQL(String sparqlEndpoint){
-        this.sparqlEndpoint=sparqlEndpoint;
+    public FeatureBuilderSPARQL(String sparqlEndpoint) {
+        this.sparqlEndpoint = sparqlEndpoint;
     }
 
-    protected ResultSet query(String queryString){
+    protected ResultSet query(String queryString) {
         org.apache.jena.query.Query query = QueryFactory.create(queryString);
         QueryExecution qexec = QueryExecutionFactory.sparqlService(sparqlEndpoint, query);
 
@@ -26,14 +26,12 @@ public abstract class FeatureBuilderSPARQL<FeatureType, T> implements FeatureBui
         return rs;
     }
 
-    protected List<String> getListResult(ResultSet rs){
+    protected List<String> getListResult(ResultSet rs) {
         List<String> out = new ArrayList<>();
-        while(rs.hasNext()){
+        while (rs.hasNext()) {
             QuerySolution qs = rs.next();
             RDFNode range = qs.get("?o");
-            if(range instanceof LiteralImpl){
-                out.add(((LiteralImpl)range).getString());
-            }
+            out.add(range.toString());
         }
         return out;
     }

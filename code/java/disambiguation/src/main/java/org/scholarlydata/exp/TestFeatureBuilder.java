@@ -15,8 +15,8 @@ public class TestFeatureBuilder {
     public static void main(String[] args) {
         String sparqlEndpoint="http://www.scholarlydata.org/sparql/";
         //1. provide object uris
-        String[] uris = {"http://data.semanticweb.org/organization/shanghai-jiao-tong-university",
-                "http://data.semanticweb.org/organization/shanghai-jiao-tong-university-china"};
+        String[] uris = {"https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university",
+                "https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university-china"};
 
         for(String uri: uris) {
             //2. create pipeline for feature generation

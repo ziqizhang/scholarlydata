@@ -52,7 +52,7 @@ public class SPARQLQueries {
                 .append(" ")
                 .append("<").append(obj).append("> . \n")
                 .append("?s <").append(secondPred).append("> ?o1 . \n")
-                .append("o1 <").append(thirdPred).append("> ?o .}");
+                .append("?o1 <").append(thirdPred).append("> ?o .}");
         return sb.toString();
     }
 
