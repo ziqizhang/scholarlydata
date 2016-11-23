@@ -19,14 +19,16 @@ public class FBPerCoAuthorURI extends FeatureBuilderSPARQL<FeatureType, List<Str
 
     @Override
     public Pair<FeatureType, List<String>> build(String objId) {
-        StringBuilder sb = new StringBuilder("select distinct ?a where {\n ?li <");
+        StringBuilder sb = new StringBuilder("select distinct ?o where {\n ?li <");
         sb.append(Predicate.AUTHOR_lIST_ITEM_hasContent.getURI()).append("> <")
                 .append(objId).append("> .\n?al <")
                 .append(Predicate.AUTHOR_LIST_hasItem.getURI()).append("> ?li .\n?al <")
                 .append(Predicate.AUTHOR_LIST_hasItem.getURI()).append("> ?lis .\n?lis <")
-                .append(Predicate.AUTHOR_lIST_ITEM_hasContent.getURI()).append("> ?a .}");
+                .append(Predicate.AUTHOR_lIST_ITEM_hasContent.getURI()).append("> ?o .}");
 
         ResultSet rs = query(sb.toString());
-        return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_COAUTHOR, getListResult(rs));
+        List<String> out = getListResult(rs);
+        out.remove(objId);
+        return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_COAUTHOR, out);
     }
 }

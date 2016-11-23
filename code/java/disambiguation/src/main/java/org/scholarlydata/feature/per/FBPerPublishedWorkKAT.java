@@ -11,7 +11,9 @@ import org.scholarlydata.feature.FeatureType;
 import org.scholarlydata.feature.Predicate;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * published work's keywords, abstract, and title
@@ -36,29 +38,37 @@ public class FBPerPublishedWorkKAT extends FeatureBuilderSPARQL<FeatureType, Lis
         sb.append(Predicate.AUTHOR_lIST_ITEM_hasContent.getURI()).append("> <")
                 .append(objId).append("> .\n?l <")
                 .append(Predicate.AUTHOR_LIST_hasItem.getURI()).append("> ?s .\n?o <")
-                .append(Predicate.PUBLICATION_hasAuthorList.getURI()).append("> ?l .\n?o <")
-                .append(Predicate.PUBLICATION_hasAbstract.getURI()).append("> ?a .\n?o <")
-                .append(Predicate.PUBLICATION_hasTitle.getURI()).append("> ?t .\n?o <")
-                .append(Predicate.PUBLICATION_hasKeyword.getURI()).append("> ?k .}")
+                .append(Predicate.PUBLICATION_hasAuthorList.getURI()).append("> ?l .\n{?o <")
+                .append(Predicate.PUBLICATION_hasAbstract.getURI()).append("> ?a .}\n union {?o <")
+                .append(Predicate.PUBLICATION_hasTitle.getURI()).append("> ?t .}\n union {?o <")
+                .append(Predicate.PUBLICATION_hasKeyword.getURI()).append("> ?k .}}")
         ;
         ResultSet rs = query(sb.toString());
 
         List<String> out = new ArrayList<>();
+
+        Set<String> uniqueValues = new HashSet<>();
         while (rs.hasNext()) {
             QuerySolution qs = rs.next();
             RDFNode keywords = qs.get("?k");
             RDFNode abstracts = qs.get("?a");
             RDFNode title = qs.get("?t");
-
-            splitAndAdd(keywords.toString(), out);
-            splitAndAdd(abstracts.toString(), out);
-            splitAndAdd(title.toString(), out);
-
-            if(stopwords!=null)
-                out.removeAll(stopwords);
+            if(keywords!=null)
+                uniqueValues.add(keywords.toString());
+            if(abstracts!=null)
+                uniqueValues.add(abstracts.toString());
+            if(title!=null)
+                uniqueValues.add(title.toString());
         }
 
-        return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_URI, out);
+        for(String v: uniqueValues) {
+            splitAndAdd(v, out);
+        }
+
+        if(stopwords!=null)
+            out.removeAll(stopwords);
+
+        return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_BOW, out);
     }
 
     protected void splitAndAdd(String string, List<String> out) {

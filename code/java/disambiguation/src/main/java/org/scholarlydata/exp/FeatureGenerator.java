@@ -25,7 +25,7 @@ public class FeatureGenerator {
         int endRow = Integer.valueOf(args[2]);
         String outputCSV = args[3];
         String type = args[4];
-        List<String> stopwords = FileUtils.readLines(new File("stopwords.txt"));
+        List<String> stopwords = FileUtils.readLines(new File("data/stopwords.txt"));
         PairFBOrg fborg = new PairFBOrg(sparqlEndpoint);
         PairFBPer fbper = new PairFBPer(sparqlEndpoint, stopwords);
 
