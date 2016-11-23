@@ -23,8 +23,10 @@ public enum Predicate {
 
     AUTHOR_lIST_ITEM_hasContent("https://w3id.org/scholarlydata/ontology/conference-ontology.owl#hasContent"),
     AUTHOR_LIST_hasItem("https://w3id.org/scholarlydata/ontology/conference-ontology.owl#hasItem"),
-    PUBLICATION_hasAuthorList("https://w3id.org/scholarlydata/ontology/conference-ontology.owl#hasAuthorList");
-
+    PUBLICATION_hasAuthorList("https://w3id.org/scholarlydata/ontology/conference-ontology.owl#hasAuthorList"),
+    PUBLICATION_hasAbstract("https://w3id.org/scholarlydata/ontology/conference-ontology.owl#abstract"),
+    PUBLICATION_hasTitle("https://w3id.org/scholarlydata/ontology/conference-ontology.owl#title"),
+    PUBLICATION_hasKeyword("https://w3id.org/scholarlydata/ontology/conference-ontology.owl#keyword");
 
     private String uri;
 

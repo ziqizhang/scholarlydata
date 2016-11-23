@@ -4,6 +4,8 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.scholarlydata.feature.FeatureType;
 import org.scholarlydata.feature.pair.PairFBOrg;
 import org.scholarlydata.feature.pair.PairFBPer;
+
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -29,7 +31,7 @@ public class TestFeatureBuilder {
         //1. provide object uris
         String obj1 = "https://w3id.org/scholarlydata/person/raphaeel-troncy";
         String obj2 = "https://w3id.org/scholarlydata/person/raphael-troncy";
-        PairFBPer fb = new PairFBPer(sparqlEndpoint);
+        PairFBPer fb = new PairFBPer(sparqlEndpoint, new ArrayList<>());
         Map<Pair<FeatureType, String>, Double> features = fb.build(obj1, obj2);
         System.out.println("end");
     }

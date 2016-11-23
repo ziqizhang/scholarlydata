@@ -17,7 +17,10 @@ public enum FeatureType {
     PERSON_AFFLIATED_ORGANIZATION_NAME("per_from_org_name"), //name of the person's organisation, regardless of time
     PERSON_AFFLIATED_ORGANIZATION_URI("per_from_org_uri"),
     PERSON_PUBLICATION_URI("per_published_work_uri"),
-    PERSON_ROLE_AT_EVENT_URI("per_role_at_event_uri"); //pair composed of the uri of the role, and event
+    PERSON_ROLE_AT_EVENT_URI("per_role_at_event_uri"), //pair composed of the uri of the role, and event
+    PERSON_PUBLICATION_BOW("per_published_work_bow"), //bag of words of person publications based on abstract keyword and title
+    PERSON_PUBLICATION_COAUTHOR("per_published_work_coauthor");
+
 
     private String name;
 

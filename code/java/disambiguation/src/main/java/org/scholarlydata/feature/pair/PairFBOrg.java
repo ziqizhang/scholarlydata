@@ -10,7 +10,6 @@ import org.scholarlydata.feature.org.FBOrgMemberURI;
 import org.scholarlydata.feature.org.FBOrgName;
 import org.scholarlydata.feature.org.FBOrgParticipatedEventURI;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,18 +21,18 @@ public class PairFBOrg implements PairFeatureBuilder {
     private static Logger log = Logger.getLogger(PairFBOrg.class.getName());
 
     private String sparqlEndpoint;
-    private Overlap[] overlapFunctions;
+    private SetOverlap[] overlapFunctions;
     private FeatureNormalizer fn = new FeatureNormalizer();
 
     public PairFBOrg(String sparqlEndpoint){
         this.sparqlEndpoint=sparqlEndpoint;
-        overlapFunctions = new Overlap[6];
-        overlapFunctions[0]=new Overlap(0);
-        overlapFunctions[1]=new Overlap(0, new SFSquareRoot());
-        overlapFunctions[2]=new Overlap(1);
-        overlapFunctions[3]=new Overlap(1, new SFSquareRoot());
-        overlapFunctions[4]=new Overlap(2);
-        overlapFunctions[5]=new Overlap(2, new SFSquareRoot());
+        overlapFunctions = new SetOverlap[6];
+        overlapFunctions[0]=new SetOverlap(0);
+        overlapFunctions[1]=new SetOverlap(0, new SFSquareRoot());
+        overlapFunctions[2]=new SetOverlap(1);
+        overlapFunctions[3]=new SetOverlap(1, new SFSquareRoot());
+        overlapFunctions[4]=new SetOverlap(2);
+        overlapFunctions[5]=new SetOverlap(2, new SFSquareRoot());
     }
     @Override
     public Map<Pair<FeatureType, String>, Double> build(String obj1, String obj2) {
@@ -70,7 +69,7 @@ public class PairFBOrg implements PairFeatureBuilder {
     protected void generateOverlapFeatures(Map<Pair<FeatureType, String>, Double> result,
                                            List<String> obj1,
                                            List<String> obj2, FeatureType ft){
-        for(Overlap of : overlapFunctions){
+        for(SetOverlap of : overlapFunctions){
             double score = of.score(obj1, obj2);
             result.put(new ImmutablePair<>(ft, of.getOption()+"|"+of.getSf()), score);
         }

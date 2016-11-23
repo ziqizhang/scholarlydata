@@ -7,10 +7,10 @@ import java.util.Set;
 /**
  *
  */
-public class Overlap {
+public class SetOverlap {
 
-    private int option;
-    private SmoothingFunction sf;
+    protected int option;
+    protected SmoothingFunction sf;
 
     /**
      * score is not smoothed.
@@ -20,7 +20,7 @@ public class Overlap {
      *              2 - 1 if intersection>0; 0 otherwise
      *
      */
-    public Overlap(int option){
+    public SetOverlap(int option){
         this.option=option;
     }
 
@@ -29,7 +29,7 @@ public class Overlap {
      * @param option
      * @param sf
      */
-    public Overlap(int option, SmoothingFunction sf){
+    public SetOverlap(int option, SmoothingFunction sf){
         this(option);
         this.sf=sf;
     }
