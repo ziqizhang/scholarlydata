@@ -5,6 +5,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.apache.jena.query.ResultSet;
 import org.scholarlydata.SPARQLQueries;
 import org.scholarlydata.feature.FeatureBuilderSPARQL;
+import org.scholarlydata.feature.FeatureNormalizer;
 import org.scholarlydata.feature.FeatureType;
 import org.scholarlydata.feature.Predicate;
 
@@ -20,6 +21,13 @@ public class FBPerName extends FeatureBuilderSPARQL<FeatureType, List<String>> {
 
     public FBPerName(String sparqlEndpoint, FeatureType type, Predicate predicate){
         super(sparqlEndpoint);
+        this.type=type;
+        this.predicate=predicate;
+    }
+
+    public FBPerName(String sparqlEndpoint, FeatureType type, Predicate predicate,
+                     FeatureNormalizer fn){
+        super(sparqlEndpoint,fn);
         this.type=type;
         this.predicate=predicate;
     }

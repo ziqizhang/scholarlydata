@@ -1,0 +1,62 @@
+0      2016-11-23 12:14:30,912 INFO  org.scholarlydata.feature.pair.PairFBPer  - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 12:14:30 INFO  PairFBPer:38 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+10     2016-11-23 12:14:30,922 INFO  org.scholarlydata.feature.pair.PairFBPer  - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:14:30 INFO  PairFBPer:39 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+0      2016-11-23 12:15:09,036 INFO  org.scholarlydata.feature.pair.PairFBPer  - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 12:15:09 INFO  PairFBPer:38 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+33583  2016-11-23 12:15:42,619 INFO  org.scholarlydata.feature.pair.PairFBPer  - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:15:42 INFO  PairFBPer:39 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:15:49 INFO  PairFBPer:38 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 12:16:20 INFO  PairFBPer:39 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:16:27 INFO  PairFBPer:38 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 12:16:30 INFO  PairFBPer:39 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:17:59 INFO  PairFBPer:38 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 12:18:32 INFO  PairFBPer:39 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:19:16 INFO  PairFBPer:41 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 12:19:17 INFO  PairFBPer:43 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 12:19:39 INFO  PairFBPer:46 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 12:20:16 INFO  PairFBPer:48 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 12:21:48 INFO  PairFBPer:38 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 12:21:48 INFO  PairFBPer:39 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:21:50 INFO  PairFBPer:41 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 12:21:52 INFO  PairFBPer:43 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 12:21:52 INFO  PairFBPer:46 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 12:21:52 INFO  PairFBPer:48 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 12:22:18 INFO  PairFBPer:50 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 12:22:56 INFO  PairFBPer:53 - Building features for: https://w3id.org/scholarlydata/person/raphael-troncy
+2016-11-23 12:22:56 INFO  PairFBPer:54 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:22:56 INFO  PairFBPer:56 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 12:22:57 INFO  PairFBPer:58 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 12:22:57 INFO  PairFBPer:61 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 12:22:57 INFO  PairFBPer:63 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 12:22:58 INFO  PairFBPer:65 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 12:24:49 INFO  PairFBPer:38 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 12:24:49 INFO  PairFBPer:39 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:25:00 INFO  PairFBPer:41 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 12:25:01 INFO  PairFBPer:43 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 12:25:02 INFO  PairFBPer:46 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 12:25:02 INFO  PairFBPer:48 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 12:25:03 INFO  PairFBPer:50 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 12:25:08 INFO  PairFBPer:53 - Building features for: https://w3id.org/scholarlydata/person/raphael-troncy
+2016-11-23 12:25:08 INFO  PairFBPer:54 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:25:10 INFO  PairFBPer:56 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 12:25:10 INFO  PairFBPer:58 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 12:25:12 INFO  PairFBPer:61 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 12:25:12 INFO  PairFBPer:63 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 12:25:12 INFO  PairFBPer:65 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 12:27:10 INFO  PairFBPer:38 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 12:27:10 INFO  PairFBPer:39 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:27:12 INFO  PairFBPer:41 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 12:27:12 INFO  PairFBPer:43 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 12:27:13 INFO  PairFBPer:46 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 12:27:14 INFO  PairFBPer:48 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 12:27:14 INFO  PairFBPer:50 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 12:27:15 INFO  PairFBPer:53 - Building features for: https://w3id.org/scholarlydata/person/raphael-troncy
+2016-11-23 12:27:15 INFO  PairFBPer:54 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:27:15 INFO  PairFBPer:56 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 12:27:16 INFO  PairFBPer:58 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 12:27:16 INFO  PairFBPer:61 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 12:27:17 INFO  PairFBPer:63 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 12:27:18 INFO  PairFBPer:65 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 12:28:09 INFO  PairFBPer:38 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 12:28:09 INFO  PairFBPer:39 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName

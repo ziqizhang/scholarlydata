@@ -17,13 +17,13 @@ import java.util.List;
 /**
  *
  */
-public class FBPerRoleAtEvent extends FeatureBuilderSPARQL<FeatureType, List<Pair<String, String>>> {
+public class FBPerRoleAtEvent extends FeatureBuilderSPARQL<FeatureType, List<String>> {
     public FBPerRoleAtEvent(String sparqlEndpoint) {
         super(sparqlEndpoint);
     }
 
     @Override
-    public Pair<FeatureType, List<Pair<String, String>>> build(String objId) {
+    public Pair<FeatureType, List<String>> build(String objId) {
         StringBuilder sb = new StringBuilder("select distinct ?e ?r where {\n");
         sb.append("<").append(objId).append("> <")
                 .append(Predicate.PERSON_holdsRole.getURI())
@@ -33,14 +33,14 @@ public class FBPerRoleAtEvent extends FeatureBuilderSPARQL<FeatureType, List<Pai
                 .append("?o <").append(Predicate.FUNCTION_during.getURI()).append("> ?e .}");
 
         ResultSet rs = query(sb.toString());
-        List<Pair<String,String>> out = new ArrayList<>();
-        while(rs.hasNext()){
+        List<String> out = new ArrayList<>();
+        while (rs.hasNext()) {
             QuerySolution qs = rs.next();
             RDFNode event = qs.get("?e");
             RDFNode role = qs.get("?r");
 
-                out.add(new ImmutablePair(event.toString(),
-                        role.toString()));
+            out.add(event.toString() + "|" +
+                    role.toString());
 
         }
         return new ImmutablePair<>(FeatureType.PERSON_ROLE_AT_EVENT_URI, out);

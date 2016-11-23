@@ -5,6 +5,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.apache.jena.query.ResultSet;
 import org.scholarlydata.SPARQLQueries;
 import org.scholarlydata.feature.FeatureBuilderSPARQL;
+import org.scholarlydata.feature.FeatureNormalizer;
 import org.scholarlydata.feature.FeatureType;
 import org.scholarlydata.feature.Predicate;
 
@@ -16,6 +17,9 @@ import java.util.List;
 public class FBOrgMemberName extends FeatureBuilderSPARQL<FeatureType, List<String>> {
     public FBOrgMemberName(String sparqlEndpoint) {
         super(sparqlEndpoint);
+    }
+    public FBOrgMemberName(String sparqlEndpoint, FeatureNormalizer fn) {
+        super(sparqlEndpoint,fn);
     }
 
     @Override

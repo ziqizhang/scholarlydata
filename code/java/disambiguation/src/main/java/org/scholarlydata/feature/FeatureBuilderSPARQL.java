@@ -13,9 +13,14 @@ import java.util.List;
 public abstract class FeatureBuilderSPARQL<FeatureType, T> implements FeatureBuilder {
 
     protected String sparqlEndpoint;
+    protected FeatureNormalizer normalizer;
 
     public FeatureBuilderSPARQL(String sparqlEndpoint) {
         this.sparqlEndpoint = sparqlEndpoint;
+    }
+    public FeatureBuilderSPARQL(String sparqlEndpoint, FeatureNormalizer fn){
+        this(sparqlEndpoint);
+        this.normalizer=fn;
     }
 
     protected ResultSet query(String queryString) {
@@ -31,7 +36,10 @@ public abstract class FeatureBuilderSPARQL<FeatureType, T> implements FeatureBui
         while (rs.hasNext()) {
             QuerySolution qs = rs.next();
             RDFNode range = qs.get("?o");
-            out.add(range.toString());
+            if(normalizer!=null)
+                out.add(normalizer.normalize(range.toString()));
+            else
+                out.add(range.toString().toLowerCase());
         }
         return out;
     }
