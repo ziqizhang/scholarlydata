@@ -10,5 +10,5 @@ import java.util.Map;
  */
 public interface PairFeatureBuilder {
 
-    Map<Pair<FeatureType, Integer>, Double> build(String obj1, String obj2);
+    Map<Pair<FeatureType, String>, Double> build(String obj1, String obj2);
 }

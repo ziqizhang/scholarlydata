@@ -9,6 +9,7 @@ import org.scholarlydata.feature.Predicate;
 import org.scholarlydata.feature.per.*;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +34,7 @@ public class PairFBPer implements PairFeatureBuilder {
         overlapFunctions[5]=new Overlap(2, new SFSquareRoot());
     }
     @Override
-    public Map<Pair<FeatureType, Integer>, Double> build(String obj1, String obj2) {
+    public Map<Pair<FeatureType, String>, Double> build(String obj1, String obj2) {
 
         log.info("Building features for: "+obj1);
         log.info("\t"+FBPerAffliatedOrgName.class.getCanonicalName());
@@ -65,7 +66,7 @@ public class PairFBPer implements PairFeatureBuilder {
         log.info("\t"+ FBPerRoleAtEvent.class.getCanonicalName());
         Pair<FeatureType, List<String>> perRoleAtEvent2 = new FBPerRoleAtEvent(sparqlEndpoint).build(obj2);
 
-        Map<Pair<FeatureType, Integer>, Double> result = new HashMap<>();
+        Map<Pair<FeatureType, String>, Double> result = new LinkedHashMap<>();
         generateOverlapFeatures(result, perAffOrgName1.getValue(), perAffOrgName2.getValue(), perAffOrgName1.getKey());
         generateOverlapFeatures(result, perAffOrgURI1.getValue(), perAffOrgURI2.getValue(), perAffOrgURI1.getKey());
         generateOverlapFeatures(result, perName1.getValue(), perName2.getValue(), perName1.getKey());
@@ -76,12 +77,12 @@ public class PairFBPer implements PairFeatureBuilder {
         return result;
     }
 
-    protected void generateOverlapFeatures(Map<Pair<FeatureType, Integer>, Double> result,
+    protected void generateOverlapFeatures(Map<Pair<FeatureType, String>, Double> result,
                                            List<String> obj1,
                                            List<String> obj2, FeatureType ft){
         for(Overlap of : overlapFunctions){
             double score = of.score(obj1, obj2);
-            result.put(new ImmutablePair<>(ft, of.getOption()), score);
+            result.put(new ImmutablePair<>(ft, of.getOption()+"|"+of.getSf()), score);
         }
     }
 }

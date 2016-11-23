@@ -60,3 +60,179 @@
 2016-11-23 12:27:18 INFO  PairFBPer:65 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
 2016-11-23 12:28:09 INFO  PairFBPer:38 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
 2016-11-23 12:28:09 INFO  PairFBPer:39 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:29:24 INFO  PairFBPer:38 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 12:29:24 INFO  PairFBPer:39 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:29:28 INFO  PairFBPer:38 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 12:29:28 INFO  PairFBPer:39 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:29:44 INFO  PairFBPer:41 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 12:29:45 INFO  PairFBPer:43 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 12:29:45 INFO  PairFBPer:46 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 12:29:46 INFO  PairFBPer:48 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 12:29:46 INFO  PairFBPer:50 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 12:29:47 INFO  PairFBPer:53 - Building features for: https://w3id.org/scholarlydata/person/raphael-troncy
+2016-11-23 12:29:47 INFO  PairFBPer:54 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:29:48 INFO  PairFBPer:56 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 12:29:48 INFO  PairFBPer:58 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 12:29:48 INFO  PairFBPer:61 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 12:29:50 INFO  PairFBPer:63 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 12:29:51 INFO  PairFBPer:65 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 12:31:33 INFO  PairFBPer:39 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 12:31:33 INFO  PairFBPer:40 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:32:08 INFO  PairFBPer:39 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 12:32:08 INFO  PairFBPer:40 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:32:21 INFO  PairFBPer:42 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 12:32:21 INFO  PairFBPer:44 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 12:32:22 INFO  PairFBPer:47 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 12:32:22 INFO  PairFBPer:49 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 12:32:23 INFO  PairFBPer:51 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 12:32:23 INFO  PairFBPer:54 - Building features for: https://w3id.org/scholarlydata/person/raphael-troncy
+2016-11-23 12:32:23 INFO  PairFBPer:55 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 12:32:23 INFO  PairFBPer:57 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 12:32:24 INFO  PairFBPer:59 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 12:32:24 INFO  PairFBPer:62 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 12:32:24 INFO  PairFBPer:64 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 12:32:25 INFO  PairFBPer:66 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 12:34:13 INFO  PairFBOrg:40 - Building features for: https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university
+2016-11-23 12:34:13 INFO  PairFBOrg:41 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 12:34:15 INFO  PairFBOrg:43 - 	org.scholarlydata.feature.org.FBOrgMemberURI
+2016-11-23 12:34:16 INFO  PairFBOrg:45 - 	org.scholarlydata.feature.org.FBOrgMemberName
+2016-11-23 12:34:17 INFO  PairFBOrg:47 - 	org.scholarlydata.feature.org.FBOrgParticipatedEventURI
+2016-11-23 12:34:17 INFO  PairFBOrg:50 - Building features for: https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university-china
+2016-11-23 12:34:17 INFO  PairFBOrg:51 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 12:34:18 INFO  PairFBOrg:53 - 	org.scholarlydata.feature.org.FBOrgMemberURI
+2016-11-23 12:34:18 INFO  PairFBOrg:55 - 	org.scholarlydata.feature.org.FBOrgMemberName
+2016-11-23 12:34:18 INFO  PairFBOrg:57 - 	org.scholarlydata.feature.org.FBOrgParticipatedEventURI
+2016-11-23 12:35:28 INFO  PairFBOrg:41 - Building features for: https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university
+2016-11-23 12:35:28 INFO  PairFBOrg:42 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 12:35:32 INFO  PairFBOrg:44 - 	org.scholarlydata.feature.org.FBOrgMemberURI
+2016-11-23 12:35:35 INFO  PairFBOrg:46 - 	org.scholarlydata.feature.org.FBOrgMemberName
+2016-11-23 12:35:38 INFO  PairFBOrg:48 - 	org.scholarlydata.feature.org.FBOrgParticipatedEventURI
+2016-11-23 12:35:39 INFO  PairFBOrg:51 - Building features for: https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university-china
+2016-11-23 12:35:39 INFO  PairFBOrg:52 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 12:35:39 INFO  PairFBOrg:54 - 	org.scholarlydata.feature.org.FBOrgMemberURI
+2016-11-23 12:35:41 INFO  PairFBOrg:56 - 	org.scholarlydata.feature.org.FBOrgMemberName
+2016-11-23 12:35:42 INFO  PairFBOrg:58 - 	org.scholarlydata.feature.org.FBOrgParticipatedEventURI
+2016-11-23 12:39:13 INFO  PairFBOrg:41 - Building features for: https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university
+2016-11-23 12:39:13 INFO  PairFBOrg:42 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 12:39:15 INFO  PairFBOrg:44 - 	org.scholarlydata.feature.org.FBOrgMemberURI
+2016-11-23 12:39:15 INFO  PairFBOrg:46 - 	org.scholarlydata.feature.org.FBOrgMemberName
+2016-11-23 12:39:16 INFO  PairFBOrg:48 - 	org.scholarlydata.feature.org.FBOrgParticipatedEventURI
+2016-11-23 12:39:16 INFO  PairFBOrg:51 - Building features for: https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university-china
+2016-11-23 12:39:16 INFO  PairFBOrg:52 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 12:39:16 INFO  PairFBOrg:54 - 	org.scholarlydata.feature.org.FBOrgMemberURI
+2016-11-23 12:39:18 INFO  PairFBOrg:56 - 	org.scholarlydata.feature.org.FBOrgMemberName
+2016-11-23 12:39:18 INFO  PairFBOrg:58 - 	org.scholarlydata.feature.org.FBOrgParticipatedEventURI
+2016-11-23 14:06:27 INFO  PairFBOrg:41 - Building features for:  "https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university"
+2016-11-23 14:06:27 INFO  PairFBOrg:42 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 14:07:22 INFO  PairFBOrg:41 - Building features for:  "https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university"
+2016-11-23 14:07:22 INFO  PairFBOrg:42 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 14:10:49 INFO  PairFBOrg:41 - Building features for: https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university
+2016-11-23 14:10:49 INFO  PairFBOrg:42 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 14:11:00 INFO  PairFBOrg:44 - 	org.scholarlydata.feature.org.FBOrgMemberURI
+2016-11-23 14:11:01 INFO  PairFBOrg:46 - 	org.scholarlydata.feature.org.FBOrgMemberName
+2016-11-23 14:11:01 INFO  PairFBOrg:48 - 	org.scholarlydata.feature.org.FBOrgParticipatedEventURI
+2016-11-23 14:11:02 INFO  PairFBOrg:51 - Building features for: https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university-china
+2016-11-23 14:11:02 INFO  PairFBOrg:52 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 14:11:03 INFO  PairFBOrg:54 - 	org.scholarlydata.feature.org.FBOrgMemberURI
+2016-11-23 14:11:04 INFO  PairFBOrg:56 - 	org.scholarlydata.feature.org.FBOrgMemberName
+2016-11-23 14:11:04 INFO  PairFBOrg:58 - 	org.scholarlydata.feature.org.FBOrgParticipatedEventURI
+2016-11-23 14:12:24 INFO  PairFBOrg:41 - Building features for: https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university-china
+2016-11-23 14:12:24 INFO  PairFBOrg:42 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 14:12:45 INFO  PairFBOrg:44 - 	org.scholarlydata.feature.org.FBOrgMemberURI
+2016-11-23 14:12:47 INFO  PairFBOrg:46 - 	org.scholarlydata.feature.org.FBOrgMemberName
+2016-11-23 14:12:47 INFO  PairFBOrg:48 - 	org.scholarlydata.feature.org.FBOrgParticipatedEventURI
+2016-11-23 14:12:48 INFO  PairFBOrg:51 - Building features for: https://w3id.org/scholarlydata/organisation/cnr-istc-italy
+2016-11-23 14:12:48 INFO  PairFBOrg:52 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 14:12:49 INFO  PairFBOrg:54 - 	org.scholarlydata.feature.org.FBOrgMemberURI
+2016-11-23 14:12:49 INFO  PairFBOrg:56 - 	org.scholarlydata.feature.org.FBOrgMemberName
+2016-11-23 14:12:50 INFO  PairFBOrg:58 - 	org.scholarlydata.feature.org.FBOrgParticipatedEventURI
+2016-11-23 14:13:16 INFO  PairFBOrg:41 - Building features for: https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university
+2016-11-23 14:13:16 INFO  PairFBOrg:42 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 14:13:17 INFO  PairFBOrg:44 - 	org.scholarlydata.feature.org.FBOrgMemberURI
+2016-11-23 14:13:19 INFO  PairFBOrg:46 - 	org.scholarlydata.feature.org.FBOrgMemberName
+2016-11-23 14:13:19 INFO  PairFBOrg:48 - 	org.scholarlydata.feature.org.FBOrgParticipatedEventURI
+2016-11-23 14:13:19 INFO  PairFBOrg:51 - Building features for: https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university-china
+2016-11-23 14:13:19 INFO  PairFBOrg:52 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 14:13:20 INFO  PairFBOrg:54 - 	org.scholarlydata.feature.org.FBOrgMemberURI
+2016-11-23 14:13:20 INFO  PairFBOrg:56 - 	org.scholarlydata.feature.org.FBOrgMemberName
+2016-11-23 14:13:22 INFO  PairFBOrg:58 - 	org.scholarlydata.feature.org.FBOrgParticipatedEventURI
+2016-11-23 14:13:23 INFO  PairFBOrg:41 - Building features for: https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university-china
+2016-11-23 14:13:23 INFO  PairFBOrg:42 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 14:13:23 INFO  PairFBOrg:44 - 	org.scholarlydata.feature.org.FBOrgMemberURI
+2016-11-23 14:13:23 INFO  PairFBOrg:46 - 	org.scholarlydata.feature.org.FBOrgMemberName
+2016-11-23 14:13:24 INFO  PairFBOrg:48 - 	org.scholarlydata.feature.org.FBOrgParticipatedEventURI
+2016-11-23 14:13:24 INFO  PairFBOrg:51 - Building features for: https://w3id.org/scholarlydata/organisation/cnr-istc-italy
+2016-11-23 14:13:24 INFO  PairFBOrg:52 - 	org.scholarlydata.feature.org.FBOrgName
+2016-11-23 14:13:24 INFO  PairFBOrg:54 - 	org.scholarlydata.feature.org.FBOrgMemberURI
+2016-11-23 14:13:27 INFO  PairFBOrg:56 - 	org.scholarlydata.feature.org.FBOrgMemberName
+2016-11-23 14:13:30 INFO  PairFBOrg:58 - 	org.scholarlydata.feature.org.FBOrgParticipatedEventURI
+2016-11-23 14:15:44 INFO  PairFBPer:39 - Building features for: https://w3id.org/scholarlydata/person/raphael-troncy
+2016-11-23 14:15:44 INFO  PairFBPer:40 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 14:15:47 INFO  PairFBPer:42 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 14:15:47 INFO  PairFBPer:44 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 14:15:53 INFO  PairFBPer:47 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 14:15:53 INFO  PairFBPer:49 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 14:15:55 INFO  PairFBPer:51 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 14:15:55 INFO  PairFBPer:54 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 14:15:55 INFO  PairFBPer:55 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 14:15:55 INFO  PairFBPer:57 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 14:15:56 INFO  PairFBPer:59 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 14:15:57 INFO  PairFBPer:62 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 14:15:57 INFO  PairFBPer:64 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 14:15:58 INFO  PairFBPer:66 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 14:15:58 INFO  PairFBPer:39 - Building features for: https://w3id.org/scholarlydata/person/raphael-troncy
+2016-11-23 14:15:58 INFO  PairFBPer:40 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 14:15:59 INFO  PairFBPer:42 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 14:15:59 INFO  PairFBPer:44 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 14:15:59 INFO  PairFBPer:47 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 14:16:00 INFO  PairFBPer:49 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 14:16:02 INFO  PairFBPer:51 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 14:16:03 INFO  PairFBPer:54 - Building features for: https://w3id.org/scholarlydata/person/aldo-gangemi
+2016-11-23 14:16:03 INFO  PairFBPer:55 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 14:16:03 INFO  PairFBPer:57 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 14:16:06 INFO  PairFBPer:59 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 14:16:06 INFO  PairFBPer:62 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 14:16:07 INFO  PairFBPer:64 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 14:16:09 INFO  PairFBPer:66 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 14:21:49 INFO  PairFBPer:39 - Building features for: https://w3id.org/scholarlydata/person/raphael-troncy
+2016-11-23 14:21:49 INFO  PairFBPer:40 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 14:21:50 INFO  PairFBPer:42 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 14:21:51 INFO  PairFBPer:44 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 14:21:51 INFO  PairFBPer:47 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 14:21:51 INFO  PairFBPer:49 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 14:21:52 INFO  PairFBPer:51 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 14:21:52 INFO  PairFBPer:54 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 14:21:52 INFO  PairFBPer:55 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 14:21:53 INFO  PairFBPer:57 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 14:21:53 INFO  PairFBPer:59 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 14:21:56 INFO  PairFBPer:62 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 14:21:57 INFO  PairFBPer:64 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 14:21:57 INFO  PairFBPer:66 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 14:22:34 INFO  PairFBPer:39 - Building features for: https://w3id.org/scholarlydata/person/raphael-troncy
+2016-11-23 14:22:34 INFO  PairFBPer:40 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 14:22:54 INFO  PairFBPer:42 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 14:22:55 INFO  PairFBPer:44 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 14:22:55 INFO  PairFBPer:47 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 14:22:56 INFO  PairFBPer:49 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 14:22:56 INFO  PairFBPer:51 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 14:22:57 INFO  PairFBPer:54 - Building features for: https://w3id.org/scholarlydata/person/aldo-gangemi
+2016-11-23 14:22:57 INFO  PairFBPer:55 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 14:22:58 INFO  PairFBPer:57 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 14:22:59 INFO  PairFBPer:59 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 14:22:59 INFO  PairFBPer:62 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 14:23:00 INFO  PairFBPer:64 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 14:23:02 INFO  PairFBPer:66 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 14:24:25 INFO  PairFBPer:39 - Building features for: https://w3id.org/scholarlydata/person/raphael-troncy
+2016-11-23 14:24:25 INFO  PairFBPer:40 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 14:24:36 INFO  PairFBPer:42 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 14:24:37 INFO  PairFBPer:44 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 14:24:37 INFO  PairFBPer:47 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 14:24:37 INFO  PairFBPer:49 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 14:24:39 INFO  PairFBPer:51 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 14:24:40 INFO  PairFBPer:54 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 14:24:40 INFO  PairFBPer:55 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 14:24:41 INFO  PairFBPer:57 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 14:24:42 INFO  PairFBPer:59 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 14:24:42 INFO  PairFBPer:62 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 14:24:42 INFO  PairFBPer:64 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 14:24:44 INFO  PairFBPer:66 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent

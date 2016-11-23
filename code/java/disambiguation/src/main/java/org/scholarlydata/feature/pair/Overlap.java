@@ -37,6 +37,9 @@ public class Overlap {
     public int getOption(){
         return option;
     }
+    public SmoothingFunction getSf(){
+        return sf;
+    }
 
     public double score(Collection<String> obj1, Collection<String> obj2){
         if(obj1.size()==0 && obj2.size()==0)

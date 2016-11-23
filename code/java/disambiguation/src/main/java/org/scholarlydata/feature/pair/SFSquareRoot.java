@@ -12,4 +12,8 @@ public class SFSquareRoot implements SmoothingFunction {
     public String getName(){
         return "sqrt";
     }
+
+    public String toString(){
+        return getName();
+    }
 }
