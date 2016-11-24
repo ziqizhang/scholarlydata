@@ -58,6 +58,7 @@ public class FeatureGenerator {
                 }
                 headers.add("TRUTH");
                 printer.printRecord(headers);
+                generateHeader=false;
             }
             List<String> recordValues = new ArrayList<>();
 

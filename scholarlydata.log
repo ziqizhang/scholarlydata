@@ -111,3 +111,59 @@
 2016-11-23 16:07:25 INFO  PairFBPer:78 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
 2016-11-23 16:07:25 INFO  PairFBPer:80 - 	org.scholarlydata.feature.per.FBPerCoAuthorURI
 2016-11-23 16:07:26 INFO  PairFBPer:82 - 	org.scholarlydata.feature.per.FBPerPublishedWorkKAT
+2016-11-23 16:10:56 INFO  PairFBPer:47 - Building features for: https://w3id.org/scholarlydata/person/raphael-troncy
+2016-11-23 16:10:56 INFO  PairFBPer:48 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 16:10:59 INFO  PairFBPer:50 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 16:10:59 INFO  PairFBPer:52 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 16:11:00 INFO  PairFBPer:55 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 16:11:00 INFO  PairFBPer:57 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 16:11:01 INFO  PairFBPer:59 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 16:11:01 INFO  PairFBPer:61 - 	org.scholarlydata.feature.per.FBPerCoAuthorURI
+2016-11-23 16:11:01 INFO  PairFBPer:63 - 	org.scholarlydata.feature.per.FBPerPublishedWorkKAT
+2016-11-23 16:11:02 INFO  PairFBPer:66 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 16:11:02 INFO  PairFBPer:67 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 16:11:03 INFO  PairFBPer:69 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 16:11:03 INFO  PairFBPer:71 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 16:11:03 INFO  PairFBPer:74 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 16:11:03 INFO  PairFBPer:76 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 16:11:04 INFO  PairFBPer:78 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 16:11:04 INFO  PairFBPer:80 - 	org.scholarlydata.feature.per.FBPerCoAuthorURI
+2016-11-23 16:11:05 INFO  PairFBPer:82 - 	org.scholarlydata.feature.per.FBPerPublishedWorkKAT
+2016-11-23 16:12:17 INFO  PairFBPer:47 - Building features for: https://w3id.org/scholarlydata/person/raphael-troncy
+2016-11-23 16:12:17 INFO  PairFBPer:48 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 16:12:29 INFO  PairFBPer:47 - Building features for: https://w3id.org/scholarlydata/person/raphael-troncy
+2016-11-23 16:12:29 INFO  PairFBPer:48 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 16:12:35 INFO  PairFBPer:50 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 16:12:36 INFO  PairFBPer:52 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 16:12:36 INFO  PairFBPer:55 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 16:12:36 INFO  PairFBPer:57 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 16:12:37 INFO  PairFBPer:59 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 16:12:38 INFO  PairFBPer:61 - 	org.scholarlydata.feature.per.FBPerCoAuthorURI
+2016-11-23 16:12:40 INFO  PairFBPer:63 - 	org.scholarlydata.feature.per.FBPerPublishedWorkKAT
+2016-11-23 16:12:41 INFO  PairFBPer:66 - Building features for: https://w3id.org/scholarlydata/person/raphaeel-troncy
+2016-11-23 16:12:41 INFO  PairFBPer:67 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 16:12:42 INFO  PairFBPer:69 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 16:12:42 INFO  PairFBPer:71 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 16:12:43 INFO  PairFBPer:74 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 16:12:43 INFO  PairFBPer:76 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 16:12:47 INFO  PairFBPer:78 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 16:12:47 INFO  PairFBPer:80 - 	org.scholarlydata.feature.per.FBPerCoAuthorURI
+2016-11-23 16:12:47 INFO  PairFBPer:82 - 	org.scholarlydata.feature.per.FBPerPublishedWorkKAT
+2016-11-23 16:12:48 INFO  PairFBPer:47 - Building features for: https://w3id.org/scholarlydata/person/raphael-troncy
+2016-11-23 16:12:48 INFO  PairFBPer:48 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 16:12:48 INFO  PairFBPer:50 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 16:12:48 INFO  PairFBPer:52 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 16:12:49 INFO  PairFBPer:55 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 16:12:49 INFO  PairFBPer:57 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 16:12:50 INFO  PairFBPer:59 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 16:12:50 INFO  PairFBPer:61 - 	org.scholarlydata.feature.per.FBPerCoAuthorURI
+2016-11-23 16:12:50 INFO  PairFBPer:63 - 	org.scholarlydata.feature.per.FBPerPublishedWorkKAT
+2016-11-23 16:12:51 INFO  PairFBPer:66 - Building features for: https://w3id.org/scholarlydata/person/aldo-gangemi
+2016-11-23 16:12:51 INFO  PairFBPer:67 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgName
+2016-11-23 16:12:51 INFO  PairFBPer:69 - 	org.scholarlydata.feature.per.FBPerAffliatedOrgURI
+2016-11-23 16:12:52 INFO  PairFBPer:71 - 	org.scholarlydata.feature.per.FBPerName
+2016-11-23 16:12:53 INFO  PairFBPer:74 - 	org.scholarlydata.feature.per.FBPerParticipatedEventURI
+2016-11-23 16:12:53 INFO  PairFBPer:76 - 	org.scholarlydata.feature.per.FBPerPublishedWorkURI
+2016-11-23 16:12:54 INFO  PairFBPer:78 - 	org.scholarlydata.feature.per.FBPerRoleAtEvent
+2016-11-23 16:12:54 INFO  PairFBPer:80 - 	org.scholarlydata.feature.per.FBPerCoAuthorURI
+2016-11-23 16:12:55 INFO  PairFBPer:82 - 	org.scholarlydata.feature.per.FBPerPublishedWorkKAT
