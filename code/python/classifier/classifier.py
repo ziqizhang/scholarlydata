@@ -11,15 +11,14 @@ import numpy
 import logging
 
 from time import time
-from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_score
-from sklearn.metrics import classification_report, accuracy_score
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.metrics import classification_report
 from imblearn.under_sampling import RandomUnderSampler
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.linear_model import SGDClassifier, LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import svm, naive_bayes
-from sklearn.decomposition import PCA
-from sklearn.feature_selection import RFECV, univariate_selection
+from sklearn.feature_selection import RFECV
 from sklearn.cross_validation import StratifiedKFold
 
 # import matplotlib.pyplot as plt
@@ -32,8 +31,6 @@ import datetime
 # GLOBAL VARIABLES
 
 TRAINING_DATA = "code/python/classifier/training.csv"
-TESTING_DATA_WIND = "C:\\Users\\jieg\\Google Drive\\OAK Group\\jateResult4Yuan\\Training_testingData\\zh_windtest.csv"
-TESTING_DATA_MOBILE = "C:\\Users\\jieg\\Google Drive\\OAK Group\\jateResult4Yuan\\Training_testingData\\zh_mobiletest.csv"
 TESTING_DATA_ACLRDTEC = "C:\\Users\\jieg\\Google Drive\\OAK Group\\jateResult4Yuan\\Training_testingData\\aclrdtec_test.csv"
 
 # Model selection
@@ -41,8 +38,8 @@ WITH_MultinomialNB = False
 WITH_SGD = False
 WITH_SLR = False
 WITH_RANDOM_FOREST = False
-WITH_LIBLINEAR_SVM = False
-WITH_RBF_SVM = True
+WITH_LIBLINEAR_SVM = True
+WITH_RBF_SVM = False
 
 # DIRECTLY LOAD PRE-TRAINED MODEL FOR PREDICTION
 # ENABLE THIS VARIABLE TO TEST NEW TEST SET WITHOUT TRAINING
