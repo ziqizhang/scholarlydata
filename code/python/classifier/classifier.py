@@ -29,15 +29,35 @@ import datetime
 #####################################################
 # GLOBAL VARIABLES
 
-TRAINING_DATA_ORG = "/home/zqz/Work/scholarlydata/data/training_org_features.csv"
+#TRAINING_DATA_ORG = "/home/zqz/Work/scholarlydata/data/training_org_features.csv"
+#MODEL_NAME = "scholarlydata_org"
+#TRAINING_DATA_COLS_START=3 #inclusive
+#TRAINING_DATA_COLS_END=28 #exclusive
+#TRAINING_DATA_COLS_FT_END=24 #exclusive
+#TRAINING_DATA_COLS_TRUTH=24 #inclusive
+
+TRAINING_DATA_ORG = "/home/zqz/Work/scholarlydata/data/training_per_features.csv"
+MODEL_NAME = "scholarlydata_per"
+TRAINING_DATA_COLS_START=3 #inclusive
+TRAINING_DATA_COLS_END=50 #exclsive
+TRAINING_DATA_COLS_FT_END=46 #exclusive
+TRAINING_DATA_COLS_TRUTH=46 #inclusive
 
 # Model selection
 WITH_MultinomialNB = False
-WITH_SGD = False
-WITH_SLR = False
+WITH_SGD = True
+WITH_SLR = True
 WITH_RANDOM_FOREST = False
 WITH_LIBLINEAR_SVM = True
-WITH_RBF_SVM = False
+WITH_RBF_SVM = True
+
+# Random Forest model(or any tree-based model) do not ncessarily need feature scaling
+SCALING = True
+# feature scaling with bound [0,1] is ncessarily for MNB model
+SCALING_STRATEGY_MIN_MAX = 0
+# MEAN and Standard Deviation scaling is the standard feature scaling method
+SCALING_STRATEGY_MEAN_STD = 1
+SCALING_STRATEGY = SCALING_STRATEGY_MEAN_STD
 
 # DIRECTLY LOAD PRE-TRAINED MODEL FOR PREDICTION
 # ENABLE THIS VARIABLE TO TEST NEW TEST SET WITHOUT TRAINING
@@ -45,29 +65,17 @@ LOAD_MODEL_FROM_FILE = False
 
 # set automatic feature ranking and selection
 AUTO_FEATURE_SELECTION = True
-FEATURE_SELECTION_WITH_MAX_ENT_CLASSIFIER = True
-FEATURE_SELECTION_WITH_EXTRA_TREES_CLASSIFIER = False
+FEATURE_SELECTION_WITH_MAX_ENT_CLASSIFIER = False
+FEATURE_SELECTION_WITH_EXTRA_TREES_CLASSIFIER = True
 FEATURE_SELECTION_MANUAL_SETTING = False
 # set manually selected feature index list here
 # check random forest setting when changing this variable
 MANUAL_SELECTED_FEATURES = []
 
-# Random Forest model(or any tree-based model) do not ncessarily need feature scaling
-SCALING = True
-
-# MinMaxScaler (feature_range=(0, 1))
-# feature scaling with bound [0,1] is ncessarily for MNB model
-SCALING_STRATEGY_MIN_MAX = 0
-# MEAN and Standard Deviation scaling is the standard feature scaling method
-SCALING_STRATEGY_MEAN_STD = 1
-
-SCALING_STRATEGY = SCALING_STRATEGY_MIN_MAX
 # The number of CPUs to use to do the computation. -1 means 'all CPUs'
-NUM_CPU = 1
+NUM_CPU = -1
 
 N_FOLD_VALIDATION = 10
-
-MODEL_NAME = "scholarlydataclassify"
 
 
 #####################################################
@@ -88,11 +96,13 @@ class ObjectPairClassifer(object):
         print(ts + " :: " + msg)
 
     def load_training_data(self, training_file):
-        df = pd.read_csv(training_file, header=0, delimiter=",", quoting=0, usecols=range(3, 28)).as_matrix()
+        df = pd.read_csv(training_file, header=0, delimiter=",", quoting=0,
+                         usecols=range(TRAINING_DATA_COLS_START, TRAINING_DATA_COLS_END)).as_matrix()
 
         self.timestamped_print("load training data [%s] from [%s]" % (len(df), training_file))
 
-        X, y = df[:, :23], df[:,24]  # X selects all rows (:), then up to columns 9; y selects all rows, and column 10 only
+        X, y = df[:, :TRAINING_DATA_COLS_FT_END], \
+               df[:,TRAINING_DATA_COLS_TRUTH]  # X selects all rows (:), then up to columns 9; y selects all rows, and column 10 only
         self.training_data = X
         self.training_label = y
 
@@ -170,25 +180,24 @@ class ObjectPairClassifer(object):
                 print("Current scaling strategy is not suitable for MNB model. Skip ...")
             else:
                 print("== Perform classification with multinomial Naive Bayes model ....")
-                classifier_multinomialNB = naive_bayes.MultinomialNB()
-                mnb_tuning_params = {"alpha": [0.0001, 0.001, 0.01, 0.05, 0.1, 0.3, 0.5, 0.7, 1, 1.2, 1.5, 1.7, 2]}
+                classifier_MNB = naive_bayes.MultinomialNB()
+                tuningParams = {"alpha": [0.0001, 0.001, 0.01, 0.05, 0.1, 0.3, 0.5, 0.7, 1, 1.2, 1.5, 1.7, 2]}
 
-                classifier_multinomialNB = GridSearchCV(classifier_multinomialNB, param_grid=mnb_tuning_params,
+                classifier_MNB = GridSearchCV(classifier_MNB, param_grid=tuningParams,
                                                         cv=N_FOLD_VALIDATION,
                                                         n_jobs=NUM_CPU)
                 best_param_mnb = []
                 cv_score_mnb = 0
-                best_estimator = None
                 mnb_model_file = os.path.join(os.path.dirname(__file__), "multinomialNB-%s.m" % MODEL_NAME)
                 t0 = time()
                 if LOAD_MODEL_FROM_FILE:
                     print("model is loaded from [%s]" % str(mnb_model_file))
                     best_estimator = self.load_classifier_model(mnb_model_file)
                 else:
-                    classifier_multinomialNB.fit(X_train, y_train)
-                    best_param_mnb = classifier_multinomialNB.best_params_
-                    cv_score_mnb = classifier_multinomialNB.best_score_
-                    best_estimator = classifier_multinomialNB.best_estimator_
+                    classifier_MNB.fit(X_train, y_train)
+                    best_param_mnb = classifier_MNB.best_params_
+                    cv_score_mnb = classifier_MNB.best_score_
+                    best_estimator = classifier_MNB.best_estimator_
                     print(
                         "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % N_FOLD_VALIDATION)
 
@@ -212,19 +221,18 @@ class ObjectPairClassifer(object):
             # SGD doesn't work so well with only a few samples, but is (much more) performant with larger data
             # At n_iter=1000, SGD should converge on most datasets
             print("Perform classification with stochastic gradient descent (SGD) learning ....")
-            sgd_tuning_params = {"loss": ["log", "modified_huber", "squared_hinge", 'squared_loss'],
+            sgd_params = {"loss": ["log", "modified_huber", "squared_hinge", 'squared_loss'],
                                  "penalty": ['l2', 'l1'],
                                  "alpha": [0.0001, 0.001, 0.01, 0.03, 0.05, 0.1],
                                  "n_iter": [1000],
                                  "learning_rate": ["optimal"]}
             classifier_sgd = SGDClassifier(loss='log', penalty='l2', n_jobs=NUM_CPU)
 
-            classifier_sgd = GridSearchCV(classifier_sgd, param_grid=sgd_tuning_params, cv=N_FOLD_VALIDATION,
+            classifier_sgd = GridSearchCV(classifier_sgd, param_grid=sgd_params, cv=N_FOLD_VALIDATION,
                                           n_jobs=NUM_CPU)
 
             best_param_sgd = []
             cv_score_sgd = 0
-            best_estimator = None
             sgd_model_file = os.path.join(os.path.dirname(__file__), "sgd-classifier-%s.m" % MODEL_NAME)
 
             t0 = time()
@@ -237,9 +245,7 @@ class ObjectPairClassifer(object):
                     "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % N_FOLD_VALIDATION)
                 best_estimator = classifier_sgd.best_estimator_
                 self.save_classifier_model(best_estimator, sgd_model_file)
-
                 best_param_sgd = classifier_sgd.best_params_
-
                 cv_score_sgd = classifier_sgd.best_score_
 
             t1 = time()
@@ -263,18 +269,17 @@ class ObjectPairClassifer(object):
         if WITH_SLR:
             print("Perform classification with Stochastic Logistic Regression ....")
 
-            lrc_tuning_params = {"penalty": ['l2'],
+            slr_params = {"penalty": ['l2'],
                                  "solver": ['liblinear'],
                                  "C": list(np.power(10.0, np.arange(-10, 10))),
                                  "max_iter": [10000]}
 
             classifier_lr = LogisticRegression(random_state=111)
-            classifier_lr = GridSearchCV(classifier_lr, param_grid=lrc_tuning_params, cv=N_FOLD_VALIDATION,
+            classifier_lr = GridSearchCV(classifier_lr, param_grid=slr_params, cv=N_FOLD_VALIDATION,
                                          n_jobs=NUM_CPU)
 
             best_param_lr = []
             cvScores_classifier_lr = 0
-            best_estimator = None
             slr_model_file = os.path.join(os.path.dirname(__file__), "stochasticLR-%s.m" % MODEL_NAME)
             t0 = time()
             if LOAD_MODEL_FROM_FILE:
