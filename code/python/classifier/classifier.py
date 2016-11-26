@@ -29,19 +29,19 @@ import datetime
 #####################################################
 # GLOBAL VARIABLES
 
-#TRAINING_DATA_ORG = "/home/zqz/Work/scholarlydata/data/training_org_features.csv"
-#MODEL_NAME = "scholarlydata_org"
-#TRAINING_DATA_COLS_START=3 #inclusive
-#TRAINING_DATA_COLS_END=28 #exclusive
-#TRAINING_DATA_COLS_FT_END=24 #exclusive
-#TRAINING_DATA_COLS_TRUTH=24 #inclusive
+# DATA_ORG = "/home/zqz/Work/scholarlydata/data/training_org_features.csv"
+# MODEL_NAME = "scholarlydata_org"
+# DATA_COLS_START=3 #inclusive
+# DATA_COLS_END=28 #exclusive
+# DATA_COLS_FT_END=24 #exclusive
+# DATA_COLS_TRUTH=24 #inclusive
 
-TRAINING_DATA_ORG = "/home/zqz/Work/scholarlydata/data/training_per_features.csv"
-MODEL_NAME = "scholarlydata_per"
-TRAINING_DATA_COLS_START=3 #inclusive
-TRAINING_DATA_COLS_END=50 #exclsive
-TRAINING_DATA_COLS_FT_END=46 #exclusive
-TRAINING_DATA_COLS_TRUTH=46 #inclusive
+DATA_ORG = "/home/zqz/Work/scholarlydata/data/training_per_features.csv"
+TASK_NAME = "scholarlydata_per"
+DATA_COLS_START = 3  # inclusive
+DATA_COLS_END = 50  # exclsive
+DATA_COLS_FT_END = 46  # exclusive
+DATA_COLS_TRUTH = 46  # inclusive
 
 # Model selection
 WITH_MultinomialNB = False
@@ -64,9 +64,9 @@ SCALING_STRATEGY = SCALING_STRATEGY_MEAN_STD
 LOAD_MODEL_FROM_FILE = False
 
 # set automatic feature ranking and selection
-AUTO_FEATURE_SELECTION = True
+AUTO_FEATURE_SELECTION = False
 FEATURE_SELECTION_WITH_MAX_ENT_CLASSIFIER = False
-FEATURE_SELECTION_WITH_EXTRA_TREES_CLASSIFIER = True
+FEATURE_SELECTION_WITH_EXTRA_TREES_CLASSIFIER = False
 FEATURE_SELECTION_MANUAL_SETTING = False
 # set manually selected feature index list here
 # check random forest setting when changing this variable
@@ -89,7 +89,8 @@ class ObjectPairClassifer(object):
 
     def __init__(self):
         self.training_data = numpy.empty
-        self.training_label = numpy.empty        
+        self.training_label = numpy.empty
+        self.test_data = numpy.empty
 
     def timestamped_print(self, msg):
         ts = str(datetime.datetime.now())
@@ -97,17 +98,20 @@ class ObjectPairClassifer(object):
 
     def load_training_data(self, training_file):
         df = pd.read_csv(training_file, header=0, delimiter=",", quoting=0,
-                         usecols=range(TRAINING_DATA_COLS_START, TRAINING_DATA_COLS_END)).as_matrix()
+                         usecols=range(DATA_COLS_START, DATA_COLS_END)).as_matrix()
 
         self.timestamped_print("load training data [%s] from [%s]" % (len(df), training_file))
 
-        X, y = df[:, :TRAINING_DATA_COLS_FT_END], \
-               df[:,TRAINING_DATA_COLS_TRUTH]  # X selects all rows (:), then up to columns 9; y selects all rows, and column 10 only
+        X, y = df[:, :DATA_COLS_FT_END], \
+               df[:,
+               DATA_COLS_TRUTH]  # X selects all rows (:), then up to columns 9; y selects all rows, and column 10 only
         self.training_data = X
         self.training_label = y
 
     def load_testing_data(self, testing_file):
-        return pd.read_csv(testing_file, header=None, delimiter=",", quoting=0, usecols=range(0, 11)).as_matrix()
+        df = pd.read_csv(testing_file, header=0, delimiter=",", quoting=0,
+                         usecols=range(DATA_COLS_START, DATA_COLS_END)).as_matrix()
+        self.test_data = df[:, :DATA_COLS_FT_END]
 
     @staticmethod
     def validate_training_set(training_set):
@@ -184,11 +188,11 @@ class ObjectPairClassifer(object):
                 tuningParams = {"alpha": [0.0001, 0.001, 0.01, 0.05, 0.1, 0.3, 0.5, 0.7, 1, 1.2, 1.5, 1.7, 2]}
 
                 classifier_MNB = GridSearchCV(classifier_MNB, param_grid=tuningParams,
-                                                        cv=N_FOLD_VALIDATION,
-                                                        n_jobs=NUM_CPU)
+                                              cv=N_FOLD_VALIDATION,
+                                              n_jobs=NUM_CPU)
                 best_param_mnb = []
                 cv_score_mnb = 0
-                mnb_model_file = os.path.join(os.path.dirname(__file__), "multinomialNB-%s.m" % MODEL_NAME)
+                mnb_model_file = os.path.join(os.path.dirname(__file__), "multinomialNB-%s.m" % TASK_NAME)
                 t0 = time()
                 if LOAD_MODEL_FROM_FILE:
                     print("model is loaded from [%s]" % str(mnb_model_file))
@@ -222,10 +226,10 @@ class ObjectPairClassifer(object):
             # At n_iter=1000, SGD should converge on most datasets
             print("Perform classification with stochastic gradient descent (SGD) learning ....")
             sgd_params = {"loss": ["log", "modified_huber", "squared_hinge", 'squared_loss'],
-                                 "penalty": ['l2', 'l1'],
-                                 "alpha": [0.0001, 0.001, 0.01, 0.03, 0.05, 0.1],
-                                 "n_iter": [1000],
-                                 "learning_rate": ["optimal"]}
+                          "penalty": ['l2', 'l1'],
+                          "alpha": [0.0001, 0.001, 0.01, 0.03, 0.05, 0.1],
+                          "n_iter": [1000],
+                          "learning_rate": ["optimal"]}
             classifier_sgd = SGDClassifier(loss='log', penalty='l2', n_jobs=NUM_CPU)
 
             classifier_sgd = GridSearchCV(classifier_sgd, param_grid=sgd_params, cv=N_FOLD_VALIDATION,
@@ -233,7 +237,7 @@ class ObjectPairClassifer(object):
 
             best_param_sgd = []
             cv_score_sgd = 0
-            sgd_model_file = os.path.join(os.path.dirname(__file__), "sgd-classifier-%s.m" % MODEL_NAME)
+            sgd_model_file = os.path.join(os.path.dirname(__file__), "sgd-classifier-%s.m" % TASK_NAME)
 
             t0 = time()
             if LOAD_MODEL_FROM_FILE:
@@ -270,9 +274,9 @@ class ObjectPairClassifer(object):
             print("Perform classification with Stochastic Logistic Regression ....")
 
             slr_params = {"penalty": ['l2'],
-                                 "solver": ['liblinear'],
-                                 "C": list(np.power(10.0, np.arange(-10, 10))),
-                                 "max_iter": [10000]}
+                          "solver": ['liblinear'],
+                          "C": list(np.power(10.0, np.arange(-10, 10))),
+                          "max_iter": [10000]}
 
             classifier_lr = LogisticRegression(random_state=111)
             classifier_lr = GridSearchCV(classifier_lr, param_grid=slr_params, cv=N_FOLD_VALIDATION,
@@ -280,7 +284,7 @@ class ObjectPairClassifer(object):
 
             best_param_lr = []
             cvScores_classifier_lr = 0
-            slr_model_file = os.path.join(os.path.dirname(__file__), "stochasticLR-%s.m" % MODEL_NAME)
+            slr_model_file = os.path.join(os.path.dirname(__file__), "stochasticLR-%s.m" % TASK_NAME)
             t0 = time()
             if LOAD_MODEL_FROM_FILE:
                 print("model is loaded from [%s]" % str(slr_model_file))
@@ -329,7 +333,7 @@ class ObjectPairClassifer(object):
             best_param_rfc = []
             cv_score_rfc = 0
             best_estimator = None
-            rfc_model_file = os.path.join(os.path.dirname(__file__), "random-forest_classifier-%s.m" % MODEL_NAME)
+            rfc_model_file = os.path.join(os.path.dirname(__file__), "random-forest_classifier-%s.m" % TASK_NAME)
 
             t0 = time()
             if LOAD_MODEL_FROM_FILE:
@@ -381,7 +385,7 @@ class ObjectPairClassifer(object):
             cv_score_liblinear = 0
             best_param_c_liblinear = []
             best_estimator = None
-            liblinear_svm_model_file = os.path.join(os.path.dirname(__file__), "liblinear-svm-linear-%s.m" % MODEL_NAME)
+            liblinear_svm_model_file = os.path.join(os.path.dirname(__file__), "liblinear-svm-linear-%s.m" % TASK_NAME)
 
             t0 = time()
             if LOAD_MODEL_FROM_FILE:
@@ -423,7 +427,7 @@ class ObjectPairClassifer(object):
             best_param_c_rbf = []
             best_estimator = None
 
-            rbf_svm_model_file = os.path.join(os.path.dirname(__file__), "liblinear-svm-rbf-%s.m" % MODEL_NAME)
+            rbf_svm_model_file = os.path.join(os.path.dirname(__file__), "liblinear-svm-rbf-%s.m" % TASK_NAME)
 
             if LOAD_MODEL_FROM_FILE:
                 print("model is loaded from [%s]" % str(rbf_svm_model_file))
@@ -455,14 +459,120 @@ class ObjectPairClassifer(object):
 
         print("complete!")
 
+    def testing(self):
+        print("start testing stage :: testing data size:", len(self.test_data))
+        print("test with CPU cores: [%s]" % NUM_CPU)
+
+        ############################################################################
+        #######################Multinomial Naive Bayes Model ########################
+        if WITH_MultinomialNB:
+            if SCALING_STRATEGY == SCALING_STRATEGY_MEAN_STD:
+                print("Current scaling strategy is not suitable for MNB model. Skip ...")
+            else:
+                print("== Perform classification with multinomial Naive Bayes model ....")
+
+                mnb_model_file = os.path.join(os.path.dirname(__file__), "multinomialNB-%s.m" % TASK_NAME)
+                print("model is loaded from [%s]" % str(mnb_model_file))
+                best_estimator = self.load_classifier_model(mnb_model_file)
+                t0 = time()
+                predictoin_dev = best_estimator.predict(self.test_data)
+                t4 = time()
+
+                time_multinomialNB_predict_dev = t4 - t0
+                print("testing completed in [%s]" % t4)
+                self.saveOutput(predictoin_dev, "multinomialNB")
+
+        ######################### SGDClassifier #######################
+        if WITH_SGD:
+            # SGD doesn't work so well with only a few samples, but is (much more) performant with larger data
+            # At n_iter=1000, SGD should converge on most datasets
+            print("Perform classification with stochastic gradient descent (SGD) learning ....")
+            sgd_model_file = os.path.join(os.path.dirname(__file__), "sgd-classifier-%s.m" % TASK_NAME)
+
+            t0 = time()
+            print("model is loaded from [%s]" % str(sgd_model_file))
+            best_estimator = self.load_classifier_model(sgd_model_file)
+            prediction_dev = best_estimator.predict_proba(self.test_data)
+            t4 = time()
+            time_sgd_predict_dev = t4 - t0
+            self.saveOutput(prediction_dev, "sgdclassifier")
+
+        ######################### Stochastic Logistic Regression#######################
+        if WITH_SLR:
+            print("Perform classification with Stochastic Logistic Regression ....")
+
+            slr_model_file = os.path.join(os.path.dirname(__file__), "stochasticLR-%s.m" % TASK_NAME)
+            t0 = time()
+            print("model is loaded from [%s]" % str(slr_model_file))
+            best_estimator = self.load_classifier_model(slr_model_file)
+            prediction_dev = best_estimator.predict_proba(self.test_data)
+            t4 = time()
+            time_lr_predict_dev = t4 - t0
+            self.saveOutput(prediction_dev, "stochasticLR")
+            # save
+
+        ######################### Random Forest Classifier #######################
+        if WITH_RANDOM_FOREST:
+            print("=================Perform classification with random forest ....")
+            rfc_model_file = os.path.join(os.path.dirname(__file__), "random-forest_classifier-%s.m" % TASK_NAME)
+
+            t0 = time()
+
+            print("model is loaded from [%s]" % str(rfc_model_file))
+            best_estimator = self.load_classifier_model(rfc_model_file)
+            prediction_dev = best_estimator.predict(self.test_data)
+            t4 = time()
+            time_rfc_predict_dev = t4 - t0
+            self.saveOutput(prediction_dev, "randomforest")
+
+        # save
+
+        ####################################################################
+        ############## SVM ###########################################
+        #############################################################
+
+
+        ###################  liblinear SVM ##############################
+        if WITH_LIBLINEAR_SVM:
+            print("== Perform classification with liblinear SVM, kernel=linear ....")
+
+            liblinear_svm_model_file = os.path.join(os.path.dirname(__file__), "liblinear-svm-linear-%s.m" % TASK_NAME)
+
+            t0 = time()
+
+            print("model is loaded from [%s]" % str(liblinear_svm_model_file))
+            best_estimator = self.load_classifier_model(liblinear_svm_model_file)
+            dev_data_prediction_liblinear = best_estimator.predict(self.test_data)
+            time_liblinear_predict_dev = t4 - t0
+            self.saveOutput(prediction_dev, "liblinearsvm")
+
+            #save
+
+        ##################### RBF svm #####################
+        if WITH_RBF_SVM:
+            print("== Perform classification with LinearSVC, kernel=rbf ....")
+            t0 = time()
+            rbf_svm_model_file = os.path.join(os.path.dirname(__file__), "liblinear-svm-rbf-%s.m" % TASK_NAME)
+
+            print("model is loaded from [%s]" % str(rbf_svm_model_file))
+            best_estimator = self.load_classifier_model(rbf_svm_model_file)
+            dev_data_prediction_rbf = best_estimator.predict(self.test_data)
+            t4 = time()
+            time_rbf_predict_dev = t4 - t0
+            self.saveOutput(prediction_dev, "libsvmrbf")
+
+            #save
+
+        print("complete!")
+
     def print_eval_report(self, best_params, cv_score, prediction_dev,
                           time_predict_dev,
                           time_train, y_test):
         print("%s fold CV score [%s]; best params: [%s]" %
-                         (N_FOLD_VALIDATION, cv_score, best_params))
+              (N_FOLD_VALIDATION, cv_score, best_params))
         print("\nTraining time: %fs; "
-                         "Prediction time for 'dev': %fs;" %
-                         (time_train, time_predict_dev))
+              "Prediction time for 'dev': %fs;" %
+              (time_train, time_predict_dev))
         print("\n %fs fold cross validation score:" % cv_score)
         print("\n----------------classification report on 25-percent dev dataset --------------")
         print("\n" + classification_report(y_test, prediction_dev))
@@ -504,14 +614,22 @@ class ObjectPairClassifer(object):
 
         print("Optimal number of features : %s" % str(MANUAL_SELECTED_FEATURES))
 
+    def saveOutput(self, prediction, model_name):
+        filename = os.path.join(os.path.dirname(__file__), "prediction-%s-%s.csv" % (model_name, TASK_NAME))
+        file=open(filename,"w")
+        for entry in prediction:
+            if(entry[0]>entry[1]):
+                file.write("0\n")
+            else:
+                file.write("1\n")
+        file.close()
+
 
 if __name__ == '__main__':
-    import logging.config
 
     classifier = ObjectPairClassifer()
-
-    classifier.load_training_data(TRAINING_DATA_ORG)
-
+    classifier.load_training_data(DATA_ORG)
+    classifier.load_testing_data(DATA_ORG)
     classifier.validate_training_set(classifier.training_data)
 
     if AUTO_FEATURE_SELECTION:
@@ -533,12 +651,14 @@ if __name__ == '__main__':
 
         if SCALING_STRATEGY == SCALING_STRATEGY_MEAN_STD:
             classifier.training_data = classifier.feature_scaling_mean_std(classifier.training_data)
+            classifier.test_data=classifier.feature_scaling_mean_std(classifier.test_data)
         elif SCALING_STRATEGY == SCALING_STRATEGY_MIN_MAX:
-            classifier.training_data = classifier.feature_scaling_min_max(classifier.training_data)
+            classifier.training_data = classifier.feature_scaling_min_max(classifier.test_data)
+            classifier.test_data=classifier.feature_scaling_min_max(classifier.test_data)
         else:
             raise ArithmeticError("SCALING STRATEGY IS NOT SET CORRECTLY!")
 
-        print("example data after scaling:", classifier.training_data[0])
+        print("example training data after scaling:", classifier.training_data[0])
     else:
         print("training without feature scaling!")
 
@@ -554,4 +674,5 @@ if __name__ == '__main__':
     classifier.training_data = X_resampled
     classifier.training_label = y_resampled
 
-    classifier.training()
+    #classifier.training()
+    classifier.testing()
