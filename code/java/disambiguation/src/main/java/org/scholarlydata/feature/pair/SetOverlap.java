@@ -46,6 +46,8 @@ public class SetOverlap {
             return 0;
         Set<String> inter = new HashSet<>(obj1);
         Set<String> union = new HashSet<>(obj1);
+        if(union.size()==0)
+            return 0.0;
         inter.retainAll(obj2);
         union.addAll(obj2);
 

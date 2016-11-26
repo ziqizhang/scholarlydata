@@ -8,7 +8,6 @@ import os
 import pickle
 
 import numpy
-import logging
 
 from time import time
 from sklearn.model_selection import train_test_split, GridSearchCV
@@ -30,8 +29,7 @@ import datetime
 #####################################################
 # GLOBAL VARIABLES
 
-TRAINING_DATA = "code/python/classifier/training.csv"
-TESTING_DATA_ACLRDTEC = "C:\\Users\\jieg\\Google Drive\\OAK Group\\jateResult4Yuan\\Training_testingData\\aclrdtec_test.csv"
+TRAINING_DATA_ORG = "/home/zqz/Work/scholarlydata/data/training_org_features.csv"
 
 # Model selection
 WITH_MultinomialNB = False
@@ -46,8 +44,8 @@ WITH_RBF_SVM = False
 LOAD_MODEL_FROM_FILE = False
 
 # set automatic feature ranking and selection
-AUTO_FEATURE_SELECTION = False
-FEATURE_SELECTION_WITH_MAX_ENT_CLASSIFIER = False
+AUTO_FEATURE_SELECTION = True
+FEATURE_SELECTION_WITH_MAX_ENT_CLASSIFIER = True
 FEATURE_SELECTION_WITH_EXTRA_TREES_CLASSIFIER = False
 FEATURE_SELECTION_MANUAL_SETTING = False
 # set manually selected feature index list here
@@ -69,10 +67,6 @@ NUM_CPU = 1
 
 N_FOLD_VALIDATION = 10
 
-# Column indexes for the input training and testing CSV data file
-TRAINING_DATA_FEATURE_COLUMN_START = 1
-TRAINING_DATA_GROUNDTRUTH_COLUMN = 10
-
 MODEL_NAME = "scholarlydataclassify"
 
 
@@ -87,41 +81,23 @@ class ObjectPairClassifer(object):
 
     def __init__(self):
         self.training_data = numpy.empty
-        self.training_label = numpy.empty
-
-        self.test_data_acl = numpy.empty
-        self.test_data_label_acl = numpy.empty
-
-        self.logger = logging.getLogger(__name__)
+        self.training_label = numpy.empty        
 
     def timestamped_print(self, msg):
         ts = str(datetime.datetime.now())
         print(ts + " :: " + msg)
 
     def load_training_data(self, training_file):
-        df = pd.read_csv(training_file, header=0, delimiter=",", quoting=0, usecols=range(1, 12)).as_matrix()
+        df = pd.read_csv(training_file, header=0, delimiter=",", quoting=0, usecols=range(3, 28)).as_matrix()
 
         self.timestamped_print("load training data [%s] from [%s]" % (len(df), training_file))
 
-        X, y = df[:, :TRAINING_DATA_GROUNDTRUTH_COLUMN], df[:,
-                                                         TRAINING_DATA_GROUNDTRUTH_COLUMN]  # X selects all rows (:), then up to columns 9; y selects all rows, and column 10 only
+        X, y = df[:, :23], df[:,24]  # X selects all rows (:), then up to columns 9; y selects all rows, and column 10 only
         self.training_data = X
         self.training_label = y
 
     def load_testing_data(self, testing_file):
         return pd.read_csv(testing_file, header=None, delimiter=",", quoting=0, usecols=range(0, 11)).as_matrix()
-
-    def load_acl_rdtec_data(self, testing_file):
-        acl_df = self.load_testing_data(testing_file)
-        aclX, acly = acl_df[:, :10], acl_df[:, 10]
-
-        self.logger.info("load ACL RD-TEC test data [%s] from [%s]" % (len(acl_df), testing_file))
-
-        # print(mX[0])
-        # print(my[0])
-
-        self.test_data_acl = aclX
-        self.test_data_label_acl = acly.astype(numpy.int64)
 
     @staticmethod
     def validate_training_set(training_set):
@@ -165,50 +141,6 @@ class ObjectPairClassifer(object):
     def index_max(self, values):
         return max(range(len(values)), key=values.__getitem__)
 
-        # def visualisation(self, _X, _y, _X_resampled, _y_resampled):
-        """
-        visualisation to check training data before and after sampling
-        :param self:
-        :param _X:
-        :param _y:
-        :param _X_resampled:
-        :param _y_resampled:
-        :return:
-        """
-        """
-        sns.set()
-        almost_black ='#262626'
-        palette = sns.color_palette()
-
-        # NOTE: PCA is a trade-off between performance and accuracy and particular use only for visualisation
-        pca = PCA(n_components=2)
-        X_vis = pca.fit_transform(_X)
-        X_res_vis = pca.transform(_X_resampled)
-
-        # two subplots, unpack the axes array immedidately
-        f, (ax1,ax2) = plt.subplots(1,2)
-
-        # visualise training data before and after under-sampling
-        ax1.scatter(X_vis[_y ==0,0], X_vis[_y ==0,1],
-                    label="Class #0", alpha=0.5,
-                    edgecolor=almost_black, facecolor=palette[0], linewidth=0.15)
-
-        ax1.scatter(X_vis[_y == 1,0], X_vis[_y ==1, 1], label="Class #1", alpha=0.5,
-                    edgecolor=almost_black, facecolor=palette[2], linewidth=0.15)
-
-        ax1.set_title('before random under-sampling')
-
-        ax2.scatter(X_res_vis[_y_resampled == 0, 0], X_res_vis[_y_resampled == 0,1],
-                    label="Class #0", alpha=.5, edgecolor=almost_black, facecolor=palette[0], linewidth=0.15)
-
-        ax2.scatter(X_res_vis[_y_resampled == 1, 0], X_res_vis[_y_resampled == 1,1],
-                    label="Class #1", alpha=.5, edgecolor=almost_black, facecolor=palette[2], linewidth=0.15)
-
-        ax2.set_title('random under-sampling')
-
-        plt.show()
-    """
-
     def save_classifier_model(self, model, outfile):
         if model:
             with open(outfile, 'wb') as model_file:
@@ -235,9 +167,9 @@ class ObjectPairClassifer(object):
         #######################Multinomial Naive Bayes Model ########################
         if WITH_MultinomialNB:
             if SCALING_STRATEGY == SCALING_STRATEGY_MEAN_STD:
-                self.logger.info("Current scaling strategy is not suitable for MNB model. Skip ...")
+                print("Current scaling strategy is not suitable for MNB model. Skip ...")
             else:
-                self.logger.info("== Perform classification with multinomial Naive Bayes model ....")
+                print("== Perform classification with multinomial Naive Bayes model ....")
                 classifier_multinomialNB = naive_bayes.MultinomialNB()
                 mnb_tuning_params = {"alpha": [0.0001, 0.001, 0.01, 0.05, 0.1, 0.3, 0.5, 0.7, 1, 1.2, 1.5, 1.7, 2]}
 
@@ -250,33 +182,28 @@ class ObjectPairClassifer(object):
                 mnb_model_file = os.path.join(os.path.dirname(__file__), "multinomialNB-%s.m" % MODEL_NAME)
                 t0 = time()
                 if LOAD_MODEL_FROM_FILE:
-                    self.logger.info("model is loaded from [%s]" % str(mnb_model_file))
+                    print("model is loaded from [%s]" % str(mnb_model_file))
                     best_estimator = self.load_classifier_model(mnb_model_file)
                 else:
                     classifier_multinomialNB.fit(X_train, y_train)
                     best_param_mnb = classifier_multinomialNB.best_params_
                     cv_score_mnb = classifier_multinomialNB.best_score_
                     best_estimator = classifier_multinomialNB.best_estimator_
-                    self.logger.info(
+                    print(
                         "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % N_FOLD_VALIDATION)
 
                     self.save_classifier_model(best_estimator, mnb_model_file)
                 t1 = time()
                 prediction_multinomialNB_dev = best_estimator.predict(X_test)
                 t4 = time()
-                prediction_multinomialNB_acl = best_estimator.predict(self.test_data_acl)
-                t5 = time()
 
                 time_multinomialNB_train = t1 - t0
                 time_multinomialNB_predict_dev = t4 - t1
-                time_multinomialNB_predict_acl = t5 - t4
 
-                self.logger.info("")
-                self.logger.info("==================== Results for MultinomialNB()")
+                print("==================== Results for MultinomialNB()")
 
-                self.print_eval_report(best_param_mnb, cv_score_mnb, prediction_multinomialNB_acl,
+                self.print_eval_report(best_param_mnb, cv_score_mnb,
                                        prediction_multinomialNB_dev,
-                                       time_multinomialNB_predict_acl,
                                        time_multinomialNB_predict_dev,
                                        time_multinomialNB_train, y_test)
 
@@ -284,7 +211,7 @@ class ObjectPairClassifer(object):
         if WITH_SGD:
             # SGD doesn't work so well with only a few samples, but is (much more) performant with larger data
             # At n_iter=1000, SGD should converge on most datasets
-            self.logger.info("Perform classification with stochastic gradient descent (SGD) learning ....")
+            print("Perform classification with stochastic gradient descent (SGD) learning ....")
             sgd_tuning_params = {"loss": ["log", "modified_huber", "squared_hinge", 'squared_loss'],
                                  "penalty": ['l2', 'l1'],
                                  "alpha": [0.0001, 0.001, 0.01, 0.03, 0.05, 0.1],
@@ -302,11 +229,11 @@ class ObjectPairClassifer(object):
 
             t0 = time()
             if LOAD_MODEL_FROM_FILE:
-                self.logger.info("model is loaded from [%s]" % str(sgd_model_file))
+                print("model is loaded from [%s]" % str(sgd_model_file))
                 best_estimator = self.load_classifier_model(sgd_model_file)
             else:
                 classifier_sgd.fit(X_train, y_train)
-                self.logger.info(
+                print(
                     "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % N_FOLD_VALIDATION)
                 best_estimator = classifier_sgd.best_estimator_
                 self.save_classifier_model(best_estimator, sgd_model_file)
@@ -321,24 +248,20 @@ class ObjectPairClassifer(object):
             probabilities_dev = best_estimator.predict_proba(X_test)
             prediction_sgd_dev = [classes[self.index_max(list(probs))] for probs in probabilities_dev]
             t4 = time()
-            probabilities_acl = best_estimator.predict_proba(self.test_data_acl)
-            prediction_sgd_acl = [classes[self.index_max(list(probs))] for probs in probabilities_acl]
-            t5 = time()
 
             time_sgd_train = t1 - t0
             time_sgd_predict_dev = t4 - t1
-            time_sgd_predict_acl = t5 - t4
 
-            self.logger.info("")
-            self.logger.info("\n==================== Results for stochastic gradient descent (SGD) learning ")
+            print("")
+            print("\n==================== Results for stochastic gradient descent (SGD) learning ")
 
-            self.print_eval_report(best_param_sgd, cv_score_sgd, prediction_sgd_acl, prediction_sgd_dev,
-                                   time_sgd_predict_acl, time_sgd_predict_dev,
+            self.print_eval_report(best_param_sgd, cv_score_sgd, prediction_sgd_dev,
+                                   time_sgd_predict_dev,
                                    time_sgd_train, y_test)
 
         ######################### Stochastic Logistic Regression#######################
         if WITH_SLR:
-            self.logger.info("Perform classification with Stochastic Logistic Regression ....")
+            print("Perform classification with Stochastic Logistic Regression ....")
 
             lrc_tuning_params = {"penalty": ['l2'],
                                  "solver": ['liblinear'],
@@ -355,7 +278,7 @@ class ObjectPairClassifer(object):
             slr_model_file = os.path.join(os.path.dirname(__file__), "stochasticLR-%s.m" % MODEL_NAME)
             t0 = time()
             if LOAD_MODEL_FROM_FILE:
-                self.logger.info("model is loaded from [%s]" % str(slr_model_file))
+                print("model is loaded from [%s]" % str(slr_model_file))
                 best_estimator = self.load_classifier_model(slr_model_file)
             else:
                 classifier_lr.fit(X_train, y_train)
@@ -363,7 +286,7 @@ class ObjectPairClassifer(object):
                 best_param_lr = classifier_lr.best_params_
                 cvScores_classifier_lr = classifier_lr.best_score_
                 best_estimator = classifier_lr.best_estimator_
-                self.logger.info(
+                print(
                     "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % N_FOLD_VALIDATION)
                 self.save_classifier_model(best_estimator, slr_model_file)
 
@@ -373,24 +296,20 @@ class ObjectPairClassifer(object):
             probabilities_dev = best_estimator.predict_proba(X_test)
             prediction_lr_dev = [classes[self.index_max(list(probs))] for probs in probabilities_dev]
             t4 = time()
-            probabilities_acl = best_estimator.predict_proba(self.test_data_acl)
-            prediction_lr_acl = [classes[self.index_max(list(probs))] for probs in probabilities_acl]
-            t5 = time()
 
             time_lr_train = t1 - t0
             time_lr_predict_dev = t4 - t1
-            time_lr_predict_acl = t5 - t4
 
-            self.logger.info("")
-            self.logger.info("\n==================== Results for Stochastic Logistic Regression ")
+            print("")
+            print("\n==================== Results for Stochastic Logistic Regression ")
 
-            self.print_eval_report(best_param_lr, cvScores_classifier_lr, prediction_lr_acl, prediction_lr_dev,
-                                   time_lr_predict_acl, time_lr_predict_dev,
+            self.print_eval_report(best_param_lr, cvScores_classifier_lr, prediction_lr_dev,
+                                   time_lr_predict_dev,
                                    time_lr_train, y_test)
 
         ######################### Random Forest Classifier #######################
         if WITH_RANDOM_FOREST:
-            self.logger.info("=================Perform classification with random forest ....")
+            print("=================Perform classification with random forest ....")
             rfc_classifier = RandomForestClassifier(n_estimators=20, n_jobs=NUM_CPU)
             # specify parameters and distributions to sample from
             rfc_tuning_params = {"max_depth": [3, 5, None],
@@ -409,11 +328,11 @@ class ObjectPairClassifer(object):
 
             t0 = time()
             if LOAD_MODEL_FROM_FILE:
-                self.logger.info("model is loaded from [%s]" % str(rfc_model_file))
+                print("model is loaded from [%s]" % str(rfc_model_file))
                 best_estimator = self.load_classifier_model(rfc_model_file)
             else:
                 rfc_classifier.fit(X_train, y_train)
-                self.logger.info(
+                print(
                     "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % N_FOLD_VALIDATION)
 
                 best_estimator = rfc_classifier.best_estimator_
@@ -423,23 +342,18 @@ class ObjectPairClassifer(object):
                 self.save_classifier_model(best_estimator, rfc_model_file)
 
             t1 = time()
-            self.logger.info("testing on genia development set ....")
+            print("testing on genia development set ....")
             dev_data_prediction_rfc = best_estimator.predict(X_test)
             t4 = time()
 
-            self.logger.info("testing on ACL RD-TEC test set ....")
-            prediction_rfc_acl = best_estimator.predict(self.test_data_acl)
-            t5 = time()
-
             time_rfc_train = t1 - t0
             time_rfc_predict_dev = t4 - t1
-            time_rfc_predict_acl = t5 - t4
 
-            self.logger.info("")
+            print("")
 
-            self.logger.info("===================== Results for Random Forest classifier ====================")
-            self.print_eval_report(best_param_rfc, cv_score_rfc, prediction_rfc_acl, dev_data_prediction_rfc,
-                                   time_rfc_predict_acl, time_rfc_predict_dev,
+            print("===================== Results for Random Forest classifier ====================")
+            self.print_eval_report(best_param_rfc, cv_score_rfc, dev_data_prediction_rfc,
+                                   time_rfc_predict_dev,
                                    time_rfc_train, y_test)
         ####################################################################
         ############## SVM ###########################################
@@ -453,7 +367,7 @@ class ObjectPairClassifer(object):
 
         ###################  liblinear SVM ##############################
         if WITH_LIBLINEAR_SVM:
-            self.logger.info("== Perform classification with liblinear SVM, kernel=linear ....")
+            print("== Perform classification with liblinear SVM, kernel=linear ....")
             classifier_liblinear = svm.LinearSVC()
 
             classifier_liblinear = GridSearchCV(classifier_liblinear, tuned_parameters[1], cv=N_FOLD_VALIDATION,
@@ -466,11 +380,11 @@ class ObjectPairClassifer(object):
 
             t0 = time()
             if LOAD_MODEL_FROM_FILE:
-                self.logger.info("model is loaded from [%s]" % str(liblinear_svm_model_file))
+                print("model is loaded from [%s]" % str(liblinear_svm_model_file))
                 best_estimator = self.load_classifier_model(liblinear_svm_model_file)
             else:
                 classifier_liblinear = classifier_liblinear.fit(X_train, y_train)
-                self.logger.info(
+                print(
                     "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % N_FOLD_VALIDATION)
 
                 cv_score_liblinear = classifier_liblinear.best_score_
@@ -480,29 +394,21 @@ class ObjectPairClassifer(object):
                 self.save_classifier_model(best_estimator, liblinear_svm_model_file)
 
             t1 = time()
-            self.logger.info("testing on genia development set ....")
             dev_data_prediction_liblinear = best_estimator.predict(X_test)
             t4 = time()
 
-            self.logger.info("testing on genia development set ....")
-            prediction_liblinear_acl = best_estimator.predict(self.test_data_acl)
-            t5 = time()
-
             time_liblinear_train = t1 - t0
             time_liblinear_predict_dev = t4 - t1
-            time_liblinear_predict_acl = t5 - t4
 
-            self.logger.info(" ==== Results for LinearSVC() =====")
+            print(" ==== Results for LinearSVC() =====")
 
-            self.print_eval_report(best_param_c_liblinear, cv_score_liblinear, prediction_liblinear_acl,
-                                   dev_data_prediction_liblinear,
-                                   time_liblinear_predict_acl,
+            self.print_eval_report(best_param_c_liblinear, cv_score_liblinear, dev_data_prediction_liblinear,
                                    time_liblinear_predict_dev,
                                    time_liblinear_train, y_test)
 
         ##################### RBF svm #####################
         if WITH_RBF_SVM:
-            self.logger.info("== Perform classification with LinearSVC, kernel=rbf ....")
+            print("== Perform classification with LinearSVC, kernel=rbf ....")
             classifier_rbf = svm.SVC()
             classifier_svc_rbf = GridSearchCV(classifier_rbf, param_grid=tuned_parameters[0], cv=N_FOLD_VALIDATION,
                                               n_jobs=NUM_CPU)
@@ -515,11 +421,11 @@ class ObjectPairClassifer(object):
             rbf_svm_model_file = os.path.join(os.path.dirname(__file__), "liblinear-svm-rbf-%s.m" % MODEL_NAME)
 
             if LOAD_MODEL_FROM_FILE:
-                self.logger.info("model is loaded from [%s]" % str(rbf_svm_model_file))
+                print("model is loaded from [%s]" % str(rbf_svm_model_file))
                 best_estimator = self.load_classifier_model(rbf_svm_model_file)
             else:
                 classifier_svc_rbf.fit(X_train, y_train)
-                self.logger.info(
+                print(
                     "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % N_FOLD_VALIDATION)
 
                 cv_score_rbf = classifier_svc_rbf.best_score_
@@ -529,55 +435,44 @@ class ObjectPairClassifer(object):
                 self.save_classifier_model(best_estimator, rbf_svm_model_file)
 
             t1 = time()
-            self.logger.info("testing on genia development set ....")
+            print("testing on genia development set ....")
             dev_data_prediction_rbf = best_estimator.predict(X_test)
             t4 = time()
 
-            self.logger.info("testing on ACL RD-TEC test set ....")
-            prediction_rbf_acl = best_estimator.predict(self.test_data_acl)
-            t5 = time()
-
             time_rbf_train = t1 - t0
             time_rbf_predict_dev = t4 - t1
-            time_rbf_predict_acl = t5 - t4
 
-            self.logger.info(" ==== Results for libsvm SVM (rbf) =====")
+            print(" ==== Results for libsvm SVM (rbf) =====")
 
-            self.print_eval_report(best_param_c_rbf, cv_score_rbf, prediction_rbf_acl, dev_data_prediction_rbf,
-                                   time_rbf_predict_acl, time_rbf_predict_dev,
+            self.print_eval_report(best_param_c_rbf, cv_score_rbf, dev_data_prediction_rbf,
+                                   time_rbf_predict_dev,
                                    time_rbf_train, y_test)
 
         print("complete!")
 
-    def print_eval_report(self, best_params, cv_score, prediction_acl, prediction_dev,
-                          time_predict_acl, time_predict_dev,
+    def print_eval_report(self, best_params, cv_score, prediction_dev,
+                          time_predict_dev,
                           time_train, y_test):
-        self.logger.info("%s fold CV score [%s]; best params: [%s]" %
+        print("%s fold CV score [%s]; best params: [%s]" %
                          (N_FOLD_VALIDATION, cv_score, best_params))
-        self.logger.info("\nTraining time: %fs; "
-                         "Prediction time for 'dev': %fs; Prediction time for ACL RD-TEC: %fs;" %
-                         (time_train, time_predict_dev, time_predict_acl))
-        self.logger.info("\n %fs fold cross validation score:" % cv_score)
-        self.logger.info("\n----------------classification report on 25-percent dev dataset --------------")
-        self.logger.info("\n" + classification_report(y_test, prediction_dev))
-        self.logger.info("\n----------------classification report on ACL RD-TEC dataset --------------")
-        self.logger.info("\n" + classification_report(self.test_data_label_acl, prediction_acl))
+        print("\nTraining time: %fs; "
+                         "Prediction time for 'dev': %fs;" %
+                         (time_train, time_predict_dev))
+        print("\n %fs fold cross validation score:" % cv_score)
+        print("\n----------------classification report on 25-percent dev dataset --------------")
+        print("\n" + classification_report(y_test, prediction_dev))
 
     def feature_selection_with_max_entropy_classifier(self):
-        self.logger.info("automatic feature selection by maxEnt classifier ...")
+        print("automatic feature selection by maxEnt classifier ...")
         rfe = RFECV(estimator=LogisticRegression(class_weight='auto'),
                     cv=StratifiedKFold(self.training_label, 10), scoring='roc_auc', n_jobs=NUM_CPU)
         rfe.fit(self.training_data, self.training_label)
 
         self.training_data = rfe.transform(self.training_data)
-        self.test_data_w = rfe.transform(self.test_data_w)
-        self.test_data_m = rfe.transform(self.test_data_m)
-        self.test_data_acl = rfe.transform(self.test_data_acl)
-
-        self.logger.info("Optimal number of features : %d" % rfe.n_features_)
+        print("Optimal number of features : %d" % rfe.n_features_)
 
     def feature_selection_with_extra_tree_classifier(self):
-        self.logger.info("feature selection with extra tree classifier ...")
+        print("feature selection with extra tree classifier ...")
         from sklearn.ensemble import ExtraTreesClassifier
         from sklearn.feature_selection import SelectFromModel
 
@@ -592,32 +487,25 @@ class ObjectPairClassifer(object):
         features_selected.sort()
 
         self.training_data = self.training_data[:, features_selected]
-        self.test_data_w = self.test_data_w[:, features_selected]
-        self.test_data_m = self.test_data_m[:, features_selected]
-        self.test_data_acl = self.test_data_acl[:, features_selected]
 
-        self.logger.info("Optimal number of features : %s" % str(features_selected))
+        print("Optimal number of features : %s" % str(features_selected))
 
     def feature_selection_with_manual_setting(self):
-        self.logger.info("feature selection with manual setting ...")
+        print("feature selection with manual setting ...")
         if MANUAL_SELECTED_FEATURES is None or len(MANUAL_SELECTED_FEATURES) == 0:
             raise ArithmeticError("Manual selected feature is NOT set correctly!")
 
         self.training_data = self.training_data[:, MANUAL_SELECTED_FEATURES]
-        self.test_data_acl = self.test_data_acl[:, MANUAL_SELECTED_FEATURES]
 
-        self.logger.info("Optimal number of features : %s" % str(MANUAL_SELECTED_FEATURES))
+        print("Optimal number of features : %s" % str(MANUAL_SELECTED_FEATURES))
 
 
 if __name__ == '__main__':
     import logging.config
 
-    logging.config.fileConfig(os.path.join(os.path.dirname(__file__), '..', '..', 'logging.conf'))
-
     classifier = ObjectPairClassifer()
 
-    classifier.load_training_data(TRAINING_DATA)
-    classifier.load_acl_rdtec_data(TESTING_DATA_ACLRDTEC)
+    classifier.load_training_data(TRAINING_DATA_ORG)
 
     classifier.validate_training_set(classifier.training_data)
 
@@ -640,10 +528,8 @@ if __name__ == '__main__':
 
         if SCALING_STRATEGY == SCALING_STRATEGY_MEAN_STD:
             classifier.training_data = classifier.feature_scaling_mean_std(classifier.training_data)
-            classifier.test_data_acl = classifier.feature_scaling_mean_std(classifier.test_data_acl)
         elif SCALING_STRATEGY == SCALING_STRATEGY_MIN_MAX:
             classifier.training_data = classifier.feature_scaling_min_max(classifier.training_data)
-            classifier.test_data_acl = classifier.feature_scaling_min_max(classifier.test_data_acl)
         else:
             raise ArithmeticError("SCALING STRATEGY IS NOT SET CORRECTLY!")
 
@@ -657,17 +543,10 @@ if __name__ == '__main__':
                                                          classifier.training_label)
     print("training data size after resampling:", len(X_resampled))
 
-    # resampling the mobile data
-    aclX_resampled, acly_resampled = classifier.under_sampling(classifier.test_data_acl,
-                                                               classifier.test_data_label_acl)
-    print("ACL RD-TEC testing data size after resampling:", len(aclX_resampled))
-
     # enable this line to visualise the data
     # termClassifier.visualisation(termClassifier.training_data, termClassifier.training_label, X_resampled, y_resampled)
 
     classifier.training_data = X_resampled
     classifier.training_label = y_resampled
-    classifier.test_data_acl = aclX_resampled
-    classifier.test_data_label_acl = acly_resampled
 
     classifier.training()
