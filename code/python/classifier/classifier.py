@@ -29,12 +29,12 @@ import datetime
 #####################################################
 # GLOBAL VARIABLES
 
-# DATA_ORG = "/home/zqz/Work/scholarlydata/data/training_org_features.csv"
-# MODEL_NAME = "scholarlydata_org"
-# DATA_COLS_START=3 #inclusive
-# DATA_COLS_END=28 #exclusive
-# DATA_COLS_FT_END=24 #exclusive
-# DATA_COLS_TRUTH=24 #inclusive
+#DATA_ORG = "/home/zqz/Work/scholarlydata/data/training_org_features.csv"
+#TASK_NAME = "scholarlydata_org"
+#DATA_COLS_START=3 #inclusive
+#DATA_COLS_END=28 #exclusive
+#DATA_COLS_FT_END=24 #exclusive
+#DATA_COLS_TRUTH=24 #inclusive
 
 DATA_ORG = "/home/zqz/Work/scholarlydata/data/training_per_features.csv"
 TASK_NAME = "scholarlydata_per"
@@ -47,7 +47,7 @@ DATA_COLS_TRUTH = 46  # inclusive
 WITH_MultinomialNB = False
 WITH_SGD = True
 WITH_SLR = True
-WITH_RANDOM_FOREST = False
+WITH_RANDOM_FOREST = True
 WITH_LIBLINEAR_SVM = True
 WITH_RBF_SVM = True
 
@@ -64,9 +64,9 @@ SCALING_STRATEGY = SCALING_STRATEGY_MEAN_STD
 LOAD_MODEL_FROM_FILE = False
 
 # set automatic feature ranking and selection
-AUTO_FEATURE_SELECTION = False
+AUTO_FEATURE_SELECTION = True
 FEATURE_SELECTION_WITH_MAX_ENT_CLASSIFIER = False
-FEATURE_SELECTION_WITH_EXTRA_TREES_CLASSIFIER = False
+FEATURE_SELECTION_WITH_EXTRA_TREES_CLASSIFIER = True
 FEATURE_SELECTION_MANUAL_SETTING = False
 # set manually selected feature index list here
 # check random forest setting when changing this variable
@@ -346,8 +346,7 @@ class ObjectPairClassifer(object):
 
                 best_estimator = rfc_classifier.best_estimator_
                 best_param_rfc = rfc_classifier.best_params_
-                cv_score_rfc = rfc_classifier.best_score_GENIA
-
+                cv_score_rfc=rfc_classifier.best_score_
                 self.save_classifier_model(best_estimator, rfc_model_file)
 
             t1 = time()
@@ -674,5 +673,5 @@ if __name__ == '__main__':
     classifier.training_data = X_resampled
     classifier.training_label = y_resampled
 
-    #classifier.training()
-    classifier.testing()
+    classifier.training()
+    #classifier.testing()
