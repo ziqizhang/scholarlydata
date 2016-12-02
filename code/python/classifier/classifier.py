@@ -26,15 +26,23 @@ import numpy as np
 import pandas as pd
 import datetime
 
+import tensorflow as tf
+
+tf.python.control_flow_ops = tf
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.layers import Dropout
+from keras.wrappers.scikit_learn import KerasClassifier
+
 #####################################################
 # GLOBAL VARIABLES
 
-#DATA_ORG = "/home/zqz/Work/scholarlydata/data/training_org_features.csv"
-#TASK_NAME = "scholarlydata_org"
-#DATA_COLS_START=3 #inclusive
-#DATA_COLS_END=28 #exclusive
-#DATA_COLS_FT_END=24 #exclusive
-#DATA_COLS_TRUTH=24 #inclusive
+# DATA_ORG = "/home/zqz/Work/scholarlydata/data/training_org_features.csv"
+# TASK_NAME = "scholarlydata_org"
+# DATA_COLS_START=3 #inclusive
+# DATA_COLS_END=28 #exclusive
+# DATA_COLS_FT_END=24 #exclusive
+# DATA_COLS_TRUTH=24 #inclusive
 
 DATA_ORG = "/home/zqz/Work/scholarlydata/data/training_per_features.csv"
 TASK_NAME = "scholarlydata_per"
@@ -43,6 +51,10 @@ DATA_COLS_END = 50  # exclsive
 DATA_COLS_FT_END = 46  # exclusive
 DATA_COLS_TRUTH = 46  # inclusive
 
+#DATA_COLS_END = 44  # exclsive
+#DATA_COLS_FT_END = 40  # exclusive
+#DATA_COLS_TRUTH = 40  # inclusive
+
 # Model selection
 WITH_MultinomialNB = False
 WITH_SGD = True
@@ -50,6 +62,7 @@ WITH_SLR = True
 WITH_RANDOM_FOREST = True
 WITH_LIBLINEAR_SVM = True
 WITH_RBF_SVM = True
+WITH_ANN = False
 
 # Random Forest model(or any tree-based model) do not ncessarily need feature scaling
 SCALING = True
@@ -61,10 +74,10 @@ SCALING_STRATEGY = SCALING_STRATEGY_MEAN_STD
 
 # DIRECTLY LOAD PRE-TRAINED MODEL FOR PREDICTION
 # ENABLE THIS VARIABLE TO TEST NEW TEST SET WITHOUT TRAINING
-LOAD_MODEL_FROM_FILE = False
+LOAD_MODEL_FROM_FILE = True
 
 # set automatic feature ranking and selection
-AUTO_FEATURE_SELECTION = True
+AUTO_FEATURE_SELECTION = False
 FEATURE_SELECTION_WITH_MAX_ENT_CLASSIFIER = False
 FEATURE_SELECTION_WITH_EXTRA_TREES_CLASSIFIER = True
 FEATURE_SELECTION_MANUAL_SETTING = False
@@ -76,6 +89,18 @@ MANUAL_SELECTED_FEATURES = []
 NUM_CPU = -1
 
 N_FOLD_VALIDATION = 10
+
+def create_model(dropout_rate=0.0):
+    # create model
+    model = Sequential()
+    model.add(Dense(80,
+                    input_dim=DATA_COLS_FT_END,
+                    init='uniform', activation='relu'))
+    model.add(Dropout(dropout_rate))
+    model.add(Dense(1, init='uniform', activation='sigmoid'))
+    # Compile model
+    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+    return model
 
 
 #####################################################
@@ -346,7 +371,7 @@ class ObjectPairClassifer(object):
 
                 best_estimator = rfc_classifier.best_estimator_
                 best_param_rfc = rfc_classifier.best_params_
-                cv_score_rfc=rfc_classifier.best_score_
+                cv_score_rfc = rfc_classifier.best_score_
                 self.save_classifier_model(best_estimator, rfc_model_file)
 
             t1 = time()
@@ -456,6 +481,51 @@ class ObjectPairClassifer(object):
                                    time_rbf_predict_dev,
                                    time_rbf_train, y_test)
 
+        ################# Artificial Neural Network #################
+        if WITH_ANN:
+            print("== Perform classification with ANN ....")
+            # create model
+            model = KerasClassifier(build_fn=create_model, verbose=0)
+            # define the grid search parameters
+            batch_size = [10, 20]
+            epochs = [50, 100]
+            dropout = [0.1, 0.3, 0.5, 0.7]
+            param_grid = dict(dropout_rate=dropout, batch_size=batch_size, nb_epoch=epochs)
+            grid = GridSearchCV(estimator=model, param_grid=param_grid, n_jobs=-1,
+                                cv=N_FOLD_VALIDATION)
+
+            t0 = time()
+            cv_score_ann = 0
+            best_param_ann = []
+            ann_model_file = os.path.join(os.path.dirname(__file__), "ann-%s.m" % TASK_NAME)
+
+            if LOAD_MODEL_FROM_FILE:
+                print("model is loaded from [%s]" % str(ann_model_file))
+                best_estimator = self.load_classifier_model(ann_model_file)
+            else:
+                grid.fit(X_train, y_train)
+                print(
+                    "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % N_FOLD_VALIDATION)
+
+                cv_score_ann = grid.best_score_
+                best_param_ann = grid.best_params_
+                best_estimator = grid.best_estimator_
+
+                #self.save_classifier_model(best_estimator, ann_model_file)
+
+            t1 = time()
+            print("testing on development set ....")
+            dev_data_prediction_ann = best_estimator.predict(X_test)
+            t4 = time()
+
+            time_ann_train = t1 - t0
+            time_ann_predict_dev = t4 - t1
+
+            print(" ==== Results for ANN =====")
+            self.print_eval_report(best_param_ann, cv_score_ann, dev_data_prediction_ann,
+                                   time_ann_predict_dev,
+                                   time_ann_train, y_test)
+
         print("complete!")
 
     def testing(self):
@@ -545,7 +615,7 @@ class ObjectPairClassifer(object):
             time_liblinear_predict_dev = t4 - t0
             self.saveOutput(prediction_dev, "liblinearsvm")
 
-            #save
+            # save
 
         ##################### RBF svm #####################
         if WITH_RBF_SVM:
@@ -560,7 +630,7 @@ class ObjectPairClassifer(object):
             time_rbf_predict_dev = t4 - t0
             self.saveOutput(prediction_dev, "libsvmrbf")
 
-            #save
+            # save
 
         print("complete!")
 
@@ -615,12 +685,16 @@ class ObjectPairClassifer(object):
 
     def saveOutput(self, prediction, model_name):
         filename = os.path.join(os.path.dirname(__file__), "prediction-%s-%s.csv" % (model_name, TASK_NAME))
-        file=open(filename,"w")
+        file = open(filename, "w")
         for entry in prediction:
-            if(entry[0]>entry[1]):
-                file.write("0\n")
+            if(isinstance(entry, float)):
+                file.write(str(entry)+"\n")
+                #file.write("\n")
             else:
-                file.write("1\n")
+                if (entry[0] > entry[1]):
+                    file.write("0\n")
+                else:
+                    file.write("1\n")
         file.close()
 
 
@@ -646,26 +720,26 @@ if __name__ == '__main__':
         print("feature scaling...")
         print(" scaling method: [%s]" % SCALING_STRATEGY)
 
-        print("example data before scaling:", classifier.training_data[0])
+        #print("example data before scaling:", classifier.training_data[0])
 
         if SCALING_STRATEGY == SCALING_STRATEGY_MEAN_STD:
             classifier.training_data = classifier.feature_scaling_mean_std(classifier.training_data)
-            classifier.test_data=classifier.feature_scaling_mean_std(classifier.test_data)
+            classifier.test_data = classifier.feature_scaling_mean_std(classifier.test_data)
         elif SCALING_STRATEGY == SCALING_STRATEGY_MIN_MAX:
             classifier.training_data = classifier.feature_scaling_min_max(classifier.test_data)
-            classifier.test_data=classifier.feature_scaling_min_max(classifier.test_data)
+            classifier.test_data = classifier.feature_scaling_min_max(classifier.test_data)
         else:
             raise ArithmeticError("SCALING STRATEGY IS NOT SET CORRECTLY!")
 
-        print("example training data after scaling:", classifier.training_data[0])
+        #print("example training data after scaling:", classifier.training_data[0])
     else:
         print("training without feature scaling!")
 
     # ============= random sampling =================================
-    print("training data size before resampling:", len(classifier.training_data))
+    #print("training data size before resampling:", len(classifier.training_data))
     X_resampled, y_resampled = classifier.under_sampling(classifier.training_data,
                                                          classifier.training_label)
-    print("training data size after resampling:", len(X_resampled))
+    #print("training data size after resampling:", len(X_resampled))
 
     # enable this line to visualise the data
     # termClassifier.visualisation(termClassifier.training_data, termClassifier.training_label, X_resampled, y_resampled)
@@ -673,5 +747,7 @@ if __name__ == '__main__':
     classifier.training_data = X_resampled
     classifier.training_label = y_resampled
 
-    classifier.training()
-    #classifier.testing()
+    #classifier.training()
+    classifier.testing()
+
+

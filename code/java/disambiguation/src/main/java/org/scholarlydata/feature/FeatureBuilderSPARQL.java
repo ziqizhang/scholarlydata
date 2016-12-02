@@ -1,8 +1,10 @@
 package org.scholarlydata.feature;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.RDFNode;
-import org.apache.jena.rdf.model.impl.LiteralImpl;
+import org.apache.log4j.Logger;
+import org.scholarlydata.util.SolrCache;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +14,37 @@ import java.util.List;
  */
 public abstract class FeatureBuilderSPARQL<FeatureType, T> implements FeatureBuilder {
 
+    protected Logger logger = Logger.getLogger(FeatureBuilderSPARQL.class.getName());
     protected String sparqlEndpoint;
     protected FeatureNormalizer normalizer;
+    protected SolrCache cache;
 
-    public FeatureBuilderSPARQL(String sparqlEndpoint) {
+    public FeatureBuilderSPARQL(String sparqlEndpoint,
+                                SolrCache cache) {
         this.sparqlEndpoint = sparqlEndpoint;
+        this.cache=cache;
     }
-    public FeatureBuilderSPARQL(String sparqlEndpoint, FeatureNormalizer fn){
-        this(sparqlEndpoint);
+    public FeatureBuilderSPARQL(String sparqlEndpoint,
+                                FeatureNormalizer fn,SolrCache cache){
+        this(sparqlEndpoint, cache);
         this.normalizer=fn;
+    }
+
+    protected Object getFromCache(String queryString) {
+        try {
+            return cache.retrieve(queryString);
+        } catch (Exception e) {
+            logger.error(ExceptionUtils.getFullStackTrace(e));
+        }
+        return null;
+    }
+
+    protected void saveToCache(String queryString, Object obj){
+        try {
+            cache.cache(queryString, obj,true);
+        } catch (Exception e) {
+            logger.error(ExceptionUtils.getFullStackTrace(e));
+        }
     }
 
     protected ResultSet query(String queryString) {

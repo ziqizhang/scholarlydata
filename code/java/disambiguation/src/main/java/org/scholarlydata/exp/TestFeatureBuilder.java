@@ -22,7 +22,7 @@ public class TestFeatureBuilder {
         //1. provide object uris
         String obj1 = "https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university";
         String obj2 = "https://w3id.org/scholarlydata/organisation/shanghai-jiao-tong-university-china";
-        PairFBOrg fb = new PairFBOrg(sparqlEndpoint);
+        PairFBOrg fb = new PairFBOrg(sparqlEndpoint, null);
         Map<Pair<FeatureType, String>, Double> features = fb.build(obj1, obj2);
         System.out.println("end");
     }
@@ -31,7 +31,7 @@ public class TestFeatureBuilder {
         //1. provide object uris
         String obj1 = "https://w3id.org/scholarlydata/person/raphaeel-troncy";
         String obj2 = "https://w3id.org/scholarlydata/person/raphael-troncy";
-        PairFBPer fb = new PairFBPer(sparqlEndpoint, new ArrayList<>());
+        PairFBPer fb = new PairFBPer(sparqlEndpoint, new ArrayList<>(), null);
         Map<Pair<FeatureType, String>, Double> features = fb.build(obj1, obj2);
         System.out.println("end");
     }

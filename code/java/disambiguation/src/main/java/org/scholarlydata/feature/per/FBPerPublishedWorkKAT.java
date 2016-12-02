@@ -9,6 +9,7 @@ import org.scholarlydata.feature.FeatureBuilderSPARQL;
 import org.scholarlydata.feature.FeatureNormalizer;
 import org.scholarlydata.feature.FeatureType;
 import org.scholarlydata.feature.Predicate;
+import org.scholarlydata.util.SolrCache;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -21,12 +22,16 @@ import java.util.Set;
 public class FBPerPublishedWorkKAT extends FeatureBuilderSPARQL<FeatureType, List<String>> {
     protected List<String> stopwords;
 
-    public FBPerPublishedWorkKAT(String sparqlEndpoint) {
-        super(sparqlEndpoint);
+    public FBPerPublishedWorkKAT(String sparqlEndpoint,
+                                 SolrCache cache) {
+        super(sparqlEndpoint, cache);
     }
 
-    public FBPerPublishedWorkKAT(String sparqlEndpoint, FeatureNormalizer normalizer,List<String> stopwords){
-        super(sparqlEndpoint, normalizer);
+    public FBPerPublishedWorkKAT(String sparqlEndpoint,
+                                 FeatureNormalizer normalizer,
+                                 List<String> stopwords,
+                                 SolrCache cache){
+        super(sparqlEndpoint, normalizer, cache);
         this.stopwords=stopwords;
 
     }
@@ -43,6 +48,12 @@ public class FBPerPublishedWorkKAT extends FeatureBuilderSPARQL<FeatureType, Lis
                 .append(Predicate.PUBLICATION_hasTitle.getURI()).append("> ?t .}\n union {?o <")
                 .append(Predicate.PUBLICATION_hasKeyword.getURI()).append("> ?k .}}")
         ;
+        Object cached = getFromCache(sb.toString());
+        if (cached != null)
+            return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_BOW,
+                    (List<String>) cached);
+
+
         ResultSet rs = query(sb.toString());
 
         List<String> out = new ArrayList<>();
@@ -68,6 +79,7 @@ public class FBPerPublishedWorkKAT extends FeatureBuilderSPARQL<FeatureType, Lis
         if(stopwords!=null)
             out.removeAll(stopwords);
 
+        saveToCache(sb.toString(), out);
         return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_BOW, out);
     }
 

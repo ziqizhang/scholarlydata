@@ -7,6 +7,7 @@ import org.scholarlydata.SPARQLQueries;
 import org.scholarlydata.feature.FeatureBuilderSPARQL;
 import org.scholarlydata.feature.FeatureType;
 import org.scholarlydata.feature.Predicate;
+import org.scholarlydata.util.SolrCache;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -17,14 +18,20 @@ import java.util.Set;
  *
  */
 public class FBPerPublishedWorkURI extends FeatureBuilderSPARQL<FeatureType, List<String>> {
-    public FBPerPublishedWorkURI(String sparqlEndpoint) {
-        super(sparqlEndpoint);
+    public FBPerPublishedWorkURI(String sparqlEndpoint,
+                                 SolrCache cache) {
+        super(sparqlEndpoint, cache);
     }
 
     @Override
     public Pair<FeatureType, List<String>> build(String objId) {
         String queryStr = SPARQLQueries.getObjectsOf(objId,
                 Predicate.PERSON_made.getURI());
+
+        Object cached = getFromCache(queryStr);
+        if (cached != null)
+            return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_URI,
+                    (List<String>) cached);
 
         ResultSet rs = query(queryStr);
         Set<String> publications = new HashSet<>(getListResult(rs));
@@ -37,6 +44,7 @@ public class FBPerPublishedWorkURI extends FeatureBuilderSPARQL<FeatureType, Lis
         rs = query(sb.toString());
         publications.addAll(getListResult(rs));
 
+        saveToCache(queryStr, new ArrayList<>(publications));
         return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_URI, new ArrayList<>(publications));
     }
 }

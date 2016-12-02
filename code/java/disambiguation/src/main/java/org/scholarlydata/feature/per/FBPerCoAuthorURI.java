@@ -6,6 +6,7 @@ import org.apache.jena.query.ResultSet;
 import org.scholarlydata.feature.FeatureBuilderSPARQL;
 import org.scholarlydata.feature.FeatureType;
 import org.scholarlydata.feature.Predicate;
+import org.scholarlydata.util.SolrCache;
 
 import java.util.List;
 
@@ -13,8 +14,9 @@ import java.util.List;
  *
  */
 public class FBPerCoAuthorURI extends FeatureBuilderSPARQL<FeatureType, List<String>> {
-    public FBPerCoAuthorURI(String sparqlEndpoint) {
-        super(sparqlEndpoint);
+    public FBPerCoAuthorURI(String sparqlEndpoint,
+                            SolrCache cache) {
+        super(sparqlEndpoint, cache);
     }
 
     @Override
@@ -26,9 +28,15 @@ public class FBPerCoAuthorURI extends FeatureBuilderSPARQL<FeatureType, List<Str
                 .append(Predicate.AUTHOR_LIST_hasItem.getURI()).append("> ?lis .\n?lis <")
                 .append(Predicate.AUTHOR_lIST_ITEM_hasContent.getURI()).append("> ?o .}");
 
+        Object cached = getFromCache(sb.toString());
+        if (cached != null)
+            return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_COAUTHOR,
+                    (List<String>) cached);
+
         ResultSet rs = query(sb.toString());
         List<String> out = getListResult(rs);
         out.remove(objId);
+        saveToCache(sb.toString(), out);
         return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_COAUTHOR, out);
     }
 }

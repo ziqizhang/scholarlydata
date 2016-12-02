@@ -8,6 +8,7 @@ import org.scholarlydata.feature.FeatureBuilderSPARQL;
 import org.scholarlydata.feature.FeatureNormalizer;
 import org.scholarlydata.feature.FeatureType;
 import org.scholarlydata.feature.Predicate;
+import org.scholarlydata.util.SolrCache;
 
 import java.util.List;
 
@@ -16,11 +17,12 @@ import java.util.List;
  */
 public class FBOrgName extends FeatureBuilderSPARQL<FeatureType, List<String>> {
 
-    public FBOrgName(String sparqlEndpoint) {
-        super(sparqlEndpoint);
+    public FBOrgName(String sparqlEndpoint, SolrCache cache) {
+        super(sparqlEndpoint,cache);
     }
-    public FBOrgName(String sparqlEndpoint, FeatureNormalizer fn) {
-        super(sparqlEndpoint,fn);
+    public FBOrgName(String sparqlEndpoint, FeatureNormalizer fn,
+                     SolrCache cache) {
+        super(sparqlEndpoint,fn, cache);
     }
 
 
@@ -29,6 +31,14 @@ public class FBOrgName extends FeatureBuilderSPARQL<FeatureType, List<String>> {
         String queryStr = SPARQLQueries.getObjectsOf(objectId,
                 Predicate.ORGANIZATION_name.getURI());
         ResultSet rs = query(queryStr);
-        return new ImmutablePair<>(FeatureType.ORGANIZATION_NAME, getListResult(rs));
+
+        Object cached=getFromCache(queryStr);
+        if(cached!=null)
+            return new ImmutablePair<>(FeatureType.ORGANIZATION_NAME,(List<String>) cached);
+
+        List<String> result = getListResult(rs);
+        saveToCache(queryStr, result);
+
+        return new ImmutablePair<>(FeatureType.ORGANIZATION_NAME, result);
     }
 }

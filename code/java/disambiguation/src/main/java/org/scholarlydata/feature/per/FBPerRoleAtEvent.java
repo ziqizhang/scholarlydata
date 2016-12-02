@@ -10,6 +10,7 @@ import org.scholarlydata.SPARQLQueries;
 import org.scholarlydata.feature.FeatureBuilderSPARQL;
 import org.scholarlydata.feature.FeatureType;
 import org.scholarlydata.feature.Predicate;
+import org.scholarlydata.util.SolrCache;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +19,9 @@ import java.util.List;
  *
  */
 public class FBPerRoleAtEvent extends FeatureBuilderSPARQL<FeatureType, List<String>> {
-    public FBPerRoleAtEvent(String sparqlEndpoint) {
-        super(sparqlEndpoint);
+    public FBPerRoleAtEvent(String sparqlEndpoint,
+                            SolrCache cache) {
+        super(sparqlEndpoint,cache);
     }
 
     @Override
@@ -32,6 +34,11 @@ public class FBPerRoleAtEvent extends FeatureBuilderSPARQL<FeatureType, List<Str
                 .append("?o <").append(Predicate.ROLE_withRole.getURI()).append("> ?r . \n")
                 .append("?o <").append(Predicate.FUNCTION_during.getURI()).append("> ?e .}");
 
+        Object cached = getFromCache(sb.toString());
+        if (cached != null)
+            return new ImmutablePair<>(FeatureType.PERSON_ROLE_AT_EVENT_URI,
+                    (List<String>) cached);
+
         ResultSet rs = query(sb.toString());
         List<String> out = new ArrayList<>();
         while (rs.hasNext()) {
@@ -43,6 +50,8 @@ public class FBPerRoleAtEvent extends FeatureBuilderSPARQL<FeatureType, List<Str
                     role.toString());
 
         }
+
+        saveToCache(sb.toString(), out);
         return new ImmutablePair<>(FeatureType.PERSON_ROLE_AT_EVENT_URI, out);
 
     }

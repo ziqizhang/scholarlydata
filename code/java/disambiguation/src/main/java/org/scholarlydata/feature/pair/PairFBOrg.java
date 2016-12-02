@@ -9,6 +9,7 @@ import org.scholarlydata.feature.org.FBOrgMemberName;
 import org.scholarlydata.feature.org.FBOrgMemberURI;
 import org.scholarlydata.feature.org.FBOrgName;
 import org.scholarlydata.feature.org.FBOrgParticipatedEventURI;
+import org.scholarlydata.util.SolrCache;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -23,8 +24,9 @@ public class PairFBOrg implements PairFeatureBuilder {
     private String sparqlEndpoint;
     private SetOverlap[] overlapFunctions;
     private FeatureNormalizer fn = new FeatureNormalizer();
+    private SolrCache cache;
 
-    public PairFBOrg(String sparqlEndpoint){
+    public PairFBOrg(String sparqlEndpoint, SolrCache cache){
         this.sparqlEndpoint=sparqlEndpoint;
         overlapFunctions = new SetOverlap[6];
         overlapFunctions[0]=new SetOverlap(0);
@@ -33,29 +35,30 @@ public class PairFBOrg implements PairFeatureBuilder {
         overlapFunctions[3]=new SetOverlap(1, new SFSquareRoot());
         overlapFunctions[4]=new SetOverlap(2);
         overlapFunctions[5]=new SetOverlap(2, new SFSquareRoot());
+        this.cache=cache;
     }
     @Override
     public Map<Pair<FeatureType, String>, Double> build(String obj1, String obj2) {
 
         log.info("Building features for: "+obj1);
         log.info("\t"+FBOrgName.class.getCanonicalName());
-        Pair<FeatureType, List<String>> orgName1 = new FBOrgName(sparqlEndpoint, fn).build(obj1);
+        Pair<FeatureType, List<String>> orgName1 = new FBOrgName(sparqlEndpoint, fn, cache).build(obj1);
         log.info("\t"+FBOrgMemberURI.class.getCanonicalName());
-        Pair<FeatureType, List<String>> orgMemberURI1 = new FBOrgMemberURI(sparqlEndpoint).build(obj1);
+        Pair<FeatureType, List<String>> orgMemberURI1 = new FBOrgMemberURI(sparqlEndpoint, cache).build(obj1);
         log.info("\t"+FBOrgMemberName.class.getCanonicalName());
-        Pair<FeatureType, List<String>> orgMemberName1 = new FBOrgMemberName(sparqlEndpoint,fn).build(obj1);
+        Pair<FeatureType, List<String>> orgMemberName1 = new FBOrgMemberName(sparqlEndpoint,fn, cache).build(obj1);
         log.info("\t"+FBOrgParticipatedEventURI.class.getCanonicalName());
-        Pair<FeatureType, List<String>> orgParticipatedEventURI1 = new FBOrgParticipatedEventURI(sparqlEndpoint).build(obj1);
+        Pair<FeatureType, List<String>> orgParticipatedEventURI1 = new FBOrgParticipatedEventURI(sparqlEndpoint, cache).build(obj1);
 
         log.info("Building features for: "+obj2);
         log.info("\t"+FBOrgName.class.getCanonicalName());
-        Pair<FeatureType, List<String>> orgName2 = new FBOrgName(sparqlEndpoint, fn).build(obj2);
+        Pair<FeatureType, List<String>> orgName2 = new FBOrgName(sparqlEndpoint, fn, cache).build(obj2);
         log.info("\t"+FBOrgMemberURI.class.getCanonicalName());
-        Pair<FeatureType, List<String>> orgMemberURI2 = new FBOrgMemberURI(sparqlEndpoint).build(obj2);
+        Pair<FeatureType, List<String>> orgMemberURI2 = new FBOrgMemberURI(sparqlEndpoint, cache).build(obj2);
         log.info("\t"+FBOrgMemberName.class.getCanonicalName());
-        Pair<FeatureType, List<String>> orgMemberName2 = new FBOrgMemberName(sparqlEndpoint,fn).build(obj2);
+        Pair<FeatureType, List<String>> orgMemberName2 = new FBOrgMemberName(sparqlEndpoint,fn, cache).build(obj2);
         log.info("\t"+FBOrgParticipatedEventURI.class.getCanonicalName());
-        Pair<FeatureType, List<String>> orgParticipatedEventURI2 = new FBOrgParticipatedEventURI(sparqlEndpoint).build(obj2);
+        Pair<FeatureType, List<String>> orgParticipatedEventURI2 = new FBOrgParticipatedEventURI(sparqlEndpoint, cache).build(obj2);
 
         Map<Pair<FeatureType, String>, Double> result = new LinkedHashMap<>();
         generateOverlapFeatures(result, orgName1.getValue(), orgName2.getValue(), orgName1.getKey());

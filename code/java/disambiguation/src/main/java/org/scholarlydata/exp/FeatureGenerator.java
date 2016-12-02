@@ -6,11 +6,15 @@ import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.tuple.Pair;
+import org.apache.solr.client.solrj.embedded.EmbeddedSolrServer;
+import org.apache.solr.core.CoreContainer;
 import org.scholarlydata.feature.FeatureType;
 import org.scholarlydata.feature.pair.PairFBOrg;
 import org.scholarlydata.feature.pair.PairFBPer;
+import org.scholarlydata.util.SolrCache;
 
 import java.io.*;
+import java.nio.file.Paths;
 import java.util.*;
 
 /**
@@ -26,8 +30,12 @@ public class FeatureGenerator {
         String outputCSV = args[3];
         String type = args[4];
         List<String> stopwords = FileUtils.readLines(new File("data/stopwords.txt"));
-        PairFBOrg fborg = new PairFBOrg(sparqlEndpoint);
-        PairFBPer fbper = new PairFBPer(sparqlEndpoint, stopwords);
+
+        EmbeddedSolrServer solr = new EmbeddedSolrServer(Paths.get(args[5]), "collection1");
+        SolrCache cache = new SolrCache(solr);
+
+        PairFBOrg fborg = new PairFBOrg(sparqlEndpoint, cache);
+        PairFBPer fbper = new PairFBPer(sparqlEndpoint, stopwords, cache);
 
         Iterator<CSVRecord> records = read(inputCSV);
         int index = 0;
@@ -44,7 +52,7 @@ public class FeatureGenerator {
             String uri1 = rec.get(1).trim();
             String uri2 = rec.get(2).trim();
             String idx = rec.get(0).trim();
-            String truth = rec.get(3).trim();
+            String truth = rec.size()>3?rec.get(3).trim():"";
             Map<Pair<FeatureType, String>, Double> features = generateRecord(uri1, uri2, type,
                     fbper, fborg);
             if (generateHeader) {
@@ -58,7 +66,7 @@ public class FeatureGenerator {
                 }
                 headers.add("TRUTH");
                 printer.printRecord(headers);
-                generateHeader=false;
+                generateHeader = false;
                 continue;
             }
             List<String> recordValues = new ArrayList<>();
@@ -72,9 +80,11 @@ public class FeatureGenerator {
             printer.printRecord(recordValues);
 
             index++;
+            System.out.println(index+"\t"+uri1+"|"+uri2+" "+new Date());
         }
         printer.close();
-
+        solr.close();
+        System.exit(0);
 
     }
 

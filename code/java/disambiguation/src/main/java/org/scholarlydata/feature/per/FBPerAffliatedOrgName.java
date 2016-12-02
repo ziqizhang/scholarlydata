@@ -8,6 +8,7 @@ import org.scholarlydata.feature.FeatureBuilderSPARQL;
 import org.scholarlydata.feature.FeatureNormalizer;
 import org.scholarlydata.feature.FeatureType;
 import org.scholarlydata.feature.Predicate;
+import org.scholarlydata.util.SolrCache;
 
 import java.util.List;
 
@@ -15,11 +16,14 @@ import java.util.List;
  *
  */
 public class FBPerAffliatedOrgName extends FeatureBuilderSPARQL<FeatureType, List<String>> {
-    public FBPerAffliatedOrgName(String sparqlEndpoint) {
-        super(sparqlEndpoint);
+    public FBPerAffliatedOrgName(String sparqlEndpoint,
+                                 SolrCache cache) {
+        super(sparqlEndpoint, cache);
     }
-    public FBPerAffliatedOrgName(String sparqlEndpoint, FeatureNormalizer fn) {
-        super(sparqlEndpoint,fn);
+
+    public FBPerAffliatedOrgName(String sparqlEndpoint, FeatureNormalizer fn,
+                                 SolrCache cache) {
+        super(sparqlEndpoint, fn, cache);
     }
 
     @Override
@@ -29,7 +33,14 @@ public class FBPerAffliatedOrgName extends FeatureBuilderSPARQL<FeatureType, Lis
                 Predicate.AFFLIATION_withOrganization.getURI(),
                 Predicate.ORGANIZATION_name.getURI());
 
+        Object cached = getFromCache(queryStr);
+        if (cached != null)
+            return new ImmutablePair<>(FeatureType.PERSON_AFFLIATED_ORGANIZATION_NAME,
+                    (List<String>) cached);
+
         ResultSet rs = query(queryStr);
-        return new ImmutablePair<>(FeatureType.PERSON_AFFLIATED_ORGANIZATION_NAME, getListResult(rs));
+        List<String> result = getListResult(rs);
+        saveToCache(queryStr, result);
+        return new ImmutablePair<>(FeatureType.PERSON_AFFLIATED_ORGANIZATION_NAME, result);
     }
 }

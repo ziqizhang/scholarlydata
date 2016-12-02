@@ -7,6 +7,7 @@ import org.scholarlydata.SPARQLQueries;
 import org.scholarlydata.feature.FeatureBuilderSPARQL;
 import org.scholarlydata.feature.FeatureType;
 import org.scholarlydata.feature.Predicate;
+import org.scholarlydata.util.SolrCache;
 
 import java.util.List;
 
@@ -16,8 +17,9 @@ import java.util.List;
 public class FBOrgParticipatedEventURI extends FeatureBuilderSPARQL<FeatureType, List<String>> {
 
 
-    public FBOrgParticipatedEventURI(String sparqlEndpoint) {
-        super(sparqlEndpoint);
+    public FBOrgParticipatedEventURI(String sparqlEndpoint,
+                                     SolrCache cache) {
+        super(sparqlEndpoint, cache);
     }
 
     @Override
@@ -26,7 +28,13 @@ public class FBOrgParticipatedEventURI extends FeatureBuilderSPARQL<FeatureType,
                 Predicate.AFFLIATION_withOrganization.getURI(),
                 Predicate.FUNCTION_during.getURI());
 
+        Object cached=getFromCache(queryStr);
+        if(cached!=null)
+            return new ImmutablePair<>(FeatureType.ORGANISATION_PARTICIPATED_EVENT_URI,(List<String>) cached);
+
         ResultSet rs = query(queryStr);
-        return new ImmutablePair<>(FeatureType.ORGANISATION_PARTICIPATED_EVENT_URI, getListResult(rs));
+        List<String> result = getListResult(rs);
+        saveToCache(queryStr, result);
+        return new ImmutablePair<>(FeatureType.ORGANISATION_PARTICIPATED_EVENT_URI, result);
     }
 }
