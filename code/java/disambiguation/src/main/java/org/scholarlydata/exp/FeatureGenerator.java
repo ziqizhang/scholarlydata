@@ -31,6 +31,9 @@ public class FeatureGenerator {
         String type = args[4];
         List<String> stopwords = FileUtils.readLines(new File("data/stopwords.txt"));
 
+        int URI1_index=1;
+        int URI2_index=2;
+
         EmbeddedSolrServer solr = new EmbeddedSolrServer(Paths.get(args[5]), "collection1");
         SolrCache cache = new SolrCache(solr);
 
@@ -49,8 +52,8 @@ public class FeatureGenerator {
         boolean generateHeader = true;
         while (index < endRow && records.hasNext()) {
             CSVRecord rec = records.next();
-            String uri1 = rec.get(1).trim();
-            String uri2 = rec.get(2).trim();
+            String uri1 = rec.get(URI1_index).trim();
+            String uri2 = rec.get(URI2_index).trim();
             String idx = rec.get(0).trim();
             String truth = rec.size()>3?rec.get(3).trim():"";
             Map<Pair<FeatureType, String>, Double> features = generateRecord(uri1, uri2, type,

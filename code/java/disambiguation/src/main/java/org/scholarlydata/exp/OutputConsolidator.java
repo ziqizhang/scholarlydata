@@ -21,7 +21,7 @@ public class OutputConsolidator {
         gen.consolidateMulti(args[0],
                 Integer.valueOf(args[1]), Integer.valueOf(args[2]),
                 "/home/zqz/Work/scholarlydata/code/python/classifier",
-                "/home/zqz/Work/scholarlydata/data/test/output/person/40_block"
+                "/home/zqz/Work/scholarlydata/data/test/output/person/surname_block"
                 );
         System.out.println("end");
     }

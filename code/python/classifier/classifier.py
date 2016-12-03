@@ -44,8 +44,8 @@ from keras.wrappers.scikit_learn import KerasClassifier
 # DATA_COLS_FT_END=24 #exclusive
 # DATA_COLS_TRUTH=24 #inclusive
 
-DATA_ORG = "/home/zqz/Work/scholarlydata/data/train/training_per_features.csv"
-#DATA_ORG = "/home/zqz/Work/scholarlydata/data/test/person_40_features.csv"
+#DATA_ORG = "/home/zqz/Work/scholarlydata/data/train/training_per_features.csv"
+DATA_ORG = "/home/zqz/Work/scholarlydata/data/test/input/person_surname_features.csv"
 TASK_NAME = "scholarlydata_per"
 DATA_COLS_START = 3  # inclusive
 DATA_COLS_END = 50  # exclsive
@@ -75,7 +75,7 @@ SCALING_STRATEGY = SCALING_STRATEGY_MEAN_STD
 
 # DIRECTLY LOAD PRE-TRAINED MODEL FOR PREDICTION
 # ENABLE THIS VARIABLE TO TEST NEW TEST SET WITHOUT TRAINING
-LOAD_MODEL_FROM_FILE = False
+LOAD_MODEL_FROM_FILE = True
 
 # set automatic feature ranking and selection
 AUTO_FEATURE_SELECTION = False
@@ -744,7 +744,7 @@ if __name__ == '__main__':
     #classifier.training_data = X_resampled
     #classifier.training_label = y_resampled
 
-    classifier.training()
-    #classifier.testing()
+    #classifier.training()
+    classifier.testing()
 
 
