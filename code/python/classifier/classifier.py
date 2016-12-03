@@ -44,16 +44,17 @@ from keras.wrappers.scikit_learn import KerasClassifier
 # DATA_COLS_FT_END=24 #exclusive
 # DATA_COLS_TRUTH=24 #inclusive
 
-DATA_ORG = "/home/zqz/Work/scholarlydata/data/training_per_features.csv"
+DATA_ORG = "/home/zqz/Work/scholarlydata/data/train/training_per_features.csv"
+#DATA_ORG = "/home/zqz/Work/scholarlydata/data/test/person_40_features.csv"
 TASK_NAME = "scholarlydata_per"
 DATA_COLS_START = 3  # inclusive
 DATA_COLS_END = 50  # exclsive
 DATA_COLS_FT_END = 46  # exclusive
 DATA_COLS_TRUTH = 46  # inclusive
 
-#DATA_COLS_END = 44  # exclsive
-#DATA_COLS_FT_END = 40  # exclusive
-#DATA_COLS_TRUTH = 40  # inclusive
+#DATA_COLS_END = 46  # exclsive
+#DATA_COLS_FT_END = 42  # exclusive
+#DATA_COLS_TRUTH = 42  # inclusive
 
 # Model selection
 WITH_MultinomialNB = False
@@ -74,7 +75,7 @@ SCALING_STRATEGY = SCALING_STRATEGY_MEAN_STD
 
 # DIRECTLY LOAD PRE-TRAINED MODEL FOR PREDICTION
 # ENABLE THIS VARIABLE TO TEST NEW TEST SET WITHOUT TRAINING
-LOAD_MODEL_FROM_FILE = True
+LOAD_MODEL_FROM_FILE = False
 
 # set automatic feature ranking and selection
 AUTO_FEATURE_SELECTION = False
@@ -737,17 +738,13 @@ if __name__ == '__main__':
 
     # ============= random sampling =================================
     #print("training data size before resampling:", len(classifier.training_data))
-    X_resampled, y_resampled = classifier.under_sampling(classifier.training_data,
-                                                         classifier.training_label)
+    #X_resampled, y_resampled = classifier.under_sampling(classifier.training_data,                                                         classifier.training_label)
     #print("training data size after resampling:", len(X_resampled))
-
     # enable this line to visualise the data
-    # termClassifier.visualisation(termClassifier.training_data, termClassifier.training_label, X_resampled, y_resampled)
+    #classifier.training_data = X_resampled
+    #classifier.training_label = y_resampled
 
-    classifier.training_data = X_resampled
-    classifier.training_label = y_resampled
-
-    #classifier.training()
-    classifier.testing()
+    classifier.training()
+    #classifier.testing()
 
 

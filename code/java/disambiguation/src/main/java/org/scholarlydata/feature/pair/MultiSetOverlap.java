@@ -1,5 +1,7 @@
 package org.scholarlydata.feature.pair;
 
+import org.apache.commons.collections.CollectionUtils;
+
 import java.util.*;
 
 /**
@@ -17,10 +19,11 @@ public class MultiSetOverlap extends SetOverlap {
     public double score(Collection<String> obj1, Collection<String> obj2){
         if(obj1.size()==0 && obj2.size()==0)
             return 0;
-        List<String> inter = new ArrayList<>(obj1);
-        List<String> union = new ArrayList<>(obj1);
-        inter.retainAll(obj2);
-        union.addAll(obj2);
+        Collection<String> inter = CollectionUtils.intersection(obj1, obj2);
+        Collection<String> union = CollectionUtils.union(obj1,obj2);
+
+        if(inter.size()==0||union.size()==0)
+            return 0.0;
 
         double raw=0.0;
 

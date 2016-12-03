@@ -104,6 +104,8 @@ public class PairFBPer implements PairFeatureBuilder {
                                     List<String> obj2, FeatureType ft) {
         for(MultiSetOverlap of : multiSetOverlapFunctions){
             double score = of.score(obj1, obj2);
+            if(Double.isNaN(score)||Double.isInfinite(score))
+                score=0.0;
             result.put(new ImmutablePair<>(ft, of.getOption()+"|"+of.getSf()), score);
         }
     }
@@ -113,6 +115,8 @@ public class PairFBPer implements PairFeatureBuilder {
                                            List<String> obj2, FeatureType ft){
         for(SetOverlap of : setOverlapFunctions){
             double score = of.score(obj1, obj2);
+            if(Double.isNaN(score)||Double.isInfinite(score))
+                score=0.0;
             result.put(new ImmutablePair<>(ft, of.getOption()+"|"+of.getSf()), score);
         }
     }
