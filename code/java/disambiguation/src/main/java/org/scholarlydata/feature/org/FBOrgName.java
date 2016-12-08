@@ -30,12 +30,12 @@ public class FBOrgName extends FeatureBuilderSPARQL<FeatureType, List<String>> {
     public Pair<FeatureType, List<String>> build(String objectId) {
         String queryStr = SPARQLQueries.getObjectsOf(objectId,
                 Predicate.ORGANIZATION_name.getURI());
-        ResultSet rs = query(queryStr);
 
         Object cached=getFromCache(queryStr);
         if(cached!=null)
             return new ImmutablePair<>(FeatureType.ORGANIZATION_NAME,(List<String>) cached);
 
+        ResultSet rs = query(queryStr);
         List<String> result = getListResult(rs);
         saveToCache(queryStr, result);
 

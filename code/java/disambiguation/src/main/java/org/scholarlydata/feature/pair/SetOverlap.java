@@ -18,7 +18,7 @@ public class SetOverlap {
      * score is not smoothed.
      * @param option:
      *              0 - intersection/union
-     *              1 - intersection/max{|obj1|, |obj2|}
+     *              1 - intersection/min{|obj1|, |obj2|}
      *              2 - 1 if intersection>0; 0 otherwise
      *
      */

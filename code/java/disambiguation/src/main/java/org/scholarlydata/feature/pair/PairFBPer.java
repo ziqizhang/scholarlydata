@@ -28,13 +28,13 @@ public class PairFBPer implements PairFeatureBuilder {
 
     public PairFBPer(String sparqlEndpoint, List<String> stopwords, SolrCache cache){
         this.sparqlEndpoint=sparqlEndpoint;
-        setOverlapFunctions = new SetOverlap[6];
+        setOverlapFunctions = new SetOverlap[4];
         setOverlapFunctions[0]=new SetOverlap(0);
         setOverlapFunctions[1]=new SetOverlap(0, new SFSquareRoot());
         setOverlapFunctions[2]=new SetOverlap(1);
         setOverlapFunctions[3]=new SetOverlap(1, new SFSquareRoot());
-        setOverlapFunctions[4]=new SetOverlap(2);
-        setOverlapFunctions[5]=new SetOverlap(2, new SFSquareRoot());
+        //setOverlapFunctions[4]=new SetOverlap(2);
+        //setOverlapFunctions[5]=new SetOverlap(2, new SFSquareRoot());
 
         this.multiSetOverlapFunctions=new MultiSetOverlap[4];
         multiSetOverlapFunctions[0]=new MultiSetOverlap(0);

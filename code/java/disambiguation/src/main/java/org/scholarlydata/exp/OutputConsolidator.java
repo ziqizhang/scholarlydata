@@ -20,8 +20,8 @@ public class OutputConsolidator {
                 args[3], args[4]);*/
         gen.consolidateMulti(args[0],
                 Integer.valueOf(args[1]), Integer.valueOf(args[2]),
-                "/home/zqz/Work/scholarlydata/code/python/classifier",
-                "/home/zqz/Work/scholarlydata/data/test/output/person/surname_block"
+                "/home/zqz/Work/scholarlydata/code/python/classifier/models/per 40blocking (ovlp 2 removed)",
+                "/home/zqz/Work/scholarlydata/data/test/output/per"
                 );
         System.out.println("end");
     }
