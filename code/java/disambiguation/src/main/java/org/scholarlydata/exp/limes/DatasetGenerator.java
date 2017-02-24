@@ -94,7 +94,8 @@ public class DatasetGenerator {
             Pair<FeatureType, List<String>> orgMemberName1 = new FBOrgMemberName(sparqlEndpoint,fn, cache).build(uriSource);
             log.info("\t"+FBOrgParticipatedEventURI.class.getCanonicalName());
             Pair<FeatureType, List<String>> orgParticipatedEventURI1 = new FBOrgParticipatedEventURI(sparqlEndpoint, cache).build(uriSource);
-            writeConcatenatedToFile(sourceWriter, uriSource, "ORG",orgName1, orgMemberURI1, orgMemberName1, orgParticipatedEventURI1);
+            writeToFile(sourceWriter, uriSource, "ORG",orgName1, orgMemberURI1, orgMemberName1, orgParticipatedEventURI1);
+            //writeConcatenatedToFile(sourceWriter, uriSource, "ORG",orgName1, orgMemberURI1, orgMemberName1, orgParticipatedEventURI1);
 
             log.info("Building features for: "+uriTarget);
             log.info("\t"+FBOrgName.class.getCanonicalName());
@@ -105,7 +106,8 @@ public class DatasetGenerator {
             Pair<FeatureType, List<String>> orgMemberName2 = new FBOrgMemberName(sparqlEndpoint,fn, cache).build(uriTarget);
             log.info("\t"+FBOrgParticipatedEventURI.class.getCanonicalName());
             Pair<FeatureType, List<String>> orgParticipatedEventURI2 = new FBOrgParticipatedEventURI(sparqlEndpoint, cache).build(uriTarget);
-            writeConcatenatedToFile(targetWriter, uriTarget, "ORG",orgName2, orgMemberURI2, orgMemberName2, orgParticipatedEventURI2);
+            writeToFile(targetWriter, uriTarget, "ORG",orgName2, orgMemberURI2, orgMemberName2, orgParticipatedEventURI2);
+            //writeConcatenatedToFile(targetWriter, uriTarget, "ORG",orgName2, orgMemberURI2, orgMemberName2, orgParticipatedEventURI2);
 
         }
     }
@@ -179,12 +181,21 @@ public class DatasetGenerator {
             FeatureType ft = feature.getKey();
             List<String> values = feature.getValue();
 
-            for(String v: values){
+            if(values.size()==0){
                 sb = new StringBuilder("<");
                 sb.append(uri).append(">\t"); //object
                 sb.append("<").append(NAMESPACE).append(ft.getName()).append(">\t");//predicate
-                sb.append("\"").append(v).append("\"^^<http://www.w3.org/2001/XMLSchema#string> .");
+                sb.append("\"\" .");
                 writer.println(sb.toString());
+            }
+            else {
+                for (String v : values) {
+                    sb = new StringBuilder("<");
+                    sb.append(uri).append(">\t"); //object
+                    sb.append("<").append(NAMESPACE).append(ft.getName()).append(">\t");//predicate
+                    sb.append("\"").append(v).append("\" .");
+                    writer.println(sb.toString());
+                }
             }
         }
     }
