@@ -17,7 +17,6 @@ import org.scholarlydata.feature.org.FBOrgParticipatedEventURI;
 import org.scholarlydata.feature.per.*;
 import org.scholarlydata.util.SolrCache;
 
-import javax.print.attribute.standard.MediaSize;
 import java.io.*;
 import java.nio.file.Paths;
 
@@ -95,7 +94,7 @@ public class DatasetGenerator {
             Pair<FeatureType, List<String>> orgMemberName1 = new FBOrgMemberName(sparqlEndpoint,fn, cache).build(uriSource);
             log.info("\t"+FBOrgParticipatedEventURI.class.getCanonicalName());
             Pair<FeatureType, List<String>> orgParticipatedEventURI1 = new FBOrgParticipatedEventURI(sparqlEndpoint, cache).build(uriSource);
-            writeToFile(sourceWriter, uriSource, "ORG",orgName1, orgMemberURI1, orgMemberName1, orgParticipatedEventURI1);
+            writeConcatenatedToFile(sourceWriter, uriSource, "ORG",orgName1, orgMemberURI1, orgMemberName1, orgParticipatedEventURI1);
 
             log.info("Building features for: "+uriTarget);
             log.info("\t"+FBOrgName.class.getCanonicalName());
@@ -106,7 +105,7 @@ public class DatasetGenerator {
             Pair<FeatureType, List<String>> orgMemberName2 = new FBOrgMemberName(sparqlEndpoint,fn, cache).build(uriTarget);
             log.info("\t"+FBOrgParticipatedEventURI.class.getCanonicalName());
             Pair<FeatureType, List<String>> orgParticipatedEventURI2 = new FBOrgParticipatedEventURI(sparqlEndpoint, cache).build(uriTarget);
-            writeToFile(targetWriter, uriTarget, "ORG",orgName2, orgMemberURI2, orgMemberName2, orgParticipatedEventURI2);
+            writeConcatenatedToFile(targetWriter, uriTarget, "ORG",orgName2, orgMemberURI2, orgMemberName2, orgParticipatedEventURI2);
 
         }
     }
@@ -145,7 +144,7 @@ public class DatasetGenerator {
             Pair<FeatureType, List<String>> perCoAuthor1=new FBPerCoAuthorURI(sparqlEndpoint, cache).build(uriSource);
             log.info("\t"+FBPerPublishedWorkKAT.class.getCanonicalName());
             Pair<FeatureType, List<String>> perKAT1 = new FBPerPublishedWorkKAT(sparqlEndpoint,fn,stopwords, cache).build(uriSource);
-            writeToFile(sourceWriter, uriSource, "PER",perAffOrgName1, perAffOrgURI1, perName1, perParticipatedEventURI1,
+            writeConcatenatedToFile(sourceWriter, uriSource, "PER",perAffOrgName1, perAffOrgURI1, perName1, perParticipatedEventURI1,
                     perPublishedWorkURI1, perRoleAtEvent1, perCoAuthor1, perKAT1);
 
             log.info("Building features for: "+uriTarget);
@@ -166,7 +165,7 @@ public class DatasetGenerator {
             Pair<FeatureType, List<String>> perCoAuthor2=new FBPerCoAuthorURI(sparqlEndpoint, cache).build(uriTarget);
             log.info("\t"+FBPerPublishedWorkKAT.class.getCanonicalName());
             Pair<FeatureType, List<String>> perKAT2 = new FBPerPublishedWorkKAT(sparqlEndpoint,fn,stopwords, cache).build(uriTarget);
-            writeToFile(targetWriter, uriTarget, "PER",perAffOrgName2, perAffOrgURI2, perName2, perParticipatedEventURI2,
+            writeConcatenatedToFile(targetWriter, uriTarget, "PER",perAffOrgName2, perAffOrgURI2, perName2, perParticipatedEventURI2,
                     perPublishedWorkURI2, perRoleAtEvent2, perCoAuthor2, perKAT2);
         }
     }
@@ -187,6 +186,32 @@ public class DatasetGenerator {
                 sb.append("\"").append(v).append("\"^^<http://www.w3.org/2001/XMLSchema#string> .");
                 writer.println(sb.toString());
             }
+        }
+    }
+
+    private void writeConcatenatedToFile(PrintWriter writer, String uri, String type, Pair<FeatureType, List<String>>... data) {
+        StringBuilder sb= new StringBuilder("<"); //uri isa X
+        sb.append(uri).append(">\t<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>\t<").append(NAMESPACE)
+                .append(type).append("> .");
+        writer.println(sb.toString());
+        for(Pair<FeatureType, List<String>> feature: data){
+            FeatureType ft = feature.getKey();
+            List<String> values = feature.getValue();
+
+            sb = new StringBuilder("<");
+            sb.append(uri).append(">\t"); //object
+            sb.append("<").append(NAMESPACE).append(ft.getName()).append(">\t\"");//predicate
+
+            for(String v: values){
+                sb.append(v).append("|");
+            }
+
+            String s = sb.toString();
+            if(s.endsWith("|"))
+                s =s.substring(0, s.length()-1).trim();
+            s=s+"\" .";
+
+            writer.println(s);
         }
     }
 }
