@@ -37,10 +37,10 @@ public class DatasetGenerator {
 
 
     public static void main(String[] args) throws IOException {
-        String scholarlydataTrainingSet=args[0];
-        String outputSourceDataset=args[1];
-        String outputTargetDataset=args[2];
-        String flag=args[3];
+        String scholarlydataTrainingSet=args[0]; //cached solr data
+        String outputSourceDataset=args[1]; //file name for 'source.nt';
+        String outputTargetDataset=args[2]; //file name for 'target.nt;
+        String flag=args[3]; //o means org, p means per
 
         final String sparqlEndpoint = "http://www.scholarlydata.org/sparql/";
         EmbeddedSolrServer solr = new EmbeddedSolrServer(Paths.get(args[4]), "collection1");
