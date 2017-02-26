@@ -21,7 +21,7 @@ public class Evaluator {
         //String groundtruthTestDataFile="/home/zqz/Work/scholarlydata/data/limes_experiment/org_4_testing_1quarter.csv";
         //String predictionFile="/home/zqz/Work/scholarlydata/data/limes_experiment/output_org_prediction.nt";
 
-        String groundtruthTestDataFile="/home/zqz/Work/scholarlydata/data/limes_experiment/per_4_testing_1quarter.csv";
+        String groundtruthTestDataFile="/home/zqz/Work/scholarlydata/data/limes_experiment/per_1_testing_1quarter.csv";
         String predictionFile="/home/zqz/Work/scholarlydata/data/limes_experiment/output_per_prediction.nt";
         String outCSV="/home/zqz/Work/scholarlydata/data/limes_experiment/summary.csv";
         CSVPrinter p = new CSVPrinter(new FileWriter(outCSV), CSVFormat.DEFAULT);
