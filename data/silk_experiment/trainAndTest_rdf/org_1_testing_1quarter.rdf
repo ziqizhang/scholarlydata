@@ -1,0 +1,1056 @@
+<rdf:RDF
+    xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <Alignment>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/montpellier-2-university"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/jozef-stefan-institute"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/vrije-universiteit-amsterdam-the-netherlands"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/vrije-universiteit"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/universitaet-wuerzburg"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-wuerzburg"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/universita-degli-studi-roma-tre"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/italy"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/massachusetts-institute-of-technology"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/ludwig-maximilian-university-of-munich"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/basque-country-university"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-the-basque-country"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/german-research-center-for-artificial-intelligence-dfki"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/german-research-center-for-artificial-intelligence"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/information-sciences-institute-university-of-southern-california"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-paris-7"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/vrije-universiteit-amsterdam-fac-sciences-dept-computer-science"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/huawei-technologies-co-ltd"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/medical-university-of-vienna-austria"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/deri-nui-galway"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/stanford-university"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/national-university-of-ireland-galway"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/seevl"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/innova"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/digital-pebble-ltd"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/fondazione-bruno-kessler---fbk-irst"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-montpellier-2"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/montpellier-2-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/nova-lincs-universidade-nova-de-lisboa"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/centria-universidade-nova-de-lisboa"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/school-of-media-science-tokyo-university-of-techno"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/simon-fraser-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/unitn"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/hewlett-packard"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-pantheon---sorbonne-paris-i"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-pantheon-sorbonne-paris-i"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/ibm-china-research-lab"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/ibm-china-research-laboratory"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/ibm"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/shippensburg-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/the-open-university"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/lancaster-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/johannes-kepler-university-linz-austria"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-cagliari"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/universite-de-grenoble-1"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/inria-university-of-grenoble"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/freiburg-university"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-freiburg"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/ibm-research-usa"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/dsic-upv"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-bremen"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/universitat-bremen"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/cnr-istc-italy"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/cnr"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/ibm-tj-watson-research"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/ibm-t-j-watson-research"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/institute-eurecom"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/eurecom"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/vienna-university-of-technology"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/tu-wien"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/british-columbia-cancer-research-centre"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/laboratoire-prism-universite-de-versailles"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/mit-csail"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/mit"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/alcatel-lucent-bell-labs-france"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-karlsruhe-southeast-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/the-open-university---knowledge-media-institute"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/kmi-the-open-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-osnabrueck"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-muenster"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/l3s-research-center"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/l3s"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-targu-mures"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/deutsche-telekom-labs-berlin-university-of-technol"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/galaxy-express"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-amsterdam-vu-university-amsterdam"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/deis-university-of-calabria"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-calabria"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/graduate-school-of-information-science-japan-advanced-institute-of-science-and-technology"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/professor-at-the-university-of-oslo"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/l2f-inesc-id-clul-lisboa"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/nord-software-consulting"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/arcelormittal-asturias"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/ecole-nationale-superieure-des-mines-fayol-ensmse-lsti"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/cnr-istc-italy"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/cnr-istc"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/samsung-sisa"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/software-engineering-institute-east-china-normal-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/institut-aifb-universitaet-karlsruhe"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/institute-aifb"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/vrije-universiteit-amsterdam-the-netherlands"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/vu-university-amsterdam"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/inria-sophia-antipolis---mediterranee"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/inria-sophia-antipolis-mediterranee"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/vienna-university-of-economics-and-business-wu-wien"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-west-bohemia"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-hasselt"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/ips-institute-of-phonetics-and-speech-processing"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/yahoo-inc"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/peking-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-jyvaskyla"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-jyvaeskylae"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/politenico-di-milano"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/dfki-gmbh-kaiserslautern-germany"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/the-institute-of-scientific-and-industrial-research-isir-osaka-university"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-rennes"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/sap-ag"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/deri-universitaet-innsbruck"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/europeana--vu-university-amsterdam"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/europeana-vu-university-amsterdam"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/universidad-de-granada"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/department-of-computer-science-karachi-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-lleida"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/pompeu-fabra-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/sandia-national-laboratories"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/digital-pebble-ltd"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/j-stefan-institute-ljubljana"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/taxonomy-strategies"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/tuhh"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/technical-university-of-hamburg"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/deri-nui-galway"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/deri-national-university-of-ireland-galway"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/politecnico-di-milano-dipartimento-di-elettronica-e-informazione"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/ag-semantic-computing-citec-university-of-bielefeld"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/tsinghua-university"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/department-of-computer-science-tsinghua-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/deri-universitaet-innsbruck"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/sti-innsbruck-university-of-innsbruck"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/universite-de-lyon"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-lyon"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/oracle-corporation"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/oracle"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/fluid-operations"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/fluid-operations-ag"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/philips-research"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/laas-cnrs"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-nantes"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-nantes---lina"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/google-inc"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/google"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/wright-state-university"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/knoesis-center-wright-state-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/fraunhofer-institute-of-applied-information-technology"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-roma-tor-vergata"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/easterngraphics-gmbh"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-bologna-at-forli"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/ontology-engineering-group-universidad-politecnica"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-illinois-at-chicago"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/northwestern-university"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/intelligent-information-laboratory-northwestern-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-sheffield-uk"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-sheffield"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/indian-institute-of-technology-kharagpur"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/free-university-amsterdam"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/ritsumeikan-university"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/hitachi"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/y-labs"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/fraunhofer-fokus"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-sheffield"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-fribourg"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-bucharest"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/swirrl-it-limited"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-trento-italy"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/informazione-disi---university-of-trento"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/expert-system"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/cambridge-semantics"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/linkoping-university"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/linkoeping-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/charles-iii-university-of-madrid"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/raytheon-company"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/deri-nui-galway"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/dept-of-eecs-and-school-of-information-university-of-michigan"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/liris-universite-de-lyon"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/france"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/buaa"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/florida-institute-for-human-and-machine-cognition"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/ontology-engineering-group---universidad-politecnica-de-madrid"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/ontology-engineering-group-universidad-politecnica-de-madrid"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/lig"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/inria"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/shanghai-jiaotong-university-ibm-research-china"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/ibm-china-research-laboratory"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-linkoping"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/stlab-istc-cnr-linkoeping-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-economics-prague"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-economics"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-oxford"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/oxford-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/vienna-university-of-economics-and-business---wu-wien"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/vienna-university-of-economics-and-business-wu-wien"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-castilla-la-mancha"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/nxp"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/beijing-university"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/rulecore"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/universite-paris-sud-xi-orsay"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/universite-paris-sorbonne"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/monash-university"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/institute-for-infocomm-research"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/irit-universite-toulouse-le-mirail"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/irit-univ-toulouse-le-mirail"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/isoco-s-a"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/isoco-sa"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/stony-brook-university"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/ibm-research-almaden"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-bristol"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/bristol-university"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/umr-cnrs-5516-universite-jean-monnet"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/university-of-goettingen"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/organisation/bell-labs"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/organisation/bell-labs-alcatel-lucent"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+  </Alignment>
+</rdf:RDF>

@@ -1,0 +1,1746 @@
+<rdf:RDF
+    xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <Alignment>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/luisa-leiva"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/luis-a-leiva"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/patrik-schneider"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/thomas-schneider"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/marco-a.-casanova"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/marco-antonio-casanova"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/gaurav-aggarwal"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/charu-aggarwal"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/xueyan-jiang"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/jing-jiang"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/deepayan-chakrabarti"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/soumen-chakrabarti"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jingtian-jiang"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/xueyan-jiang"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/manuel-fernandez"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/javierd-fernandez"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/ghislain-atemezing"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/ghislain-auguste-atemezing"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/michael-schneider"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/jodi-schneider"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/ashish-goel"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/aman-goel"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/asuncion-gomez-perez"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/jose-manuel-gomez-perez"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jingtian-jiang"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/xuxian-jiang"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/xuxian-jiang"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/xueyan-jiang"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/tobias-kuhn"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/werner-kuhn"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/luis-a-leiva"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/luisa-leiva"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/pernhui-chia"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/pern-hui-chia"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/haklae-kim"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/hak-kim"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/kaushik-chakrabarti"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/soumen-chakrabarti"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/wei-shen"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/yi-dong-shen"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/makotop-kato"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/makoto-p-kato"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/wook-shin-han"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/jiawei-han"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/l-venkata-subramaniam"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/l-v-subramaniam"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/xuxian-jiang"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/daxin-jiang"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/haklae-kim"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/hyunsun-kim"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/janette-lehmann"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/sune-lehmann"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/soren-auer"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/soeren-auer"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/kiril-simov"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/alex-simov"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/nenad-stojanovic"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/ljiljana-stojanovic"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/florian-wagner"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/andreas-wagner"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/birgitta-konig-ries"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/birgitta-koenig-ries"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/patrick-jordan"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/katrin-jordan"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/simon-mille"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/alain-mille"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jingtian-jiang"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/jing-jiang"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/gregoris-antoniou"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/ioannis-antoniou"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/alexandre-miguel-pinto"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/helena-sofia-pinto"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/francesco-nucci"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/francesco-saverio-nucci"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/andrea-nuzzolese"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/andrea-giovanni-nuzzolese"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/raphael-m-reischuk"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/raphaelm-reischuk"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/hak-kim"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/su-myeon-kim"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/daniel-herzig"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/danielm-herzig"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/harold-castro"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/joao-castro"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/gregoris-antoniou"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/grigoris-antoniou"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/john-mccrae"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/john-p-mccrae"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/ryen-white"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/ryen-w-white"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/ravi-kumar"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/vikash-kumar"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/li-ding"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/ying-ding"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/marcos-goncalves"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/bruno-goncalves"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/yamir-moreno"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/andres-moreno"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/fabian-suchanek"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/fabian-m-suchanek"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/matthias-bauer"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/bernhard-bauer"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/alasdair-gray"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/alasdair-j-g-gray"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/takis-metaxas"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/panagiotis-metaxas"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/alasdair-gray"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/alasdair-j-g-gray"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jian-tao-sun"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/aixin-sun"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/shuming-shi"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/xiaolin-shi"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/john-tang"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/jie-tang"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/alasdair-j-g-gray"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/alasdair-gray"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/h-sofia-pinto"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/alexandre-miguel-pinto"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/andy-shin"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/suengwon-shin"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/dingyi-han"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/jiawei-han"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/petros-fafalios"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/pavlos-fafalios"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/blaz-fortuna"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/carolina-fortuna"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/yang-song"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/ruihua-song"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jodi-schneider"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/thomas-schneider"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/subhabrata-sen"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/prithviraj-sen"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/ulrike-sattler"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/kai-uwe-sattler"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/michael-klein"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/adrian-klein"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/fernando-diaz"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/alicia-diaz"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/cartic-ramakrishnan"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/ganesh-ramakrishnan"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/nigel-shadbolt"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/james-hendler"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/fuqi-song"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/yang-song"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/kai-uwe-krause"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/markus-krause"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/valentina-presutti"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/valetina-presutti"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/calvin-fong"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/brendan-fong"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jian-tao-sun"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/chengzheng-sun"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/lyndon-nixon"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/lyndon-j-b-nixon"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/philipp-singer"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/ross-singer"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/lei-tang"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/jie-tang"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/beibei-hu"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/wei-hu"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/tom-scott"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/dan-scott"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jatinder-singh"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/kapil-singh"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/ian-millard"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/david-millard"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/daniel-p-miranker"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/daniel-miranker"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/geert-jan-houben"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/romee-houben"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/willem-van-hage"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/willem-robert-van-hage"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/alfio-massimiliano-gliozzo"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/alfio-gliozzo"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/grigoris-antoniou"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/gregoris-antoniou"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/nish-parikh"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/harshil-parikh"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/javierd-fernandez"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/manuel-fernandez"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/mary-allen"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/rachel-allen"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/eleanor-fink"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/michael-fink"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/dmitry-mouromtsev"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/dmitry-muromtsev"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/maria-esther-vidal"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/vania-vidal"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/joseph-davis"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/brian-davis"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/rolf-stadler"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/claus-stadler"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jatinder-singh"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/amit-singh"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/revathy-krishnamurthy"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/ramnandan-krishnamurthy"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/david-ruiz"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/carlos-ruiz"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jose-manuel-gomez-perez"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/asuncion-gomez-perez"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/franz-lehmann"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/claudia-lehmann"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/s-sertkaya"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/baris-sertkaya"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jia-tao"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/ke-tao"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/xuxian-jiang"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/jingtian-jiang"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/ryann-lichtenwalter"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/ryan-n-lichtenwalter"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/ruihua-song"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/shuangyong-song"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jodi-schneider"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/patrik-schneider"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/vikash-kumar"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/ravi-kumar"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/anlei-dong"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/guozhu-dong"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/sudhir-agarwal"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/deepak-agarwal"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/neal-lewis"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/david-lewis"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/arjun-mukherjee"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/debnath-mukherjee"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/peter-wood"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/p-t-wood"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/dave-lewis"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/neal-lewis"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/xuehua-shen"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/yi-dong-shen"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/matt-thompson"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/bryan-thompson"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/xueyan-jiang"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/xuxian-jiang"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/parag-joshi"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/amit-joshi"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/richard-taylor"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/kerry-taylor"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/xuehua-shen"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/yi-dong-shen"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/marco-casanova"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/marco-antonio-casanova"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/daxin-jiang"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/xueyan-jiang"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/yuan-ren"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/xu-ren"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/dou-shen"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/yi-dong-shen"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/marco-neumann"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/thomas-neumann"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/isabel-cruz"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/isabel-f-cruz"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/clemens-martin"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/david-martin"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jia-tao"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/shu-tao"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/marco-a.-casanova"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/marco-casanova"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/Oscar-corcho"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/oscar-corcho"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/andrea-rodriguez"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/carlos-rodriguez"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/beibei-hu"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/yunhua-hu"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/ramnandan-krishnamurthy"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/revathy-krishnamurthy"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jie-tang"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/john-tang"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/wei-hu"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/xia-hu"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/dou-shen"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/yi-dong-shen"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/miles-osborne"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/francesco-osborne"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/kendall-clark"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/stephen-clark"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/xin-fan"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/wei-fan"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/janette-lehmann"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/claudia-lehmann"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/john-mccrae"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/john-p-mccrae"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/joseph-davis"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/cornelia-davis"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/chengzheng-sun"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/jian-tao-sun"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/shu-tao"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/ke-tao"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jaewoo-kang"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/jeon-hyung-kang"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/giuseppe-rizzo1"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/giuseppe-rizzo"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/yejin-choi"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/ryan-h-choi"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/guofei-gu"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/haijie-gu"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/roberto-garcia"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/juan-a-recio-garcia"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/ke-tao"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/shu-tao"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/pablo-mendes"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/emilia-mendes"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/manuel-fernandez"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/miriam-fernandez"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jing-jiang"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/daxin-jiang"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/hema-raghavan"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/prabhakar-raghavan"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/maria-esther-vidal"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/vania-vidal"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/deng-cai"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/rui-cai"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/asuncion-gomez-perez"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/jose-manuel-gomez-perez"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/yue-lu"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/qin-lu"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/carlos-a-iglesias"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/miguel-iglesias"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/xuehua-shen"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/yi-dong-shen"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jose-maria-garcia"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/roberto-garcia"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/su-nam-kim"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/hak-kim"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/juergen-dix"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/alan-dix"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/kapil-singh"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/amit-singh"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/jeon-hyung-kang"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/jaewoo-kang"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/wei-fan"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/xin-fan"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/bruno-goncalves"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/marcos-goncalves"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/qin-lu"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/chun-lu"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/cornelia-davis"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/brian-davis"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/brendan-fong"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/calvin-fong"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/paul-grimm"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/stephan-grimm"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/bo-fu"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/linyun-fu"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/thanh-tran"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/khoi-nguyen-tran"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1.0</measure>
+        <entity2 rdf:resource="https://w3id.org/scholarlydata/person/tao-sun"/>
+        <entity1 rdf:resource="https://w3id.org/scholarlydata/person/gordon-sun"/>
+        <relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >!=</relation>
+      </Cell>
+    </map>
+  </Alignment>
+</rdf:RDF>
