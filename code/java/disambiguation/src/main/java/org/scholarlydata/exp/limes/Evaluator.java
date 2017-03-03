@@ -21,9 +21,19 @@ public class Evaluator {
         //String groundtruthTestDataFile="/home/zqz/Work/scholarlydata/data/limes_experiment/org_4_testing_1quarter.csv";
         //String predictionFile="/home/zqz/Work/scholarlydata/data/limes_experiment/output_org_prediction.nt";
 
-        String groundtruthTestDataFile="/home/zqz/Work/scholarlydata/data/limes_experiment/per_1_testing_1quarter.csv";
-        String predictionFile="/home/zqz/Work/scholarlydata/data/limes_experiment/output_per_prediction.nt";
-        String outCSV="/home/zqz/Work/scholarlydata/data/limes_experiment/summary.csv";
+        /*String groundtruthTestDataFile="/home/zqz/Work/scholarlydata/data/public/soa_results/LIMES/trainAndTestSplits/" +
+                "org_1_testing_1quarter.csv";
+        String predictionFile="/home/zqz/Work/scholarlydata/data/public/soa_results/LIMES/output/wombat_complete" +
+                "/org_1_prediction.nt";
+        String outCSV="/home/zqz/Work/scholarlydata/data/public/soa_results/LIMES/output/summary.csv";
+        */
+        String groundtruthTestDataFile="/home/zqz/Work/scholarlydata/data/public/soa_results/LIMES/trainAndTestSplits/" +
+                "per_1_testing_1quarter.csv";
+        String predictionFile="/home/zqz/Work/scholarlydata/data/public/soa_results/LIMES/output/wombat_complete" +
+                "/per_1_prediction.nt";
+        String outCSV="/home/zqz/Work/scholarlydata/data/public/soa_results/LIMES/output/summary.csv";
+
+
         CSVPrinter p = new CSVPrinter(new FileWriter(outCSV), CSVFormat.DEFAULT);
 
         for(double threshold=1.0; threshold>0.0; threshold=threshold-0.1) {
