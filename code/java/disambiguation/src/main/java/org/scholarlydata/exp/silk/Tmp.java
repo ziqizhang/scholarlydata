@@ -19,9 +19,12 @@ import java.util.List;
  */
 public class Tmp {
     public static void main(String[] args) throws IOException {
-        String filegs = "/home/zqz/Work/scholarlydata/data/limes_experiment/per_2_testing_1quarter.csv";
-        String filepos = "/home/zqz/Work/scholarlydata/data/silk_experiment_old/per_output/output_per3.csv";
-        String fileneg = "/home/zqz/Work/scholarlydata/data/silk_experiment_old/per_output/output_per3_neg.csv";
+        String filegs = "/home/zqz/Work/scholarlydata/data/public/soa_results/SILK/trainAndTestSplits" +
+                "/PER/csv/per_4_testing_1quarter.csv";
+        String filepos = "/home/zqz/Work/scholarlydata/data/public/soa_results/SILK/SILK-output/PER/" +
+                "per4_pos.csv";
+        String fileneg = "/home/zqz/Work/scholarlydata/data/public/soa_results/SILK/SILK-output/PER/" +
+                "per4_neg.csv";
 
         /*String filegs = "/home/zqz/Work/scholarlydata/data/limes_experiment/org_3_testing_1quarter.csv";
         String filepos = "/home/zqz/Work/scholarlydata/data/silk_experiment_old/org_output/output_org3.csv";

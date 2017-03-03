@@ -306,13 +306,16 @@ public class Evaluator {
     }
 
     protected void evaluatePer() throws IOException {
-        String groundtruthTestDataFile = "/home/zqz/Work/scholarlydata/data/limes_experiment/per_1_testing_1quarter.csv";
-        String predictionFilePos = "/home/zqz/Work/scholarlydata/data/silk_experiment_old/per_output/output_per1.csv";
-        String predictionFileNeg = "/home/zqz/Work/scholarlydata/data/silk_experiment_old/per_output/output_per1_neg.csv";
+        String groundtruthTestDataFile = "/home/zqz/Work/scholarlydata/data/public/soa_results/SILK/trainAndTestSplits" +
+                "/PER/csv/per_1_testing_1quarter.csv";
+        String predictionFilePos = "/home/zqz/Work/scholarlydata/data/public/soa_results/SILK/SILK-output/PER/" +
+                "per1_pos.csv";
+        String predictionFileNeg = "/home/zqz/Work/scholarlydata/data/public/soa_results/SILK/SILK-output/PER/" +
+                "per1_neg.csv";
 
         //String groundtruthTestDataFile="/home/zqz/Work/scholarlydata/data/limes_experiment/per_4_testing_1quarter.csv";
         //String predictionFile="/home/zqz/Work/scholarlydata/data/silk_experiment/output_per_4_prediction.nt";
-        String outCSV = "/home/zqz/Work/scholarlydata/data/silk_experiment_old/per_summary.csv";
+        String outCSV = "/home/zqz/Work/scholarlydata/data/public/soa_results/SILK/SILK-eval-results/per4_summary.csv";
         CSVPrinter pr = new CSVPrinter(new FileWriter(outCSV), CSVFormat.DEFAULT);
 
 
