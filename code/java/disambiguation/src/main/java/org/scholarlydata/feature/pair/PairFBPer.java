@@ -3,6 +3,7 @@ package org.scholarlydata.feature.pair;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.log4j.Logger;
+import org.scholarlydata.exp.FeatureGenerator;
 import org.scholarlydata.feature.FeatureNormalizer;
 import org.scholarlydata.feature.FeatureType;
 import org.scholarlydata.feature.Predicate;
@@ -18,6 +19,7 @@ import java.util.Map;
  */
 public class PairFBPer implements PairFeatureBuilder {
     private static Logger log = Logger.getLogger(PairFBPer.class.getName());
+    private final boolean USE_PRESENCE_FEATURE=false;
 
     private String sparqlEndpoint;
     private SetOverlap[] setOverlapFunctions;
@@ -107,6 +109,10 @@ public class PairFBPer implements PairFeatureBuilder {
             if(Double.isNaN(score)||Double.isInfinite(score))
                 score=0.0;
             result.put(new ImmutablePair<>(ft, of.getOption()+"|"+of.getSf()), score);
+
+            if(USE_PRESENCE_FEATURE){
+                FeatureGenerator.generatePresenceFeature(result, obj1, obj2, ft);
+            }
         }
     }
 
@@ -118,6 +124,9 @@ public class PairFBPer implements PairFeatureBuilder {
             if(Double.isNaN(score)||Double.isInfinite(score))
                 score=0.0;
             result.put(new ImmutablePair<>(ft, of.getOption()+"|"+of.getSf()), score);
+            if(USE_PRESENCE_FEATURE){
+                FeatureGenerator.generatePresenceFeature(result, obj1, obj2, ft);
+            }
         }
     }
 }

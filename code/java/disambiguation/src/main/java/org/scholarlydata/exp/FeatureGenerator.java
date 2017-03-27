@@ -5,6 +5,7 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.solr.client.solrj.embedded.EmbeddedSolrServer;
 import org.apache.solr.core.CoreContainer;
@@ -109,6 +110,17 @@ public class FeatureGenerator {
         Reader in = new FileReader(inFile);
         CSVParser parser = CSVFormat.EXCEL.parse(in);
         return parser.iterator();
+    }
+
+    public static void generatePresenceFeature(Map<Pair<FeatureType, String>, Double> result,
+                                                  List<String> obj1,
+                                                  List<String> obj2, FeatureType ft){
+        int indicator=0;
+        if(obj1.size()!=0)
+            indicator++;
+        if(obj2.size()!=0)
+            indicator++;
+        result.put(new ImmutablePair<>(ft, "presence"), (double)indicator);
     }
 
 }

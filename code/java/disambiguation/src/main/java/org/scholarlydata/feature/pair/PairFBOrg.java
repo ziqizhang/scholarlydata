@@ -3,6 +3,7 @@ package org.scholarlydata.feature.pair;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.log4j.Logger;
+import org.scholarlydata.exp.FeatureGenerator;
 import org.scholarlydata.feature.FeatureNormalizer;
 import org.scholarlydata.feature.FeatureType;
 import org.scholarlydata.feature.org.FBOrgMemberName;
@@ -20,7 +21,7 @@ import java.util.Map;
  */
 public class PairFBOrg implements PairFeatureBuilder {
 	private static Logger log = Logger.getLogger(PairFBOrg.class.getName());
-
+	private final boolean USE_PRESENCE_FEATURE=false;
 	private String sparqlEndpoint;
 	private SetOverlap[] overlapFunctions;
 	private FeatureNormalizer fn = new FeatureNormalizer();
@@ -75,6 +76,9 @@ public class PairFBOrg implements PairFeatureBuilder {
 		for(SetOverlap of : overlapFunctions){
 			double score = of.score(obj1, obj2);
 			result.put(new ImmutablePair<>(ft, of.getOption()+"|"+of.getSf()), score);
+			if(USE_PRESENCE_FEATURE){
+				FeatureGenerator.generatePresenceFeature(result, obj1, obj2, ft);
+			}
 		}
 	}
 }

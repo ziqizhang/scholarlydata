@@ -10,9 +10,8 @@ public enum FeatureType {
     ORGANISATION_MEMBER_URI("org_member_uri"), //member's uri, regardless of time
     ORGANISATION_PARTICIPATED_EVENT_URI("org_participated_event_uri"),//participated event uri
 
+
     PERSON_NAME("per_name"),
-    PERSON_GIVEN_NAME("per_given_name"),
-    PERSON_FAMILY_NAME("per_family_name"),
     PERSON_PARTICIPATED_EVENT_URI("per_participated_event_uri"),
     PERSON_AFFLIATED_ORGANIZATION_NAME("per_from_org_name"), //name of the person's organisation, regardless of time
     PERSON_AFFLIATED_ORGANIZATION_URI("per_from_org_uri"),

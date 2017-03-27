@@ -36,27 +36,31 @@ from keras.wrappers.scikit_learn import KerasClassifier
 
 #####################################################
 # GLOBAL VARIABLES
-#DATA_ORG = "/home/zqz/Work/scholarlydata/data/train/training_org(expanded)_features.csv"
-#DATA_ORG = "/home/zqz/Work/scholarlydata/data/test/input/org_ruleblocking_features.csv"
-#TASK_NAME = "scholarlydata_org"
-#DATA_COLS_START=3 #inclusive
-#DATA_COLS_END=28 #exclusive
-#DATA_COLS_FT_END=24 #exclusive
-#DATA_COLS_TRUTH=24 #inclusive
+DATA_ORG = "/home/zqz/Work/scholarlydata/data/train/training_org(expanded)_features_o.csv"
+TASK_NAME = "scholarlydata_org"
+DATA_COLS_START=3 #inclusive
+DATA_COLS_END=20 #exclusive 16
+DATA_COLS_FT_END=16 #exclusive 12
+DATA_COLS_TRUTH=16 #inclusive 12
 
+#when combined with presence feature
 #DATA_COLS_START=3 #inclusive
-#DATA_COLS_END=20 #exclusive 16
-#DATA_COLS_FT_END=16 #exclusive 12
-#DATA_COLS_TRUTH=16 #inclusive 12
+#DATA_COLS_END=24 #exclusive 16
+#DATA_COLS_FT_END=20 #exclusive 12
+#DATA_COLS_TRUTH=20 #inclusive 12
 
-DATA_ORG = "/home/zqz/Work/scholarlydata/data/train/training_per_features.csv"
-#DATA_ORG = "/home/zqz/Work/scholarlydata/data/test/input/per_ruleblocking_features.csv"
-#DATA_ORG = "/home/zqz/Work/scholarlydata/data/test/input/per_40blocking_features.csv"
-TASK_NAME = "scholarlydata_per"
-DATA_COLS_START = 3  # inclusive
-DATA_COLS_END = 36  # exclsive
-DATA_COLS_FT_END = 32  # exclusive
-DATA_COLS_TRUTH = 32  # inclusive
+#DATA_ORG = "/home/zqz/Work/scholarlydata/data/train/training_per_features.csv"
+#TASK_NAME = "scholarlydata_per"
+#DATA_COLS_START = 3  # inclusive
+#DATA_COLS_END = 36  # exclsive
+#DATA_COLS_FT_END = 32  # exclusive
+#DATA_COLS_TRUTH = 32  # inclusive
+
+#when combined with presence feature
+#DATA_COLS_START = 3  # inclusive
+#DATA_COLS_END = 44  # exclsive
+#DATA_COLS_FT_END = 40  # exclusive
+#DATA_COLS_TRUTH = 40  # inclusive
 
 #DATA_COLS_END = 46  # exclsive
 #DATA_COLS_FT_END = 42  # exclusive
