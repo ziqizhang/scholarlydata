@@ -36,7 +36,7 @@ from keras.wrappers.scikit_learn import KerasClassifier
 
 #####################################################
 # GLOBAL VARIABLES
-DATA_ORG = "/home/zqz/Work/scholarlydata/data/train/training_org(expanded)_features_o.csv"
+DATA_ORG = "/home/zqz/Work/scholarlydata/data/train/training_org(expanded)_features_np.csv"
 TASK_NAME = "scholarlydata_org"
 DATA_COLS_START=3 #inclusive
 DATA_COLS_END=20 #exclusive 16
@@ -100,6 +100,10 @@ MANUAL_SELECTED_FEATURES = []
 NUM_CPU = -1
 
 N_FOLD_VALIDATION = 10
+
+# fix random seed for reproducibility
+seed = 7
+numpy.random.seed(seed)
 
 def create_model(dropout_rate=0.0):
     # create model

@@ -32,7 +32,9 @@ public class MultiSetOverlap extends SetOverlap {
                 raw= (double)inter.size()/(union.size());
                 break;
             case 1:
-                raw= (double) inter.size()/Math.min(obj1.size(), obj2.size());
+                int min  = Math.min(obj1.size(), obj2.size());
+                raw= (double) inter.size()/min;
+                raw = EquatreNormalizerFactor.applyLogisticNorm(min, raw);
                 break;
             case 2:
                 raw= inter.size()>0?1.0:0.0;
