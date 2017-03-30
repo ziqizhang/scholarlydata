@@ -36,7 +36,7 @@ from keras.wrappers.scikit_learn import KerasClassifier
 
 #####################################################
 # GLOBAL VARIABLES
-DATA_ORG = "/home/zqz/Work/scholarlydata/data/train/training_org(expanded)_features_np.csv"
+DATA_ORG = "/home/zqz/Work/scholarlydata/data/train/training_org(expanded)_features_o.csv"
 TASK_NAME = "scholarlydata_org"
 DATA_COLS_START=3 #inclusive
 DATA_COLS_END=20 #exclusive 16
@@ -101,10 +101,6 @@ NUM_CPU = -1
 
 N_FOLD_VALIDATION = 10
 
-# fix random seed for reproducibility
-seed = 7
-numpy.random.seed(seed)
-
 def create_model(dropout_rate=0.0):
     # create model
     model = Sequential()
@@ -160,8 +156,8 @@ class ObjectPairClassifer(object):
         :param training_set: training set, test data
         :return:
         """
-        print("np any isnan(X): ", np.any(np.isnan(training_set)))
-        print("np all isfinite: ", np.all(np.isfinite(training_set)))
+        #print("np any isnan(X): ", np.any(np.isnan(training_set)))
+        #print("np all isfinite: ", np.all(np.isfinite(training_set)))
         # check any NaN row
         row_i = 0
         for i in training_set:
@@ -208,57 +204,14 @@ class ObjectPairClassifer(object):
             return classifier
 
     def training(self):
-        print("start training stage :: training data size:", len(self.training_data))
+        print("training data size:", len(self.training_data))
         print("train with CPU cores: [%s]" % NUM_CPU)
         # X_resampled, y_resampled = self.under_sampling(self.training_data, self.training_label)
         # Tuning hyper-parameters for precision
 
         # split the dataset into two parts, 0.75 for train and 0.25 for testing
         X_train, X_test, y_train, y_test = train_test_split(self.training_data, self.training_label, test_size=0.25,
-                                                            random_state=0)
-
-        ############################################################################
-        #######################Multinomial Naive Bayes Model ########################
-        if WITH_MultinomialNB:
-            if SCALING_STRATEGY == SCALING_STRATEGY_MEAN_STD:
-                print("Current scaling strategy is not suitable for MNB model. Skip ...")
-            else:
-                print("== Perform classification with multinomial Naive Bayes model ....")
-                classifier_MNB = naive_bayes.MultinomialNB()
-                tuningParams = {"alpha": [0.0001, 0.001, 0.01, 0.05, 0.1, 0.3, 0.5, 0.7, 1, 1.2, 1.5, 1.7, 2]}
-
-                classifier_MNB = GridSearchCV(classifier_MNB, param_grid=tuningParams,
-                                              cv=N_FOLD_VALIDATION,
-                                              n_jobs=NUM_CPU)
-                best_param_mnb = []
-                cv_score_mnb = 0
-                mnb_model_file = os.path.join(os.path.dirname(__file__), "multinomialNB-%s.m" % TASK_NAME)
-                t0 = time()
-                if LOAD_MODEL_FROM_FILE:
-                    print("model is loaded from [%s]" % str(mnb_model_file))
-                    best_estimator = self.load_classifier_model(mnb_model_file)
-                else:
-                    classifier_MNB.fit(X_train, y_train)
-                    best_param_mnb = classifier_MNB.best_params_
-                    cv_score_mnb = classifier_MNB.best_score_
-                    best_estimator = classifier_MNB.best_estimator_
-                    print(
-                        "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % N_FOLD_VALIDATION)
-
-                    self.save_classifier_model(best_estimator, mnb_model_file)
-                t1 = time()
-                prediction_multinomialNB_dev = best_estimator.predict(X_test)
-                t4 = time()
-
-                time_multinomialNB_train = t1 - t0
-                time_multinomialNB_predict_dev = t4 - t1
-
-                print("==================== Results for MultinomialNB()")
-
-                self.print_eval_report(best_param_mnb, cv_score_mnb,
-                                       prediction_multinomialNB_dev,
-                                       time_multinomialNB_predict_dev,
-                                       time_multinomialNB_train, y_test)
+                                                            random_state=42)
 
         ######################### SGDClassifier #######################
         if WITH_SGD:
@@ -547,24 +500,6 @@ class ObjectPairClassifer(object):
         print("start testing stage :: testing data size:", len(self.test_data))
         print("test with CPU cores: [%s]" % NUM_CPU)
 
-        ############################################################################
-        #######################Multinomial Naive Bayes Model ########################
-        if WITH_MultinomialNB:
-            if SCALING_STRATEGY == SCALING_STRATEGY_MEAN_STD:
-                print("Current scaling strategy is not suitable for MNB model. Skip ...")
-            else:
-                print("== Perform classification with multinomial Naive Bayes model ....")
-
-                mnb_model_file = os.path.join(os.path.dirname(__file__), "multinomialNB-%s.m" % TASK_NAME)
-                print("model is loaded from [%s]" % str(mnb_model_file))
-                best_estimator = self.load_classifier_model(mnb_model_file)
-                t0 = time()
-                predictoin_dev = best_estimator.predict(self.test_data)
-                t4 = time()
-
-                time_multinomialNB_predict_dev = t4 - t0
-                print("testing completed in [%s]" % t4)
-                self.saveOutput(predictoin_dev, "multinomialNB")
 
         ######################### SGDClassifier #######################
         if WITH_SGD:
@@ -732,8 +667,7 @@ if __name__ == '__main__':
 
     # ============== feature scaling =====================
     if SCALING:
-        print("feature scaling...")
-        print(" scaling method: [%s]" % SCALING_STRATEGY)
+        print("feature scaling method: [%s]" % SCALING_STRATEGY)
 
         #print("example data before scaling:", classifier.training_data[0])
 
