@@ -1,8 +1,8 @@
 N-fold results:
 ,precision, recall, f1, support
-0.0,0.86,0.88,0.87,181
-1.0,0.84,0.80,0.82,137
-avg,0.85,0.84,0.85,318
+0.0,0.86,0.91,0.88,181
+1.0,0.87,0.80,0.83,137
+avg,0.86,0.85,0.86,318
 
 Heldout results:
 ,precision, recall, f1, support

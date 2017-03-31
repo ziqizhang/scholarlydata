@@ -2,13 +2,12 @@ from keras.layers import Dense
 from keras.layers import Dropout
 from keras.models import Sequential
 from keras.wrappers.scikit_learn import KerasClassifier
-from sklearn import svm, metrics
+from sklearn import svm
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.linear_model import SGDClassifier
 from sklearn.model_selection import cross_val_predict
-from sklearn.model_selection import cross_val_score
 
 import util
 from sklearn.model_selection import GridSearchCV
@@ -60,10 +59,8 @@ def learn_discriminative(cpus, nfold, task, load_model, model, X_train, y_train,
         print("model is loaded from [%s]" % str(model_file))
         best_estimator = util.load_classifier_model(model_file)
     else:
-        nfold_predictions=cross_val_predict(classifier, X_train, y_train, cv=nfold)
         classifier.fit(X_train, y_train)
-        print(
-            "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % nfold)
+        nfold_predictions=cross_val_predict(classifier.best_estimator_, X_train, y_train, cv=nfold)
 
         best_estimator = classifier.best_estimator_
         best_param = classifier.best_params_
@@ -109,10 +106,8 @@ def learn_generative(cpus, nfold, task, load_model, model, X_train, y_train, X_t
         print("model is loaded from [%s]" % str(model_file))
         best_estimator = util.load_classifier_model(model_file)
     else:
-        nfold_predictions=cross_val_predict(classifier, X_train, y_train, cv=nfold)
         classifier.fit(X_train, y_train)
-        print(
-            "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % nfold)
+        nfold_predictions=cross_val_predict(classifier.best_estimator_, X_train, y_train, cv=nfold)
 
         best_estimator = classifier.best_estimator_
         best_param = classifier.best_params_
@@ -146,10 +141,8 @@ def learn_dnn(cpus, nfold, task, load_model, model, input_dim, X_train, y_train,
         print("model is loaded from [%s]" % str(ann_model_file))
         best_estimator = util.load_classifier_model(ann_model_file)
     else:
-        nfold_predictions=cross_val_predict(grid, X_train, y_train, cv=nfold)
         grid.fit(X_train, y_train)
-        print(
-            "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % nfold)
+        nfold_predictions=cross_val_predict(grid.best_estimator_, X_train, y_train, cv=nfold)
 
         cv_score_ann = grid.best_score_
         best_param_ann = grid.best_params_
