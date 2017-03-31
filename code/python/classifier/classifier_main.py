@@ -53,7 +53,6 @@ DATA_COLS_TRUTH = 16  # inclusive 12
 # DATA_COLS_TRUTH = 42  # inclusive
 
 # Model selection
-WITH_MultinomialNB = False
 WITH_SGD = True
 WITH_SLR = True
 WITH_RANDOM_FOREST = True

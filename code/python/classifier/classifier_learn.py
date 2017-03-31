@@ -2,11 +2,13 @@ from keras.layers import Dense
 from keras.layers import Dropout
 from keras.models import Sequential
 from keras.wrappers.scikit_learn import KerasClassifier
-from sklearn import svm
+from sklearn import svm, metrics
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.linear_model import SGDClassifier
+from sklearn.model_selection import cross_val_predict
+from sklearn.model_selection import cross_val_score
 
 import util
 from sklearn.model_selection import GridSearchCV
@@ -30,19 +32,18 @@ def learn_discriminative(cpus, nfold, task, load_model, model, X_train, y_train,
                              "criterion": ["gini", "entropy"]}
         classifier = GridSearchCV(classifier, param_grid=rfc_tuning_params, cv=nfold,
                                   n_jobs=cpus)
-        if (load_model):
-            model_file = os.path.join(os.path.dirname(__file__), "random-forest_classifier-%s.m" % task)
+        model_file = os.path.join(os.path.dirname(__file__), "random-forest_classifier-%s.m" % task)
     if (model == "svm-l"):
         tuned_parameters = [{'gamma': np.logspace(-9, 3, 3), 'probability': [True], 'C': np.logspace(-2, 10, 3)},
                             {'C': [1e-1, 1e-3, 1e-5, 0.2, 0.5, 1, 1.2, 1.3, 1.5, 1.6, 1.7, 1.8, 2]}]
-
         print("== SVM, kernel=linear ...")
         classifier = svm.LinearSVC()
         classifier = GridSearchCV(classifier, tuned_parameters[1], cv=nfold, n_jobs=cpus)
-        if (load_model):
-            model_file = os.path.join(os.path.dirname(__file__), "liblinear-svm-linear-%s.m" % task)
+        model_file = os.path.join(os.path.dirname(__file__), "liblinear-svm-linear-%s.m" % task)
 
     if (model == "svm-rbf"):
+        tuned_parameters = [{'gamma': np.logspace(-9, 3, 3), 'probability': [True], 'C': np.logspace(-2, 10, 3)},
+                            {'C': [1e-1, 1e-3, 1e-5, 0.2, 0.5, 1, 1.2, 1.3, 1.5, 1.6, 1.7, 1.8, 2]}]
         print("== SVM, kernel=rbf ...")
         classifier = svm.SVC()
         classifier = GridSearchCV(classifier, param_grid=tuned_parameters[0], cv=nfold, n_jobs=cpus)
@@ -52,12 +53,14 @@ def learn_discriminative(cpus, nfold, task, load_model, model, X_train, y_train,
     best_param = []
     cv_score = 0
     best_estimator = None
+    nfold_predictions=None
 
     t0 = time()
     if load_model:
         print("model is loaded from [%s]" % str(model_file))
         best_estimator = util.load_classifier_model(model_file)
     else:
+        nfold_predictions=cross_val_predict(classifier, X_train, y_train, cv=nfold)
         classifier.fit(X_train, y_train)
         print(
             "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % nfold)
@@ -67,17 +70,8 @@ def learn_discriminative(cpus, nfold, task, load_model, model, X_train, y_train,
         cv_score = classifier.best_score_
         util.save_classifier_model(best_estimator, model_file)
 
-    t1 = time()
-    prediction_test = best_estimator.predict(X_test)
-    t4 = time()
-
-    time_train = t1 - t0
-    time_test = t4 - t1
-
-    print("\tResults:")
-    util.print_eval_report(best_param, cv_score, prediction_test,
-                           time_test,
-                           time_train, y_test)
+    heldout_predictions_final = best_estimator.predict(X_test)
+    util.save_scores(nfold_predictions,y_train, heldout_predictions_final, y_test, model, task, 2)
 
 
 def learn_generative(cpus, nfold, task, load_model, model, X_train, y_train, X_test, y_test):
@@ -94,8 +88,7 @@ def learn_generative(cpus, nfold, task, load_model, model, X_train, y_train, X_t
 
         classifier = GridSearchCV(classifier, param_grid=sgd_params, cv=nfold,
                                   n_jobs=cpus)
-        if (load_model):
-            model_file = os.path.join(os.path.dirname(__file__), "sgd-classifier-%s.m" % task)
+        model_file = os.path.join(os.path.dirname(__file__), "sgd-classifier-%s.m" % task)
     if (model == "lr"):
         print("== Stochastic Logistic Regression ...")
         slr_params = {"penalty": ['l2'],
@@ -105,18 +98,18 @@ def learn_generative(cpus, nfold, task, load_model, model, X_train, y_train, X_t
         classifier = LogisticRegression(random_state=111)
         classifier = GridSearchCV(classifier, param_grid=slr_params, cv=nfold,
                                   n_jobs=cpus)
-        if (load_model):
-            model_file = os.path.join(os.path.dirname(__file__), "stochasticLR-%s.m" % task)
+        model_file = os.path.join(os.path.dirname(__file__), "stochasticLR-%s.m" % task)
 
     best_param = []
     cv_score = 0
     best_estimator = None
+    nfold_predictions=None
 
-    t0 = time()
     if load_model:
         print("model is loaded from [%s]" % str(model_file))
         best_estimator = util.load_classifier_model(model_file)
     else:
+        nfold_predictions=cross_val_predict(classifier, X_train, y_train, cv=nfold)
         classifier.fit(X_train, y_train)
         print(
             "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % nfold)
@@ -125,21 +118,11 @@ def learn_generative(cpus, nfold, task, load_model, model, X_train, y_train, X_t
         best_param = classifier.best_params_
         cv_score = classifier.best_score_
         util.save_classifier_model(best_estimator, model_file)
-
-    t1 = time()
     classes = classifier.best_estimator_.classes_
-    probabilities_dev = best_estimator.predict_proba(X_test)
-    prediction_dev = [classes[util.index_max(list(probs))] for probs in probabilities_dev]
+    heldout_predictions = best_estimator.predict_proba(X_test)
+    heldout_predictions_final = [classes[util.index_max(list(probs))] for probs in heldout_predictions]
 
-    t4 = time()
-
-    time_rfc_train = t1 - t0
-    time_rfc_predict_dev = t4 - t1
-
-    print("\tResults:")
-    util.print_eval_report(best_param, cv_score, prediction_dev,
-                           time_rfc_predict_dev,
-                           time_rfc_train, y_test)
+    util.save_scores(nfold_predictions,y_train, heldout_predictions_final, y_test, model, task, 2)
 
 
 def learn_dnn(cpus, nfold, task, load_model, model, input_dim, X_train, y_train, X_test, y_test):
@@ -157,11 +140,13 @@ def learn_dnn(cpus, nfold, task, load_model, model, input_dim, X_train, y_train,
     cv_score_ann = 0
     best_param_ann = []
     ann_model_file = os.path.join(os.path.dirname(__file__), "ann-%s.m" % task)
+    nfold_predictions=None
 
     if load_model:
         print("model is loaded from [%s]" % str(ann_model_file))
         best_estimator = util.load_classifier_model(ann_model_file)
     else:
+        nfold_predictions=cross_val_predict(grid, X_train, y_train, cv=nfold)
         grid.fit(X_train, y_train)
         print(
             "Model is selected with GridSearch and trained with [%s] fold cross-validation ! " % nfold)
@@ -172,17 +157,13 @@ def learn_dnn(cpus, nfold, task, load_model, model, input_dim, X_train, y_train,
 
         # self.save_classifier_model(best_estimator, ann_model_file)
 
-    t1 = time()
     print("testing on development set ....")
-    dev_data_prediction_ann = best_estimator.predict(X_test)
-    t4 = time()
+    heldout_predictions_final = best_estimator.predict(X_test)
 
-    time_ann_train = t1 - t0
-    time_ann_predict_dev = t4 - t1
-
-    util.print_eval_report(best_param_ann, cv_score_ann, dev_data_prediction_ann,
-                           time_ann_predict_dev,
-                           time_ann_train, y_test)
+    util.save_scores(nfold_predictions,y_train, heldout_predictions_final, y_test, model, task, 2)
+    #util.print_eval_report(best_param_ann, cv_score_ann, dev_data_prediction_ann,
+    #                       time_ann_predict_dev,
+    #                       time_ann_train, y_test)
 
 def create_model(input_dim,dropout_rate=0.0):
     # create model

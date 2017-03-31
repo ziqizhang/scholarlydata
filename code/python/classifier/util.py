@@ -6,8 +6,10 @@ from imblearn.under_sampling import RandomUnderSampler
 from sklearn.metrics import classification_report
 import os
 import numpy as np
+from sklearn.metrics import precision_recall_fscore_support
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
+from sklearn.utils.multiclass import unique_labels
 
 
 def load_classifier_model(classifier_pickled=None):
@@ -32,6 +34,48 @@ def saveOutput(prediction, model_name):
     file.close()
 
 
+def prepare_score_string(p, r, f1, s, labels, target_names, digits):
+    string = ",precision, recall, f1, support\n"
+    for i, label in enumerate(labels):
+        string= string+target_names[i]+","
+        for v in (p[i], r[i], f1[i]):
+            string = string+"{0:0.{1}f}".format(v, digits)+","
+        string = string+"{0}".format(s[i])+"\n"
+        #values += ["{0}".format(s[i])]
+        #report += fmt % tuple(values)
+
+    #average
+    string+="avg,"
+    for v in (np.average(p),
+              np.average(r),
+              np.average(f1)):
+        string += "{0:0.{1}f}".format(v, digits)+","
+    string += '{0}'.format(np.sum(s))+"\n\n"
+    return string
+
+def save_scores(nfold_predictions, x_test, heldout_predictions, y_test, model_name, task_name, digits):
+    filename = os.path.join(os.path.dirname(__file__), "scores-%s-%s.csv" % (model_name, task_name))
+    file = open(filename, "w")
+    if nfold_predictions is not None:
+        file.write("N-fold results:\n")
+        labels = unique_labels(x_test, nfold_predictions)
+        target_names = ['%s' % l for l in labels]
+        p, r, f1, s = precision_recall_fscore_support(x_test, nfold_predictions,
+                                                      labels=labels)
+        line=prepare_score_string(p,r,f1,s,labels,target_names,digits)
+        file.write(line)
+
+    if(heldout_predictions is not None):
+        file.write("Heldout results:\n")
+        labels = unique_labels(y_test, heldout_predictions)
+        target_names = ['%s' % l for l in labels]
+        p, r, f1, s = precision_recall_fscore_support(y_test, heldout_predictions,
+                                                      labels=labels)
+        line=prepare_score_string(p,r,f1,s,labels,target_names,digits)
+        file.write(line)
+    file.close()
+
+
 def index_max(values):
     return max(range(len(values)), key=values.__getitem__)
 
@@ -44,9 +88,9 @@ def save_classifier_model(model, outfile):
 
 def print_eval_report(best_params, cv_score, prediction_dev,
                       time_predict_dev,
-                      time_train, y_test, nfold):
-    print("%s fold CV score [%s]; best params: [%s]" %
-          (nfold, cv_score, best_params))
+                      time_train, y_test):
+    print("CV score [%s]; best params: [%s]" %
+          (cv_score, best_params))
     print("\nTraining time: %fs; "
           "Prediction time for 'dev': %fs;" %
           (time_train, time_predict_dev))
