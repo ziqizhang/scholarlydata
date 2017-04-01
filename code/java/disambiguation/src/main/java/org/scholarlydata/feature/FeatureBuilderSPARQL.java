@@ -7,7 +7,9 @@ import org.apache.log4j.Logger;
 import org.scholarlydata.util.SolrCache;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -66,5 +68,14 @@ public abstract class FeatureBuilderSPARQL<FeatureType, T> implements FeatureBui
                 out.add(range.toString().toLowerCase());
         }
         return out;
+    }
+
+    protected List<String> removeDuplicates(List<String> in){
+        Set<String> unique=new HashSet<>();
+        for(String i: in){
+            i=i.replaceAll("\\s+"," ").trim();
+            unique.add(i);
+        }
+        return new ArrayList<>(unique);
     }
 }

@@ -30,14 +30,14 @@ public class FBPerPublishedWorkKAT extends FeatureBuilderSPARQL<FeatureType, Lis
     public FBPerPublishedWorkKAT(String sparqlEndpoint,
                                  FeatureNormalizer normalizer,
                                  List<String> stopwords,
-                                 SolrCache cache){
+                                 SolrCache cache) {
         super(sparqlEndpoint, normalizer, cache);
-        this.stopwords=stopwords;
+        this.stopwords = stopwords;
 
     }
 
     @Override
-    public Pair<FeatureType, List<String>> build(String objId) {
+    public Pair<FeatureType, List<String>> build(String objId, boolean removeDuplicates) {
 
         StringBuilder sb = new StringBuilder("select distinct ?k ?a ?t where {\n ?s <");
         sb.append(Predicate.AUTHOR_lIST_ITEM_hasContent.getURI()).append("> <")
@@ -49,10 +49,15 @@ public class FBPerPublishedWorkKAT extends FeatureBuilderSPARQL<FeatureType, Lis
                 .append(Predicate.PUBLICATION_hasKeyword.getURI()).append("> ?k .}}")
         ;
         Object cached = getFromCache(sb.toString());
-        if (cached != null)
-            return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_BOW,
-                    (List<String>) cached);
-
+        if (cached != null) {
+            List<String> result = (List<String>) cached;
+            if (removeDuplicates)
+                return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_BOW,
+                        removeDuplicates(result));
+            else
+                return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_BOW,
+                        result);
+        }
 
         ResultSet rs = query(sb.toString());
 
@@ -64,21 +69,23 @@ public class FBPerPublishedWorkKAT extends FeatureBuilderSPARQL<FeatureType, Lis
             RDFNode keywords = qs.get("?k");
             RDFNode abstracts = qs.get("?a");
             RDFNode title = qs.get("?t");
-            if(keywords!=null)
+            if (keywords != null)
                 uniqueValues.add(keywords.toString());
-            if(abstracts!=null)
+            if (abstracts != null)
                 uniqueValues.add(abstracts.toString());
-            if(title!=null)
+            if (title != null)
                 uniqueValues.add(title.toString());
         }
 
-        for(String v: uniqueValues) {
+        for (String v : uniqueValues) {
             splitAndAdd(v, out);
         }
 
-        if(stopwords!=null)
+        if (stopwords != null)
             out.removeAll(stopwords);
 
+        if(removeDuplicates)
+            out=removeDuplicates(out);
         saveToCache(sb.toString(), out);
         return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_BOW, out);
     }

@@ -27,19 +27,28 @@ public class FBPerAffliatedOrgName extends FeatureBuilderSPARQL<FeatureType, Lis
     }
 
     @Override
-    public Pair<FeatureType, List<String>> build(String objId) {
+    public Pair<FeatureType, List<String>> build(String objId, boolean removeDuplicates) {
         String queryStr = SPARQLQueries.pathObjObjObj(objId,
                 Predicate.PERSON_hasAffliation.getURI(),
                 Predicate.AFFLIATION_withOrganization.getURI(),
                 Predicate.ORGANIZATION_name.getURI());
 
         Object cached = getFromCache(queryStr);
-        if (cached != null)
-            return new ImmutablePair<>(FeatureType.PERSON_AFFLIATED_ORGANIZATION_NAME,
-                    (List<String>) cached);
+        if (cached != null) {
+            List<String> result = (List<String>) cached;
+
+            if(removeDuplicates)
+                return new ImmutablePair<>(FeatureType.PERSON_AFFLIATED_ORGANIZATION_NAME,
+                        removeDuplicates(result));
+            else
+                return new ImmutablePair<>(FeatureType.PERSON_AFFLIATED_ORGANIZATION_NAME,
+                        result);
+        }
 
         ResultSet rs = query(queryStr);
         List<String> result = getListResult(rs);
+        if(removeDuplicates)
+            result=removeDuplicates(result);
         saveToCache(queryStr, result);
         return new ImmutablePair<>(FeatureType.PERSON_AFFLIATED_ORGANIZATION_NAME, result);
     }

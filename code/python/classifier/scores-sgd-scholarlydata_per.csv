@@ -1,0 +1,6 @@
+original N-fold results:
+,precision, recall, f1, support
+0.0,0.90,0.93,0.91,550
+1.0,0.70,0.59,0.64,148
+avg,0.80,0.76,0.78,698
+

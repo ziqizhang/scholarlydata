@@ -12,6 +12,6 @@ public class FeatureNormalizer {
         String nfdNormalizedString = Normalizer.normalize(in, Normalizer.Form.NFD);
 
         String asciiString= pattern.matcher(nfdNormalizedString).replaceAll("");
-        return asciiString.replaceAll("[^a-zA-Z0-9]"," ").trim().toLowerCase();
+        return asciiString.replaceAll("[^a-zA-Z0-9]"," ").replaceAll("\\s+"," ").trim().toLowerCase();
     }
 }

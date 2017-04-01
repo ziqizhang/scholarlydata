@@ -20,7 +20,7 @@ public class FBPerCoAuthorURI extends FeatureBuilderSPARQL<FeatureType, List<Str
     }
 
     @Override
-    public Pair<FeatureType, List<String>> build(String objId) {
+    public Pair<FeatureType, List<String>> build(String objId, boolean removeDuplicates) {
         StringBuilder sb = new StringBuilder("select distinct ?o where {\n ?li <");
         sb.append(Predicate.AUTHOR_lIST_ITEM_hasContent.getURI()).append("> <")
                 .append(objId).append("> .\n?al <")
@@ -29,14 +29,24 @@ public class FBPerCoAuthorURI extends FeatureBuilderSPARQL<FeatureType, List<Str
                 .append(Predicate.AUTHOR_lIST_ITEM_hasContent.getURI()).append("> ?o .}");
 
         Object cached = getFromCache(sb.toString());
-        if (cached != null)
-            return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_COAUTHOR,
-                    (List<String>) cached);
+        if (cached != null) {
+            List<String> result = (List<String>) cached;
+            if (removeDuplicates)
+                return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_COAUTHOR,
+                        removeDuplicates(result));
+            else
+                return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_COAUTHOR,
+                        result);
+        }
 
         ResultSet rs = query(sb.toString());
         List<String> out = getListResult(rs);
+        if (removeDuplicates)
+            out = removeDuplicates(out);
         out.remove(objId);
         saveToCache(sb.toString(), out);
         return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_COAUTHOR, out);
+
+
     }
 }

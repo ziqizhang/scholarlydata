@@ -27,16 +27,25 @@ public class FBOrgName extends FeatureBuilderSPARQL<FeatureType, List<String>> {
 
 
     @Override
-    public Pair<FeatureType, List<String>> build(String objectId) {
+    public Pair<FeatureType, List<String>> build(String objectId, boolean removeDuplicates) {
         String queryStr = SPARQLQueries.getObjectsOf(objectId,
                 Predicate.ORGANIZATION_name.getURI());
 
         Object cached=getFromCache(queryStr);
-        if(cached!=null)
-            return new ImmutablePair<>(FeatureType.ORGANIZATION_NAME,(List<String>) cached);
+
+
+        if(cached!=null) {
+            List<String> result = (List<String>) cached;
+            if(removeDuplicates)
+                return new ImmutablePair<>(FeatureType.ORGANIZATION_NAME, removeDuplicates(result));
+            else
+                return new ImmutablePair<>(FeatureType.ORGANIZATION_NAME, result);
+        }
 
         ResultSet rs = query(queryStr);
         List<String> result = getListResult(rs);
+        if(removeDuplicates)
+            result=removeDuplicates(result);
         saveToCache(queryStr, result);
 
         return new ImmutablePair<>(FeatureType.ORGANIZATION_NAME, result);

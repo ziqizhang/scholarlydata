@@ -6,9 +6,9 @@ from __future__ import print_function
 import os
 
 from sklearn.linear_model import LogisticRegression
-
 import classifier_learn as cl
 import classifier_tag as ct
+import dataset_loader as dl
 import numpy
 from sklearn.model_selection import train_test_split
 from sklearn.feature_selection import RFECV
@@ -20,37 +20,6 @@ import util
 import tensorflow as tf
 
 tf.python.control_flow_ops = tf
-#####################################################
-# GLOBAL VARIABLES
-DATA_ORG = "/home/zqz/Work/scholarlydata/data/train/training_org(expanded)_features_o.csv"
-TASK_NAME = "scholarlydata_org"
-DATA_COLS_START = 3  # inclusive
-DATA_COLS_END = 20  # exclusive 16
-DATA_COLS_FT_END = 16  # exclusive 12
-DATA_COLS_TRUTH = 16  # inclusive 12
-
-# when combined with presence feature
-# DATA_COLS_START=3 #inclusive
-# DATA_COLS_END=24 #exclusive 16
-# DATA_COLS_FT_END=20 #exclusive 12
-# DATA_COLS_TRUTH=20 #inclusive 12
-
-# DATA_ORG = "/home/zqz/Work/scholarlydata/data/train/training_per_features.csv"
-# TASK_NAME = "scholarlydata_per"
-# DATA_COLS_START = 3  # inclusive
-# DATA_COLS_END = 36  # exclsive
-# DATA_COLS_FT_END = 32  # exclusive
-# DATA_COLS_TRUTH = 32  # inclusive
-
-# when combined with presence feature
-# DATA_COLS_START = 3  # inclusive
-# DATA_COLS_END = 44  # exclsive
-# DATA_COLS_FT_END = 40  # exclusive
-# DATA_COLS_TRUTH = 40  # inclusive
-
-# DATA_COLS_END = 46  # exclsive
-# DATA_COLS_FT_END = 42  # exclusive
-# DATA_COLS_TRUTH = 42  # inclusive
 
 # Model selection
 WITH_SGD = True
@@ -61,7 +30,8 @@ WITH_RBF_SVM = True
 WITH_ANN = False
 
 # Random Forest model(or any tree-based model) do not ncessarily need feature scaling
-SCALING = True
+N_FOLD_VALIDATION_ONLY=True
+SCALING = False
 # feature scaling with bound [0,1] is ncessarily for MNB model
 SCALING_STRATEGY_MIN_MAX = 0
 # MEAN and Standard Deviation scaling is the standard feature scaling method
@@ -86,7 +56,6 @@ NUM_CPU = -1
 
 N_FOLD_VALIDATION = 10
 
-
 #####################################################
 
 
@@ -95,28 +64,42 @@ class ObjectPairClassifer(object):
     supervised org/per pair classifier
 
     """
+    data_feature_file = None
+    task_name = None
+    identifier=None
+    feature_col_start = None  # inclusive
+    feature_col_end = None  # exclusive 16
+    feature_size = None  # exclusive 12
+    truth_col = None  # inclusive 12
 
-    def __init__(self):
+    def __init__(self, task, identifier, feature_file, feature_col_start, feature_col_end, feature_size, truth_col):
         self.training_data = numpy.empty
         self.training_label = numpy.empty
         self.test_data = numpy.empty
+        self.data_feature_file = feature_file
+        self.identifier=identifier
+        self.task_name = task
+        self.feature_col_start = feature_col_start  # inclusive
+        self.feature_col_end = feature_col_end  # exclusive 16
+        self.feature_size = feature_size  # exclusive 12
+        self.truth_col = truth_col  # inclusive 12
 
-    def load_training_data(self, training_file):
-        df = pd.read_csv(training_file, header=0, delimiter=",", quoting=0,
-                         usecols=range(DATA_COLS_START, DATA_COLS_END)).as_matrix()
+    def load_training_data(self):
+        df = pd.read_csv(self.data_feature_file, header=0, delimiter=",", quoting=0,
+                         usecols=range(self.feature_col_start, self.feature_col_end)).as_matrix()
 
-        util.timestamped_print("load training data [%s] from [%s]" % (len(df), training_file))
+        util.timestamped_print("load training data [%s] from [%s]" % (len(df), self.data_feature_file))
 
-        X, y = df[:, :DATA_COLS_FT_END], \
+        X, y = df[:, :self.feature_size], \
                df[:,
-               DATA_COLS_TRUTH]  # X selects all rows (:), then up to columns 9; y selects all rows, and column 10 only
+               self.truth_col]  # X selects all rows (:), then up to columns 9; y selects all rows, and column 10 only
         self.training_data = X
         self.training_label = y
 
     def load_testing_data(self, testing_file):
         df = pd.read_csv(testing_file, header=0, delimiter=",", quoting=0,
-                         usecols=range(DATA_COLS_START, DATA_COLS_END)).as_matrix()
-        self.test_data = df[:, :DATA_COLS_FT_END]
+                         usecols=range(self.feature_col_start, self.feature_col_end)).as_matrix()
+        self.test_data = df[:, :self.feature_size]
 
     def training(self):
         print("training data size:", len(self.training_data))
@@ -125,38 +108,46 @@ class ObjectPairClassifer(object):
         # Tuning hyper-parameters for precision
 
         # split the dataset into two parts, 0.75 for train and 0.25 for testing
-        X_train, X_test, y_train, y_test = train_test_split(self.training_data, self.training_label, test_size=0.25,
+        X_train=None
+        X_test=None
+        y_train=None
+        y_test=None
+        if N_FOLD_VALIDATION_ONLY:
+            X_train=self.training_data
+            y_train=self.training_label
+        else:
+            X_train, X_test, y_train, y_test = train_test_split(self.training_data, self.training_label, test_size=0.25,
                                                             random_state=42)
 
         ######################### SGDClassifier #######################
         if WITH_SGD:
-            cl.learn_generative(NUM_CPU, N_FOLD_VALIDATION, TASK_NAME, LOAD_MODEL_FROM_FILE, "sgd", X_train, y_train,
-                                X_test, y_test)
+            cl.learn_generative(NUM_CPU, N_FOLD_VALIDATION, self.task_name, LOAD_MODEL_FROM_FILE, "sgd", X_train, y_train,
+                                X_test, y_test, self.identifier)
 
         ######################### Stochastic Logistic Regression#######################
         if WITH_SLR:
-            cl.learn_generative(NUM_CPU, N_FOLD_VALIDATION, TASK_NAME, LOAD_MODEL_FROM_FILE, "lr", X_train, y_train,
-                                X_test, y_test)
+            cl.learn_generative(NUM_CPU, N_FOLD_VALIDATION, self.task_name, LOAD_MODEL_FROM_FILE, "lr", X_train, y_train,
+                                X_test, y_test, self.identifier)
 
         ######################### Random Forest Classifier #######################
         if WITH_RANDOM_FOREST:
-            cl.learn_discriminative(NUM_CPU, N_FOLD_VALIDATION, TASK_NAME, LOAD_MODEL_FROM_FILE, "rf", X_train, y_train,
-                                    X_test, y_test)
+            cl.learn_discriminative(NUM_CPU, N_FOLD_VALIDATION, self.task_name, LOAD_MODEL_FROM_FILE, "rf", X_train, y_train,
+                                    X_test, y_test, self.identifier)
 
         ###################  liblinear SVM ##############################
         if WITH_LIBLINEAR_SVM:
-            cl.learn_discriminative(NUM_CPU, N_FOLD_VALIDATION, TASK_NAME, LOAD_MODEL_FROM_FILE, "svm-l", X_train,
-                                    y_train, X_test, y_test)
+            cl.learn_discriminative(NUM_CPU, N_FOLD_VALIDATION, self.task_name, LOAD_MODEL_FROM_FILE, "svm-l", X_train,
+                                    y_train, X_test, y_test, self.identifier)
 
         ##################### RBF svm #####################
         if WITH_RBF_SVM:
-            cl.learn_discriminative(NUM_CPU, N_FOLD_VALIDATION, TASK_NAME, LOAD_MODEL_FROM_FILE, "svm-rbf", X_train,
-                                    y_train, X_test, y_test)
+            cl.learn_discriminative(NUM_CPU, N_FOLD_VALIDATION, self.task_name, LOAD_MODEL_FROM_FILE, "svm-rbf", X_train,
+                                    y_train, X_test, y_test, self.identifier)
 
         ################# Artificial Neural Network #################
         if WITH_ANN:
-            cl.learn_dnn(NUM_CPU, N_FOLD_VALIDATION, TASK_NAME, LOAD_MODEL_FROM_FILE, "ann", DATA_COLS_FT_END, X_train,
-                         y_train, X_test, y_test)
+            cl.learn_dnn(NUM_CPU, N_FOLD_VALIDATION, self.task_name, LOAD_MODEL_FROM_FILE, "ann", self.feature_size, X_train,
+                         y_train, X_test, y_test, self.identifier)
 
         print("complete!")
 
@@ -166,22 +157,22 @@ class ObjectPairClassifer(object):
 
         ######################### SGDClassifier #######################
         if WITH_SGD:
-            ct.tag(NUM_CPU, "sgd", TASK_NAME, self.test_data)
+            ct.tag(NUM_CPU, "sgd", self.task_name, self.test_data)
 
         ######################### Stochastic Logistic Regression#######################
         if WITH_SLR:
-            ct.tag(NUM_CPU, "lr", TASK_NAME, self.test_data)
+            ct.tag(NUM_CPU, "lr", self.task_name, self.test_data)
 
         ######################### Random Forest Classifier #######################
         if WITH_RANDOM_FOREST:
-            ct.tag(NUM_CPU, "rf", TASK_NAME, self.test_data)
+            ct.tag(NUM_CPU, "rf", self.task_name, self.test_data)
 
         ###################  liblinear SVM ##############################
         if WITH_LIBLINEAR_SVM:
-            ct.tag(NUM_CPU, "svm-l", TASK_NAME, self.test_data)
+            ct.tag(NUM_CPU, "svm-l", self.task_name, self.test_data)
         ##################### RBF svm #####################
         if WITH_RBF_SVM:
-            ct.tag(NUM_CPU, "svm-rbf", TASK_NAME, self.test_data)
+            ct.tag(NUM_CPU, "svm-rbf", self.task_name, self.test_data)
         print("complete!")
 
     def feature_selection_with_max_entropy_classifier(self):
@@ -222,7 +213,7 @@ class ObjectPairClassifer(object):
         print("Optimal number of features : %s" % str(MANUAL_SELECTED_FEATURES))
 
     def saveOutput(self, prediction, model_name):
-        filename = os.path.join(os.path.dirname(__file__), "prediction-%s-%s.csv" % (model_name, TASK_NAME))
+        filename = os.path.join(os.path.dirname(__file__), "prediction-%s-%s.csv" % (model_name, self.task_name))
         file = open(filename, "w")
         for entry in prediction:
             if (isinstance(entry, float)):
@@ -237,48 +228,48 @@ class ObjectPairClassifer(object):
 
 
 if __name__ == '__main__':
+    datasets=dl.load_exp_datasets()
+    for ds in datasets:
+        print("\nSTARTING EXPERIMENT SETTING:"+'; '.join(map(str, ds)))
+        classifier = ObjectPairClassifer(ds[0], ds[1], ds[2], ds[3],ds[4],ds[5],ds[6])
+        classifier.load_training_data()
+        #classifier.load_testing_data(DATA_ORG)
+        util.validate_training_set(classifier.training_data)
 
-    classifier = ObjectPairClassifer()
-    classifier.load_training_data(DATA_ORG)
-    classifier.load_testing_data(DATA_ORG)
-    util.validate_training_set(classifier.training_data)
+        if AUTO_FEATURE_SELECTION:
+            if FEATURE_SELECTION_WITH_EXTRA_TREES_CLASSIFIER:
+                classifier.feature_selection_with_extra_tree_classifier()
+            elif FEATURE_SELECTION_WITH_MAX_ENT_CLASSIFIER:
+                classifier.feature_selection_with_max_entropy_classifier()
+            elif FEATURE_SELECTION_MANUAL_SETTING:
+                classifier.feature_selection_with_manual_setting()
+            else:
+                raise ArithmeticError("Feature selection method IS NOT SET CORRECTLY!")
 
-    if AUTO_FEATURE_SELECTION:
-        if FEATURE_SELECTION_WITH_EXTRA_TREES_CLASSIFIER:
-            classifier.feature_selection_with_extra_tree_classifier()
-        elif FEATURE_SELECTION_WITH_MAX_ENT_CLASSIFIER:
-            classifier.feature_selection_with_max_entropy_classifier()
-        elif FEATURE_SELECTION_MANUAL_SETTING:
-            classifier.feature_selection_with_manual_setting()
+        # ============== feature scaling =====================
+        if SCALING:
+            print("feature scaling method: [%s]" % SCALING_STRATEGY)
+
+            if SCALING_STRATEGY == SCALING_STRATEGY_MEAN_STD:
+                classifier.training_data = util.feature_scaling_mean_std(classifier.training_data)
+                classifier.test_data = util.feature_scaling_mean_std(classifier.test_data)
+            elif SCALING_STRATEGY == SCALING_STRATEGY_MIN_MAX:
+                classifier.training_data = util.feature_scaling_min_max(classifier.test_data)
+                classifier.test_data = util.feature_scaling_min_max(classifier.test_data)
+            else:
+                raise ArithmeticError("SCALING STRATEGY IS NOT SET CORRECTLY!")
+
+                # print("example training data after scaling:", classifier.training_data[0])
         else:
-            raise ArithmeticError("Feature selection method IS NOT SET CORRECTLY!")
+            print("training without feature scaling!")
 
-    # ============== feature scaling =====================
-    if SCALING:
-        print("feature scaling method: [%s]" % SCALING_STRATEGY)
+        # ============= random sampling =================================
+        # print("training data size before resampling:", len(classifier.training_data))
+        # X_resampled, y_resampled = classifier.under_sampling(classifier.training_data,                                                         classifier.training_label)
+        # print("training data size after resampling:", len(X_resampled))
+        # enable this line to visualise the data
+        # classifier.training_data = X_resampled
+        # classifier.training_label = y_resampled
 
-        # print("example data before scaling:", classifier.training_data[0])
-
-        if SCALING_STRATEGY == SCALING_STRATEGY_MEAN_STD:
-            classifier.training_data = util.feature_scaling_mean_std(classifier.training_data)
-            classifier.test_data = util.feature_scaling_mean_std(classifier.test_data)
-        elif SCALING_STRATEGY == SCALING_STRATEGY_MIN_MAX:
-            classifier.training_data = util.feature_scaling_min_max(classifier.test_data)
-            classifier.test_data = util.feature_scaling_min_max(classifier.test_data)
-        else:
-            raise ArithmeticError("SCALING STRATEGY IS NOT SET CORRECTLY!")
-
-            # print("example training data after scaling:", classifier.training_data[0])
-    else:
-        print("training without feature scaling!")
-
-    # ============= random sampling =================================
-    # print("training data size before resampling:", len(classifier.training_data))
-    # X_resampled, y_resampled = classifier.under_sampling(classifier.training_data,                                                         classifier.training_label)
-    # print("training data size after resampling:", len(X_resampled))
-    # enable this line to visualise the data
-    # classifier.training_data = X_resampled
-    # classifier.training_label = y_resampled
-
-    classifier.training()
-    # classifier.testing()
+        classifier.training()
+        # classifier.testing()

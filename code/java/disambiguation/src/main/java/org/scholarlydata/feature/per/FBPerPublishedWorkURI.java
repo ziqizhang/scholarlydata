@@ -24,14 +24,20 @@ public class FBPerPublishedWorkURI extends FeatureBuilderSPARQL<FeatureType, Lis
     }
 
     @Override
-    public Pair<FeatureType, List<String>> build(String objId) {
+    public Pair<FeatureType, List<String>> build(String objId, boolean removeDuplicates) {
         String queryStr = SPARQLQueries.getObjectsOf(objId,
                 Predicate.PERSON_made.getURI());
 
         Object cached = getFromCache(queryStr);
-        if (cached != null)
-            return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_URI,
-                    (List<String>) cached);
+        if (cached != null) {
+            List<String> result = (List<String>) cached;
+            if(removeDuplicates)
+                return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_URI,
+                       removeDuplicates(result));
+            else
+                return new ImmutablePair<>(FeatureType.PERSON_PUBLICATION_URI,
+                        result);
+        }
 
         ResultSet rs = query(queryStr);
         Set<String> publications = new HashSet<>(getListResult(rs));

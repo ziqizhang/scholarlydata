@@ -25,7 +25,7 @@ public class FBPerRoleAtEvent extends FeatureBuilderSPARQL<FeatureType, List<Str
     }
 
     @Override
-    public Pair<FeatureType, List<String>> build(String objId) {
+    public Pair<FeatureType, List<String>> build(String objId, boolean removeDuplicate) {
         StringBuilder sb = new StringBuilder("select distinct ?e ?r where {\n");
         sb.append("<").append(objId).append("> <")
                 .append(Predicate.PERSON_holdsRole.getURI())
@@ -35,9 +35,15 @@ public class FBPerRoleAtEvent extends FeatureBuilderSPARQL<FeatureType, List<Str
                 .append("?o <").append(Predicate.FUNCTION_during.getURI()).append("> ?e .}");
 
         Object cached = getFromCache(sb.toString());
-        if (cached != null)
-            return new ImmutablePair<>(FeatureType.PERSON_ROLE_AT_EVENT_URI,
-                    (List<String>) cached);
+        if (cached != null) {
+            List<String> result = (List<String>) cached;
+            if(removeDuplicate)
+                return new ImmutablePair<>(FeatureType.PERSON_ROLE_AT_EVENT_URI,
+                    removeDuplicates(result));
+            else
+                return new ImmutablePair<>(FeatureType.PERSON_ROLE_AT_EVENT_URI,result);
+
+        }
 
         ResultSet rs = query(sb.toString());
         List<String> out = new ArrayList<>();
@@ -51,6 +57,8 @@ public class FBPerRoleAtEvent extends FeatureBuilderSPARQL<FeatureType, List<Str
 
         }
 
+        if(removeDuplicate)
+            out=removeDuplicates(out);
         saveToCache(sb.toString(), out);
         return new ImmutablePair<>(FeatureType.PERSON_ROLE_AT_EVENT_URI, out);
 

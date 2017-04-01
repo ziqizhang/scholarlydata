@@ -8,5 +8,5 @@ import org.apache.commons.lang3.tuple.Pair;
  */
 public interface FeatureBuilder<FeatureType, T> {
 
-    Pair<FeatureType, T> build(String objId);
+    Pair<FeatureType, T> build(String objId, boolean removeDuplicates);
 }

@@ -1,0 +1,48 @@
+originalN-fold results:
+,precision, recall, f1, support
+0.0,0.91,0.83,0.87,181
+1.0,0.80,0.89,0.84,137
+avg,0.85,0.86,0.85,318
+
+Heldout results:
+,precision, recall, f1, support
+0.0,0.86,0.76,0.81,55
+1.0,0.77,0.86,0.81,51
+avg,0.81,0.81,0.81,106
+
+normalizedN-fold results:
+,precision, recall, f1, support
+0.0,0.85,0.88,0.86,181
+1.0,0.83,0.80,0.81,137
+avg,0.84,0.84,0.84,318
+
+Heldout results:
+,precision, recall, f1, support
+0.0,0.82,0.85,0.84,55
+1.0,0.84,0.80,0.82,51
+avg,0.83,0.83,0.83,106
+
+presence_featureN-fold results:
+,precision, recall, f1, support
+0.0,0.86,0.88,0.87,181
+1.0,0.84,0.81,0.83,137
+avg,0.85,0.85,0.85,318
+
+Heldout results:
+,precision, recall, f1, support
+0.0,0.85,0.91,0.88,55
+1.0,0.89,0.82,0.86,51
+avg,0.87,0.87,0.87,106
+
+norm_and_presenceN-fold results:
+,precision, recall, f1, support
+0.0,0.85,0.88,0.86,181
+1.0,0.83,0.80,0.81,137
+avg,0.84,0.84,0.84,318
+
+Heldout results:
+,precision, recall, f1, support
+0.0,0.83,0.87,0.85,55
+1.0,0.85,0.80,0.83,51
+avg,0.84,0.84,0.84,106
+

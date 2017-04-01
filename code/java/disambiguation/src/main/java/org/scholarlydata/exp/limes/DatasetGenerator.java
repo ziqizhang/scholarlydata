@@ -87,25 +87,25 @@ public class DatasetGenerator {
 
             log.info("Building features for: "+uriSource);
             log.info("\t"+FBOrgName.class.getCanonicalName());
-            Pair<FeatureType, List<String>> orgName1 = new FBOrgName(sparqlEndpoint, fn, cache).build(uriSource);
+            Pair<FeatureType, List<String>> orgName1 = new FBOrgName(sparqlEndpoint, fn, cache).build(uriSource,true);
             log.info("\t"+FBOrgMemberURI.class.getCanonicalName());
-            Pair<FeatureType, List<String>> orgMemberURI1 = new FBOrgMemberURI(sparqlEndpoint, cache).build(uriSource);
+            Pair<FeatureType, List<String>> orgMemberURI1 = new FBOrgMemberURI(sparqlEndpoint, cache).build(uriSource,true);
             log.info("\t"+FBOrgMemberName.class.getCanonicalName());
-            Pair<FeatureType, List<String>> orgMemberName1 = new FBOrgMemberName(sparqlEndpoint,fn, cache).build(uriSource);
+            Pair<FeatureType, List<String>> orgMemberName1 = new FBOrgMemberName(sparqlEndpoint,fn, cache).build(uriSource,true);
             log.info("\t"+FBOrgParticipatedEventURI.class.getCanonicalName());
-            Pair<FeatureType, List<String>> orgParticipatedEventURI1 = new FBOrgParticipatedEventURI(sparqlEndpoint, cache).build(uriSource);
+            Pair<FeatureType, List<String>> orgParticipatedEventURI1 = new FBOrgParticipatedEventURI(sparqlEndpoint, cache).build(uriSource,true);
             writeToFile(sourceWriter, uriSource, "ORG",orgName1, orgMemberURI1, orgMemberName1, orgParticipatedEventURI1);
             //writeConcatenatedToFile(sourceWriter, uriSource, "ORG",orgName1, orgMemberURI1, orgMemberName1, orgParticipatedEventURI1);
 
             log.info("Building features for: "+uriTarget);
             log.info("\t"+FBOrgName.class.getCanonicalName());
-            Pair<FeatureType, List<String>> orgName2 = new FBOrgName(sparqlEndpoint, fn, cache).build(uriTarget);
+            Pair<FeatureType, List<String>> orgName2 = new FBOrgName(sparqlEndpoint, fn, cache).build(uriTarget,true);
             log.info("\t"+FBOrgMemberURI.class.getCanonicalName());
-            Pair<FeatureType, List<String>> orgMemberURI2 = new FBOrgMemberURI(sparqlEndpoint, cache).build(uriTarget);
+            Pair<FeatureType, List<String>> orgMemberURI2 = new FBOrgMemberURI(sparqlEndpoint, cache).build(uriTarget,true);
             log.info("\t"+FBOrgMemberName.class.getCanonicalName());
-            Pair<FeatureType, List<String>> orgMemberName2 = new FBOrgMemberName(sparqlEndpoint,fn, cache).build(uriTarget);
+            Pair<FeatureType, List<String>> orgMemberName2 = new FBOrgMemberName(sparqlEndpoint,fn, cache).build(uriTarget,true);
             log.info("\t"+FBOrgParticipatedEventURI.class.getCanonicalName());
-            Pair<FeatureType, List<String>> orgParticipatedEventURI2 = new FBOrgParticipatedEventURI(sparqlEndpoint, cache).build(uriTarget);
+            Pair<FeatureType, List<String>> orgParticipatedEventURI2 = new FBOrgParticipatedEventURI(sparqlEndpoint, cache).build(uriTarget,true);
             writeToFile(targetWriter, uriTarget, "ORG",orgName2, orgMemberURI2, orgMemberName2, orgParticipatedEventURI2);
             //writeConcatenatedToFile(targetWriter, uriTarget, "ORG",orgName2, orgMemberURI2, orgMemberName2, orgParticipatedEventURI2);
 
@@ -130,43 +130,43 @@ public class DatasetGenerator {
 
             log.info("Building features for: "+uriSource);
             log.info("\t"+FBPerAffliatedOrgName.class.getCanonicalName());
-            Pair<FeatureType, List<String>> perAffOrgName1 = new FBPerAffliatedOrgName(sparqlEndpoint, fn, cache).build(uriSource);
+            Pair<FeatureType, List<String>> perAffOrgName1 = new FBPerAffliatedOrgName(sparqlEndpoint, fn, cache).build(uriSource,true);
             log.info("\t"+FBPerAffliatedOrgURI.class.getCanonicalName());
-            Pair<FeatureType, List<String>> perAffOrgURI1 = new FBPerAffliatedOrgURI(sparqlEndpoint, cache).build(uriSource);
+            Pair<FeatureType, List<String>> perAffOrgURI1 = new FBPerAffliatedOrgURI(sparqlEndpoint, cache).build(uriSource,true);
             log.info("\t"+FBPerName.class.getCanonicalName());
             Pair<FeatureType, List<String>> perName1 = new FBPerName(sparqlEndpoint,
-                    FeatureType.PERSON_NAME, Predicate.PERSON_name, fn, cache).build(uriSource);
+                    FeatureType.PERSON_NAME, Predicate.PERSON_name, fn, cache).build(uriSource,true);
             log.info("\t"+FBPerParticipatedEventURI.class.getCanonicalName());
-            Pair<FeatureType, List<String>> perParticipatedEventURI1 = new FBPerParticipatedEventURI(sparqlEndpoint, cache).build(uriSource);
+            Pair<FeatureType, List<String>> perParticipatedEventURI1 = new FBPerParticipatedEventURI(sparqlEndpoint, cache).build(uriSource,true);
             log.info("\t"+ FBPerPublishedWorkURI.class.getCanonicalName());
-            Pair<FeatureType, List<String>> perPublishedWorkURI1 = new FBPerPublishedWorkURI(sparqlEndpoint, cache).build(uriSource);
+            Pair<FeatureType, List<String>> perPublishedWorkURI1 = new FBPerPublishedWorkURI(sparqlEndpoint, cache).build(uriSource,true);
             log.info("\t"+ FBPerRoleAtEvent.class.getCanonicalName());
-            Pair<FeatureType, List<String>> perRoleAtEvent1 = new FBPerRoleAtEvent(sparqlEndpoint, cache).build(uriSource);
+            Pair<FeatureType, List<String>> perRoleAtEvent1 = new FBPerRoleAtEvent(sparqlEndpoint, cache).build(uriSource,true);
             log.info("\t"+FBPerCoAuthorURI.class.getCanonicalName());
-            Pair<FeatureType, List<String>> perCoAuthor1=new FBPerCoAuthorURI(sparqlEndpoint, cache).build(uriSource);
+            Pair<FeatureType, List<String>> perCoAuthor1=new FBPerCoAuthorURI(sparqlEndpoint, cache).build(uriSource,false);
             log.info("\t"+FBPerPublishedWorkKAT.class.getCanonicalName());
-            Pair<FeatureType, List<String>> perKAT1 = new FBPerPublishedWorkKAT(sparqlEndpoint,fn,stopwords, cache).build(uriSource);
+            Pair<FeatureType, List<String>> perKAT1 = new FBPerPublishedWorkKAT(sparqlEndpoint,fn,stopwords, cache).build(uriSource,false);
             writeConcatenatedToFile(sourceWriter, uriSource, "PER",perAffOrgName1, perAffOrgURI1, perName1, perParticipatedEventURI1,
                     perPublishedWorkURI1, perRoleAtEvent1, perCoAuthor1, perKAT1);
 
             log.info("Building features for: "+uriTarget);
             log.info("\t"+FBPerAffliatedOrgName.class.getCanonicalName());
-            Pair<FeatureType, List<String>> perAffOrgName2 = new FBPerAffliatedOrgName(sparqlEndpoint, fn, cache).build(uriTarget);
+            Pair<FeatureType, List<String>> perAffOrgName2 = new FBPerAffliatedOrgName(sparqlEndpoint, fn, cache).build(uriTarget,true);
             log.info("\t"+FBPerAffliatedOrgURI.class.getCanonicalName());
-            Pair<FeatureType, List<String>> perAffOrgURI2 = new FBPerAffliatedOrgURI(sparqlEndpoint, cache).build(uriTarget);
+            Pair<FeatureType, List<String>> perAffOrgURI2 = new FBPerAffliatedOrgURI(sparqlEndpoint, cache).build(uriTarget,true);
             log.info("\t"+FBPerName.class.getCanonicalName());
             Pair<FeatureType, List<String>> perName2 = new FBPerName(sparqlEndpoint,
-                    FeatureType.PERSON_NAME, Predicate.PERSON_name, fn, cache).build(uriTarget);
+                    FeatureType.PERSON_NAME, Predicate.PERSON_name, fn, cache).build(uriTarget,true);
             log.info("\t"+FBPerParticipatedEventURI.class.getCanonicalName());
-            Pair<FeatureType, List<String>> perParticipatedEventURI2 = new FBPerParticipatedEventURI(sparqlEndpoint, cache).build(uriTarget);
+            Pair<FeatureType, List<String>> perParticipatedEventURI2 = new FBPerParticipatedEventURI(sparqlEndpoint, cache).build(uriTarget,true);
             log.info("\t"+ FBPerPublishedWorkURI.class.getCanonicalName());
-            Pair<FeatureType, List<String>> perPublishedWorkURI2 = new FBPerPublishedWorkURI(sparqlEndpoint, cache).build(uriTarget);
+            Pair<FeatureType, List<String>> perPublishedWorkURI2 = new FBPerPublishedWorkURI(sparqlEndpoint, cache).build(uriTarget,true);
             log.info("\t"+ FBPerRoleAtEvent.class.getCanonicalName());
-            Pair<FeatureType, List<String>> perRoleAtEvent2 = new FBPerRoleAtEvent(sparqlEndpoint, cache).build(uriTarget);
+            Pair<FeatureType, List<String>> perRoleAtEvent2 = new FBPerRoleAtEvent(sparqlEndpoint, cache).build(uriTarget,true);
             log.info("\t"+FBPerCoAuthorURI.class.getCanonicalName());
-            Pair<FeatureType, List<String>> perCoAuthor2=new FBPerCoAuthorURI(sparqlEndpoint, cache).build(uriTarget);
+            Pair<FeatureType, List<String>> perCoAuthor2=new FBPerCoAuthorURI(sparqlEndpoint, cache).build(uriTarget,false);
             log.info("\t"+FBPerPublishedWorkKAT.class.getCanonicalName());
-            Pair<FeatureType, List<String>> perKAT2 = new FBPerPublishedWorkKAT(sparqlEndpoint,fn,stopwords, cache).build(uriTarget);
+            Pair<FeatureType, List<String>> perKAT2 = new FBPerPublishedWorkKAT(sparqlEndpoint,fn,stopwords, cache).build(uriTarget,false);
             writeConcatenatedToFile(targetWriter, uriTarget, "PER",perAffOrgName2, perAffOrgURI2, perName2, perParticipatedEventURI2,
                     perPublishedWorkURI2, perRoleAtEvent2, perCoAuthor2, perKAT2);
         }

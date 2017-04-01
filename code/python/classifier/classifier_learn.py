@@ -16,16 +16,17 @@ from time import time
 import numpy as np
 
 
-def learn_discriminative(cpus, nfold, task, load_model, model, X_train, y_train, X_test, y_test):
+def learn_discriminative(cpus, nfold, task, load_model, model, X_train, y_train, X_test, y_test,
+                         identifier):
     classifier = None
     model_file = None
 
     if (model == "rf"):
-        print("=== Random Forest ...")
+        print("== Random Forest ...")
         classifier = RandomForestClassifier(n_estimators=20, n_jobs=cpus)
         rfc_tuning_params = {"max_depth": [3, 5, None],
                              "max_features": [1, 3, 5, 7, 10],
-                             "min_samples_split": [1, 3, 10],
+                             "min_samples_split": [2, 5, 10],
                              "min_samples_leaf": [1, 3, 10],
                              "bootstrap": [True, False],
                              "criterion": ["gini", "entropy"]}
@@ -46,8 +47,7 @@ def learn_discriminative(cpus, nfold, task, load_model, model, X_train, y_train,
         print("== SVM, kernel=rbf ...")
         classifier = svm.SVC()
         classifier = GridSearchCV(classifier, param_grid=tuned_parameters[0], cv=nfold, n_jobs=cpus)
-        if (load_model):
-            model_file = os.path.join(os.path.dirname(__file__), "liblinear-svm-rbf-%s.m" % task)
+        model_file = os.path.join(os.path.dirname(__file__), "liblinear-svm-rbf-%s.m" % task)
 
     best_param = []
     cv_score = 0
@@ -67,11 +67,18 @@ def learn_discriminative(cpus, nfold, task, load_model, model, X_train, y_train,
         cv_score = classifier.best_score_
         util.save_classifier_model(best_estimator, model_file)
 
-    heldout_predictions_final = best_estimator.predict(X_test)
-    util.save_scores(nfold_predictions,y_train, heldout_predictions_final, y_test, model, task, 2)
+    if(X_test is not None):
+        heldout_predictions_final = best_estimator.predict(X_test)
+        util.save_scores(nfold_predictions,y_train, heldout_predictions_final, y_test, model, task,
+                     identifier, 2)
+    else:
+        util.save_scores(nfold_predictions,y_train, None, y_test, model, task,
+                     identifier, 2)
 
 
-def learn_generative(cpus, nfold, task, load_model, model, X_train, y_train, X_test, y_test):
+
+def learn_generative(cpus, nfold, task, load_model, model, X_train, y_train, X_test, y_test,
+                     identifier):
     classifier = None
     model_file = None
     if (model == "sgd"):
@@ -114,13 +121,18 @@ def learn_generative(cpus, nfold, task, load_model, model, X_train, y_train, X_t
         cv_score = classifier.best_score_
         util.save_classifier_model(best_estimator, model_file)
     classes = classifier.best_estimator_.classes_
-    heldout_predictions = best_estimator.predict_proba(X_test)
-    heldout_predictions_final = [classes[util.index_max(list(probs))] for probs in heldout_predictions]
 
-    util.save_scores(nfold_predictions,y_train, heldout_predictions_final, y_test, model, task, 2)
+    if(X_test is not None):
+        heldout_predictions = best_estimator.predict_proba(X_test)
+        heldout_predictions_final = [classes[util.index_max(list(probs))] for probs in heldout_predictions]
+        util.save_scores(nfold_predictions,y_train, heldout_predictions_final, y_test, model, task,
+                     identifier, 2)
+    else:
+        util.save_scores(nfold_predictions,y_train, None, y_test, model, task, identifier, 2)
 
 
-def learn_dnn(cpus, nfold, task, load_model, model, input_dim, X_train, y_train, X_test, y_test):
+def learn_dnn(cpus, nfold, task, load_model, model, input_dim, X_train, y_train, X_test, y_test,
+              identifier):
     print("== Perform ANN ...")  # create model
     model = KerasClassifier(build_fn=create_model(input_dim), verbose=0)
     # define the grid search parameters
@@ -151,9 +163,13 @@ def learn_dnn(cpus, nfold, task, load_model, model, input_dim, X_train, y_train,
         # self.save_classifier_model(best_estimator, ann_model_file)
 
     print("testing on development set ....")
-    heldout_predictions_final = best_estimator.predict(X_test)
+    if(X_test is not None):
+        heldout_predictions_final = best_estimator.predict(X_test)
+        util.save_scores(nfold_predictions,y_train, heldout_predictions_final, y_test, model, task, identifier,2)
 
-    util.save_scores(nfold_predictions,y_train, heldout_predictions_final, y_test, model, task, 2)
+    else:
+        util.save_scores(nfold_predictions,y_train, None, y_test, model, task, identifier,2)
+
     #util.print_eval_report(best_param_ann, cv_score_ann, dev_data_prediction_ann,
     #                       time_ann_predict_dev,
     #                       time_ann_train, y_test)
