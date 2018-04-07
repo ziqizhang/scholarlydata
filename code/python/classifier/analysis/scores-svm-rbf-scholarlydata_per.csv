@@ -1,0 +1,36 @@
+original N-fold results:
+,precision, recall, f1, support
+0.0,0.90,0.96,0.93,550
+1.0,0.81,0.62,0.70,148
+avg,0.86,0.79,0.82,698
+
+stringsim  N-fold results:
+,precision, recall, f1, support
+0.0,0.96,0.95,0.96,550
+1.0,0.83,0.86,0.84,148
+avg,0.89,0.91,0.90,698
+
+norm N-fold results:
+,precision, recall, f1, support
+0.0,0.90,0.97,0.93,550
+1.0,0.85,0.60,0.70,148
+avg,0.87,0.79,0.82,698
+
+presence N-fold results:
+,precision, recall, f1, support
+0.0,0.91,0.95,0.93,550
+1.0,0.77,0.65,0.71,148
+avg,0.84,0.80,0.82,698
+
+presence_stringsim N-fold results:
+,precision, recall, f1, support
+0.0,0.96,0.95,0.96,550
+1.0,0.82,0.86,0.84,148
+avg,0.89,0.91,0.90,698
+
+norm_presence_stringsim N-fold results:
+,precision, recall, f1, support
+0.0,0.96,0.96,0.96,550
+1.0,0.86,0.85,0.86,148
+avg,0.91,0.91,0.91,698
+

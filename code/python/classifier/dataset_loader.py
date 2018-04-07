@@ -44,20 +44,20 @@ def load_org_datasets(list):
     #this is the original feature set WITH non-presence feature or normalisation
 
 def load_per_datasets(list):
-    create_dataset_props("scholarlydata_per","original ",
-                         "/home/zqz/Work/scholarlydata/data/train/training_per_features_o.csv",
-                         3,36,32,32, list) #3, 36,32,32
-    #this is the original feature set WITHOUT non-presence feature or normalisation
-    create_dataset_props("scholarlydata_per","stringsim  ",
-                         "/home/zqz/Work/scholarlydata/data/train/training_per_features_s.csv",
-                         3,43,39,39, list) #3,50,46,46
-    create_dataset_props("scholarlydata_per","norm ",
-                         "/home/zqz/Work/scholarlydata/data/train/training_per_features_n.csv",
-                         3,36,32,32, list) #3,36,32,32
+    # create_dataset_props("scholarlydata_per","original ",
+    #                      "/home/zqz/Work/scholarlydata/data/train/training_per_features_o.csv",
+    #                      3,36,32,32, list) #3, 36,32,32
+    # #this is the original feature set WITHOUT non-presence feature or normalisation
+    # create_dataset_props("scholarlydata_per","stringsim  ",
+    #                      "/home/zqz/Work/scholarlydata/data/train/training_per_features_s.csv",
+    #                      3,43,39,39, list) #3,50,46,46
+    # create_dataset_props("scholarlydata_per","norm ",
+    #                      "/home/zqz/Work/scholarlydata/data/train/training_per_features_n.csv",
+    #                      3,36,32,32, list) #3,36,32,32
     #this is the original feature set WITHOUT non-presence feature or normalisation
     create_dataset_props("scholarlydata_per","presence ",
                          "/home/zqz/Work/scholarlydata/data/train/training_per_features_p.csv",
-                         3,51,47,47, list) #3,44,40,40
+                         3,44,40,40, list) #3,44,40,40
     #this is the original feature set WITH non-presence feature or normalisation
     create_dataset_props("scholarlydata_per","presence_stringsim ",
                          "/home/zqz/Work/scholarlydata/data/train/training_per_features_ps.csv",
