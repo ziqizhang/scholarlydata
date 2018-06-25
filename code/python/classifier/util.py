@@ -2,7 +2,6 @@ import pickle
 
 import datetime
 
-from imblearn.under_sampling import RandomUnderSampler
 from sklearn.metrics import classification_report
 import os
 import numpy as np
@@ -67,7 +66,7 @@ def prepare_score_string(p, r, f1, s, labels, target_names, digits):
 def save_scores(nfold_predictions, x_test, heldout_predictions, y_test, model_name, task_name,
                 identifier, digits):
     outputFalsePredictions(nfold_predictions, x_test, model_name, task_name)
-    filename = os.path.join(os.path.dirname(__file__), "scores-%s-%s.csv" % (model_name, task_name))
+    filename = os.path.join(os.path.dirname(__file__)+"/scores", "%s-%s.csv" % (model_name, task_name))
     file = open(filename, "a+")
     file.write(identifier)
     if nfold_predictions is not None:
@@ -117,7 +116,7 @@ def timestamped_print(msg):
     ts = str(datetime.datetime.now())
     print(ts + " :: " + msg)
 
-
+#check to ensure data does not contain NaN values
 def validate_training_set(training_set):
     """
     validate training data set (i.e., X) before scaling, PCA, etc.
@@ -150,11 +149,22 @@ def feature_scaling_min_max(feature_set):
     return scaler.fit_transform(feature_set)
 
 
-def under_sampling(_X, _y):
-    """
-    under-sampling for unbalanced training set
+def clean_training_data(inFile, outFile):
+    with open(inFile) as f:
+        content = f.readlines()
 
-    :return: X_resampled, y_resampled
-    """
-    rus = RandomUnderSampler()
-    return rus.fit_sample(_X, _y)
+    with open(outFile, 'w') as the_file:
+        count=0
+        for l in content:
+            if count==0:
+                count+=1
+                the_file.write(l)
+                continue
+
+            if count>0 and l.startswith("INDEX"):
+                continue
+            the_file.write(l)
+
+
+
+clean_training_data("/home/zz/Work/scholarlydata/data/raw/training_per_raw.csv","/home/zz/Work/scholarlydata/data/raw/training_per_raw_c.csv")

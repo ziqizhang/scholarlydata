@@ -17,12 +17,10 @@ import numpy as np
 import pandas as pd
 import util
 
-import tensorflow as tf
 
-tf.python.control_flow_ops = tf
 
 # Model selection
-WITH_SGD = True
+WITH_SGD = False
 WITH_SLR = True
 WITH_RANDOM_FOREST = True
 WITH_LIBLINEAR_SVM = True
@@ -228,15 +226,24 @@ class ObjectPairClassifer(object):
 
 
 if __name__ == '__main__':
+    #this line firstly create different experiment settings, where each setting uses a different range of features
     datasets=dl.load_exp_datasets()
     for ds in datasets:
         print("\nSTARTING EXPERIMENT SETTING:"+'; '.join(map(str, ds)))
+        # param 0 and 1, are identifiers to be used to name the output
+        # param 2: file pointing to the feature csv
+        # param 3: column (0 indexed) index of feature start
+        # param 4: column index of feature end
+        # param 5: # of features
+        # param 6: column index for the annotated labels
         classifier = ObjectPairClassifer(ds[0], ds[1], ds[2], ds[3],ds[4],ds[5],ds[6])
+
+        #load the feature data
         classifier.load_training_data()
         #classifier.load_testing_data(DATA_ORG)
         util.validate_training_set(classifier.training_data)
 
-        if AUTO_FEATURE_SELECTION:
+        if AUTO_FEATURE_SELECTION: #this is false by default
             if FEATURE_SELECTION_WITH_EXTRA_TREES_CLASSIFIER:
                 classifier.feature_selection_with_extra_tree_classifier()
             elif FEATURE_SELECTION_WITH_MAX_ENT_CLASSIFIER:
@@ -271,5 +278,6 @@ if __name__ == '__main__':
         # classifier.training_data = X_resampled
         # classifier.training_label = y_resampled
 
+        #start the n-fold testing.
         classifier.training()
         # classifier.testing()
